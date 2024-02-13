@@ -7,7 +7,7 @@
     <style>
 body {
     font-family: 'Arial', sans-serif;
-    background-image: url('asset/haha.png');
+    background-image: url('asset/pag.png');
     background-size: cover;
     background-position: top; /* Menempatkan gambar di bagian atas latar belakang */
     display: flex;
@@ -18,7 +18,7 @@ body {
 }
 
         .login-container {
-            background-color: rgba(0, 0, 0, 0.5); /* Dark gray with 50% transparency */
+            
             color: #fff; /* Text color for better visibility on dark background */
             padding: 20px;
             border-radius: 8px;
@@ -28,10 +28,10 @@ body {
         }
 
         .login-container img {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 50%;
+            width: 90%;
+            height: 100%;
+            /* object-fit: cover;
+            border-radius: 50%; */
             margin-bottom: 20px;
         }
 
@@ -88,22 +88,18 @@ body {
 <body>
 
 <div class="login-container">
-    <img src="asset/login.png" alt="Company Logo">
+    <img src="asset/logo.png" alt="Company Logo">
     <h2>Login</h2>
     <form class="login-form" action="#" method="post">
         <input type="text" name="nopeg" placeholder="Nomor Pegawai" required>
          
         <!-- Tambahkan input seleksi -->
-        <select name="role" required>
-            <option value="admin">Admin</option>
-            <option value="karyawan">Karyawan</option>
-        </select>
+        
         <input type="password" name="password" placeholder="Password" required>
 
         <button type="submit">Login</button>
     </form>
     <p href="#" class="forgot-password">Lupa Password?</p>
 </div>
-
 </body>
 </html>
