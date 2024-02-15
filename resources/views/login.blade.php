@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
+    <title>Login</title>
     <style>
 body {
     font-family: 'Arial', sans-serif;
@@ -90,7 +90,8 @@ body {
 <div class="login-container">
     <img src="asset/logo.png" alt="Company Logo">
     <h2>Login</h2>
-    <form class="login-form" action="#" method="post">
+    <form class="login-form" action="{{ url('login') }}" method="post">
+    @csrf
         <input type="text" name="nopeg" placeholder="Nomor Pegawai" required>
          
         <!-- Tambahkan input seleksi -->
