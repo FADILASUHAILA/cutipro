@@ -29,44 +29,13 @@ Route::get('/pengajuan', function () {
     return view('formpengajuancuti');
 });
 
-<<<<<<< HEAD
 
-// routes/web.php
-
-// routes/web.php
-
-// Route::get('/karyawan/home', 'KaryawanController@karyawanHome')->name('karyawan.home');
-// Route::get('/admin/home', 'AdminController@home')->name('admin.home');
-
-// //Route::get('/karyawan/home', 'KaryawanController@beranda')->name('karyawan.home');
-
-// // Route::post('/login', [KaryawanController::class, 'login'])->name('login');
-
-Route::middleware(['auth', 'checkLevel:karyawan'])->group(function () {
-    Route::get('/karyawan/home', [App\Http\Controllers\KaryawanController::class, 'login'])->name('karyawan.login');
-});
-
-// Auth::routes();
-
-// Menggunakan auth::routes() untuk mendefinisikan rute otentikasi
-
-// Route::post('/login', [KaryawanController::class, 'login'])->name('login');
-// Route::get('/login', [KaryawanController::class, 'index'])->name('login');
-// Route::get('/home', [KaryawanController::class, 'home'])->name('karyawan.home');
-
-// Route::post('/logi', [KaryawanController::class, 'login']);
-// Route::middleware(['auth', 'checkLevel:admin'])->group(function () {
-// Route::get('/admin', [AdminController::class, 'index'])->name('admin.home');
-// });
-// Route::middleware(['auth', 'checkLevel:karyawan'])->group(function () {
-//     Route::get('/karyawan', [KaryawanController::class, 'home'])->name('karyawan.home');
-// });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-=======
+
 Route::get('/d', function () {
     return view('sidebar');
 });
->>>>>>> a9e6fe3d30446c1df6ae1bd89f0edb8e75b435a2
+

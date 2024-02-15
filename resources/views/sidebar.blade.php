@@ -198,50 +198,10 @@
 
 
 
-<main class="d-flex flex-nowrap">
-  <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 280px;">
-    <!-- Your existing sidebar content here -->
-  </div>
-
-  <!-- Card body for leave request -->
-  <div class="card flex-grow-1 p-3">
-    <div class="card-body">
-      <h5 class="card-title">Leave Request</h5>
-      <form>
-        <div class="mb-3">
-          <label for="employeeName" class="form-label">Employee Name</label>
-          <input type="text" class="form-control" id="employeeName" placeholder="Enter your name">
-        </div>
-        <div class="mb-3">
-          <label for="leaveType" class="form-label">Leave Type</label>
-          <select class="form-select" id="leaveType">
-            <option selected>Select leave type</option>
-            <option value="annual">Annual Leave</option>
-            <option value="sick">Sick Leave</option>
-            <option value="unpaid">Unpaid Leave</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label for="startDate" class="form-label">Start Date</label>
-          <input type="date" class="form-control" id="startDate">
-        </div>
-        <div class="mb-3">
-          <label for="endDate" class="form-label">End Date</label>
-          <input type="date" class="form-control" id="endDate">
-        </div>
-        <div class="mb-3">
-          <label for="reason" class="form-label">Reason</label>
-          <textarea class="form-control" id="reason" rows="3" placeholder="Enter the reason for leave"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit Request</button>
-      </form>
-    </div>
-  </div>
-</main>
 
 
-
-
+  <h1 class="visually-hidden">Sidebars examples</h1>
+  <div class="b-example-divider b-example-vr"></div>
   <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 280px;">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
       <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
@@ -295,7 +255,7 @@
       </ul>
     </div>
   </div>
-</main>
+
 <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
     <script src="sidebars.js"></script></body>
