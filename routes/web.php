@@ -21,7 +21,10 @@ Route::get('/login', function () {
     return view('login');
 });
 
-Route::get('/pengajuancuti', function () {
+Route::get('/pengajuan', function () {
     return view('formpengajuancuti');
 });
 
+Route::get('/d', function () {
+    return view('sidebar');
+});

@@ -7,7 +7,7 @@
     <style>
 body {
     font-family: 'Arial', sans-serif;
-    background-image: url('asset/pag.png');
+    background-image: url('asset/bg.png');
     background-size: cover;
     background-position: top; /* Menempatkan gambar di bagian atas latar belakang */
     display: flex;
@@ -29,7 +29,7 @@ body {
 
         .login-container img {
             width: 90%;
-            height: 100%;
+            height: 200%;
             /* object-fit: cover;
             border-radius: 50%; */
             margin-bottom: 20px;
