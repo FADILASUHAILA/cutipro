@@ -25,10 +25,11 @@ Route::get('/login', function () {
     return view('auth/login');
 });
 
-Route::get('/pengajuancuti', function () {
+Route::get('/pengajuan', function () {
     return view('formpengajuancuti');
 });
 
+<<<<<<< HEAD
 
 // routes/web.php
 
@@ -64,3 +65,8 @@ Route::middleware(['auth', 'checkLevel:karyawan'])->group(function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+=======
+Route::get('/d', function () {
+    return view('sidebar');
+});
+>>>>>>> a9e6fe3d30446c1df6ae1bd89f0edb8e75b435a2
