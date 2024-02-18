@@ -19,3 +19,5 @@ Route::group(['middleware' => ['auth', 'checkrole:1,2,3']], function() {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/redirect', [RedirectController::class, 'cek']);
 });
+
+
