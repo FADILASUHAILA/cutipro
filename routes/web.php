@@ -20,6 +20,7 @@ Route::group(['middleware' => ['auth', 'checkrole:1,2,3']], function() {
     Route::get('/redirect', [RedirectController::class, 'cek']);
 });
 
+<<<<<<< HEAD
 
 // untuk superadmin
 Route::group(['middleware' => ['auth', 'checkrole:1']], function() {
@@ -35,3 +36,23 @@ Route::group(['middleware' => ['auth', 'checkrole:2']], function() {
 Route::group(['middleware' => ['auth', 'checkrole:3']], function() {
     Route::get('/user', [UserController::class, 'index']);
 });
+=======
+Route::get('/side', function () {
+    return view('sidebarr');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
+
+Route::get('/d', function () {
+    return view('sidebar');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+>>>>>>> origin
