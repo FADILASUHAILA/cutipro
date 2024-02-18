@@ -1,77 +1,37 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RedirectController;
+use App\Http\Controllers\SuperadminController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\UserController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+//  jika user belum login
+Route::group(['middleware' => 'guest'], function() {
+    Route::get('/', [AuthController::class, 'login'])->name('login');
+    Route::post('/', [AuthController::class, 'dologin']);
 
-Route::get('/home1', function () {
-    return view('home');
+});
+
+// untuk superadmin dan pegawai
+Route::group(['middleware' => ['auth', 'checkrole:1,2,3']], function() {
+    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::get('/redirect', [RedirectController::class, 'cek']);
 });
 
 
-
-Route::get('/login', function () {
-    return view('auth/login');
-});
-Route::get('/logout', function () {
-    return view('auth/login');
+// untuk superadmin
+Route::group(['middleware' => ['auth', 'checkrole:1']], function() {
+    Route::get('/superadmin', [SuperadminController::class, 'index']);
 });
 
-Route::get('/pengajuan', function () {
-    return view('formpengajuancuti');
+// untuk admin
+Route::group(['middleware' => ['auth', 'checkrole:2']], function() {
+    Route::get('/admin', [AdminController::class, 'index']);
 });
 
-<<<<<<< HEAD
-
-// routes/web.php
-
-// routes/web.php
-
-// Route::get('/karyawan/home', 'KaryawanController@karyawanHome')->name('karyawan.home');
-// Route::get('/admin/home', 'AdminController@home')->name('admin.home');
-
-// //Route::get('/karyawan/home', 'KaryawanController@beranda')->name('karyawan.home');
-
-// // Route::post('/login', [KaryawanController::class, 'login'])->name('login');
-
-Route::middleware(['auth', 'checkLevel:karyawan'])->group(function () {
-    Route::get('/karyawan/home', [App\Http\Controllers\KaryawanController::class, 'login'])->name('karyawan.login');
+// untuk pegawai
+Route::group(['middleware' => ['auth', 'checkrole:3']], function() {
+    Route::get('/user', [UserController::class, 'index']);
 });
-
-// Auth::routes();
-
-// Menggunakan auth::routes() untuk mendefinisikan rute otentikasi
-
-// Route::post('/login', [KaryawanController::class, 'login'])->name('login');
-// Route::get('/login', [KaryawanController::class, 'index'])->name('login');
-// Route::get('/home', [KaryawanController::class, 'home'])->name('karyawan.home');
-
-// Route::post('/logi', [KaryawanController::class, 'login']);
-// Route::middleware(['auth', 'checkLevel:admin'])->group(function () {
-// Route::get('/admin', [AdminController::class, 'index'])->name('admin.home');
-// });
-// Route::middleware(['auth', 'checkLevel:karyawan'])->group(function () {
-//     Route::get('/karyawan', [KaryawanController::class, 'home'])->name('karyawan.home');
-// });
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-=======
-Route::get('/d', function () {
-    return view('sidebar');
-});
->>>>>>> a9e6fe3d30446c1df6ae1bd89f0edb8e75b435a2
