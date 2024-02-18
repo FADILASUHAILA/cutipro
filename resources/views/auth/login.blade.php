@@ -3,11 +3,9 @@
 @section('content')
 
 <div class="login-container">
-                <img src="asset/logo.png" alt="Company Logo">
-                <h2>Login</h2>
+                <img src="asset/lala.png" alt="Company Logo">
                     <form class="login-form" method="POST" action="{{ route('login') }}">
                         @csrf
-
                             <div class="col-md-12">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
