@@ -24,6 +24,3 @@ route:: get('/sidebars', function (){
     return view ('sidebars');
 });
 
-route:: get('/beranda', function (){
-    return view ('berandaa');
-});
