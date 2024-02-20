@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
 
-@vite(['resources/sass/app.scss', 'resources/js/app.js'])
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+	<style>
+	</style>
 </head>
 <body>
 @extends('layouts.header')
@@ -24,7 +32,7 @@
     </nav>
     <!--End Header-->
     <div class="container-lg">
-        <div class="row">
+        <div class="row ">
             <!--Sidebar-->
             <div class="col-lg-3">
                 <nav class="navbar navbar-expand-lg bg-light rounded border mt-2">
@@ -44,32 +52,29 @@
                                             </i> Home</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link link-dark" href="permit.php"><i class="bi bi-textarea-resize"></i> Permit</a>
+                                        <a class="nav-link link-dark" href=".php"><i class="bi bi-textarea-resize"></i> Profile</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link link-dark" href="jsa.php"><i class="bi bi-layout-text-window-reverse"></i> JSA</a>
+                                        <a class="nav-link link-dark" href="/historyrecord"><i class="bi bi-layout-text-window-reverse"></i>History Record</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link link-dark" href="help.php"><i class="bi bi-question-circle"></i> Bantuan</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link link-dark" href="report.php"><i class="bi bi-clipboard-data"></i> Report</a>
+                                        <a class="nav-link link-dark" href="help.php"><i class="bi bi-question-circle"></i> Pengajuan</a>
                                     </li>
 									<li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Username
+						{{ Auth::user()->name }}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-menu mt-2">
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-person-square"></i> Profile</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-gear"></i> Setting</a></li>
-                            <li><a class="dropdown-item" href="/logout"><i class="bi bi-box-arrow-left"></i> Log Out</a>
-							<form action="/logout" method="post">
+							<li>
+        <form action="/logout" method="post">
             @csrf
-            
+            <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-left"></i> Log Out</button>
         </form>
-						</li>
+    </li>
                         </ul>
                     </li>
+							
+									
                         </div>
                     </div>
                 </nav>
