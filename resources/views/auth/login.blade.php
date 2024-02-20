@@ -1,7 +1,6 @@
 <!-- @extends('layouts.app') -->
 @extends('masters.master')
 @section('content')
-
 <div class="login-container">
                 <img src="asset/lala.png" alt="Company Logo">
                     <form class="login-form" method="POST" action="/">
