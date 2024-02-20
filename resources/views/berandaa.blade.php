@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +13,7 @@
 
     </body>
 
-    @include('sidebar')
+  
     @include('content')
     @include('footer')
 
