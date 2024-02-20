@@ -12,6 +12,12 @@ Route::get('/beranda',function(){
     return view('sidebar');
 });
 
+//historyuser
+Route::get('/historyrecord',function(){
+    return view('user/recorduser');
+});
+
+
 //  jika user belum login
 Route::group(['middleware' => 'guest'], function() {
     Route::get('/', [AuthController::class, 'login'])->name('login');
@@ -43,4 +49,6 @@ Route::group(['middleware' => ['auth', 'checkrole:2']], function() {
 Route::group(['middleware' => ['auth', 'checkrole:3']], function() {
     Route::get('/user  ', [UserController::class, 'index']);
 });
+
+
 
