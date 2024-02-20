@@ -41,6 +41,6 @@ Route::group(['middleware' => ['auth', 'checkrole:2']], function() {
 
 // untuk pegawai
 Route::group(['middleware' => ['auth', 'checkrole:3']], function() {
-    Route::get('/karyawan', [UserController::class, 'index']);
+    Route::get('/user  ', [UserController::class, 'index']);
 });
 
