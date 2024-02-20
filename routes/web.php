@@ -1,43 +1,29 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RedirectController;
+use App\Http\Controllers\SuperadminController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\UserController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+//  jika user belum login
+Route::group(['middleware' => 'guest'], function() {
+    Route::get('/', [AuthController::class, 'login'])->name('login');
+    Route::post('/', [AuthController::class, 'dologin']);
 
-Route::get('/home1', function () {
-    return view('home');
 });
 
-
-
-Route::get('/login', function () {
-    return view('auth/login');
-});
-Route::get('/logout', function () {
-    return view('auth/login');
+// untuk superadmin dan pegawai
+Route::group(['middleware' => ['auth', 'checkrole:1,2,3']], function() {
+    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::get('/redirect', [RedirectController::class, 'cek']);
 });
 
-Route::get('/pengajuan', function () {
-    return view('formpengajuancuti');
+route:: get('/sidebars', function (){
+    return view ('sidebars');
 });
 
-Route::get('/d', function () {
-    return view('sidebar');
+route:: get('/beranda', function (){
+    return view ('berandaa');
 });
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

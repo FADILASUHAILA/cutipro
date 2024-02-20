@@ -5,9 +5,8 @@
 <div class="login-container">
                 <img src="asset/logo.png" alt="Company Logo">
                 <h2>Login</h2>
-                    <form class="login-form" method="POST" action="{{ route('login') }}">
+                    <form class="login-form" method="POST" action="/">
                         @csrf
-
                             <div class="col-md-12">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 

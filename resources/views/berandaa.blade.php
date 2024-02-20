@@ -15,7 +15,7 @@
     @include('sidebar')
     @include('content')
     @include('footer')
-  
+
 
 
 </html>

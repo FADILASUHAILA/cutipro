@@ -27,5 +27,10 @@ class Karyawan extends Authenticatable
     {
         return 'nomor_pegawai'; // Set the identifier as 'nomor_pegawai'
     }
+
+    public function departement()
+    {
+        return $this->belongsTo(Departement::class);
+    }
 }
 

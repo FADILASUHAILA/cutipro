@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('nama_pegawai');
             $table->string('email')->unique();
             $table->string('password');
-            $table->enum('level', ['admin', 'karyawan']); // Tambahkan kolom level
+            $table->enum('level', ['superadmin','admin', 'karyawan']); // Tambahkan kolom level
             $table->rememberToken();
             $table->timestamps();
         });
