@@ -9,12 +9,21 @@ use App\Http\Controllers\UserController;
 
 
 Route::get('/beranda',function(){
-    return view('sidebar');
+    return view('dashboard');
 });
 
 //historyuser
 Route::get('/historyrecord',function(){
     return view('user/recorduser');
+});
+
+//pengajuan cuti user
+Route::get('/pengajuan',function(){
+    return view('user/pengajuan');
+});
+
+Route::get('/profile',function(){
+    return view('user/profile');
 });
 
 

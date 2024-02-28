@@ -1,19 +1,41 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+	<style>
+	</style>
+</head>
+<body>
 @extends('layouts.app')
 @section('beranda')
 @section('content')
 
-
-
+<nav class="navbar navbar-expand  navbar-dark bg-primary sticky-top">
+        <div class="container-lg">
+            <a class="navbar-brand" href="#"><i class="bi bi-fire"></i>CutiPro</a>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                </ul>
+            </div>
+        </div>
+    </nav>
     <!--End Header-->
-    @extends('header')
-
-    @include('navbar')
     <div class="container-lg">
         <div class="row ">
             <!--Sidebar-->
             <div class="col-lg-3">
-                <nav class="navbar navbar-expand-lg bg-light rounded border mt-3">
+                <nav class="navbar navbar-expand-lg bg-light rounded border mt-2">
                     <div class="container-fluid">
                         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
@@ -26,17 +48,17 @@
                             <div class="offcanvas-body">
                                 <ul class="navbar-nav nav-pills flex-column justify-content-end flex-grow-1">
                                     <li class="nav-item">
-                                        <a class="nav-link active link-light" aria-current="page" href="/user"><i class="bi bi-house-door">
-                                            </i> Home </a>
+                                        <a class="nav-link active link-light" aria-current="page" href="index.php"><i class="bi bi-house-door">
+                                            </i> Home</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link link-dark" href="/profile"><i class="bi bi-textarea-resize"></i> Profile</a>
+                                        <a class="nav-link link-dark" href=".php"><i class="bi bi-textarea-resize"></i> Profile</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link link-dark" href="/historyrecord"><i class="bi bi-layout-text-window-reverse"></i>History Record</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link link-dark" href="/pengajuan"><i class="bi bi-question-circle"></i> Leave Application</a>
+                                        <a class="nav-link link-dark" href="help.php"><i class="bi bi-question-circle"></i> Pengajuan</a>
                                     </li>
 									<li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -49,8 +71,7 @@
             <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-left"></i> Log Out</button>
         </form>
     </li>
-
-    </ul>
+                        </ul>
                     </li>
 							
 									
@@ -59,63 +80,11 @@
                 </nav>
             </div> 
             <!--End sidebar-->
-<!--content-->
-<div class="col-lg-9 mt-3">
-        <!-- Page Heading -->
-        <div class="card ">
-            <h5 class="card-header " style="background-color: #e9ecef">
-                <strong>History Cuti Tahun Lalu</strong>
-                <div class="container mt-3">
-    <div class="row justify-content-end">
-        <div class="col-md-4">
-            <form class="d-flex justify-content-end align-items-center" action="" method="post">
-                <div class="form-group mb-0">
-                    <input type="number" class="form-control form-control-sm" id="inputPassword2" name="tahun" placeholder="Masukkan Tahun" required>
-                </div>
-                <button type="submit" class="btn btn-danger btn-sm ml-2"><i class="fa fa-fw fa-search"></i> Cari</button>
-            </form>
-        </div>
-    </div>
-</div>
-            </h5>
-            <div class="card-body">
-                <table class="table table-hover mt-2" id="table-id">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Tgl Input</th>
-                            <th scope="col">Jenis Cuti</th>
-                            <th scope="col">Keterangan</th>
-                            <th scope="col">Cuti Diambil</th>
-                            <th scope="col">Sisa Cuti</th>
-                            <th scope="col">Cuti 1</th>
-                            <th scope="col">Cuti 2</th>
-                            <th scope="col">Masuk Kerja</th>
-                        </tr>
-                    </thead>
-                   
-                        <tbody>
-                            <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
 
-    </div>
-</div>
-    </div>
-</div>
+          
+        </div>
+
+    
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
