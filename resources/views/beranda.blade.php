@@ -52,7 +52,7 @@
                                             </i> Home</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link link-dark" href=".php"><i class="bi bi-textarea-resize"></i> Profile</a>
+                                        <a class="nav-link link-dark" href="/profile"><i class="bi bi-textarea-resize"></i> Profile</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link link-dark" href="/historyrecord"><i class="bi bi-layout-text-window-reverse"></i>History Record</a>

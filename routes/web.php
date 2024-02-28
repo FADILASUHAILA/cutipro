@@ -17,6 +17,17 @@ Route::get('/historyrecord',function(){
     return view('user/recorduser');
 });
 
+//profile user
+Route::get('/profile',function(){
+    return view('user/profile');
+});
+
+Route::get('/tes',function(){
+    return view('tes');
+});
+
+
+
 
 //  jika user belum login
 Route::group(['middleware' => 'guest'], function() {
