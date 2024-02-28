@@ -13,7 +13,7 @@ class RedirectController extends Controller
         else if (auth()->user()->role_id === 2) {
             return redirect('/admin');
         } else {
-            return redirect('/karyawan');
+            return redirect('/user');
         }
     }
 }

@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Aplikasi Pengajuan Cuti') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -49,7 +49,7 @@
         }
 
         .login-form input {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: #fff;
     color: #fff; /* Tambahkan properti ini untuk mengatur warna teks menjadi putih */
     width: 100%;
     padding: 10px;

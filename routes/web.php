@@ -7,9 +7,9 @@ use App\Http\Controllers\SuperadminController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 
-
+//bagian User
 Route::get('/beranda',function(){
-    return view('sidebar');
+    return view('dashboard');
 });
 
 //historyuser
@@ -17,15 +17,29 @@ Route::get('/historyrecord',function(){
     return view('user/recorduser');
 });
 
-//profile user
+//pengajuan cuti user
+Route::get('/pengajuan',function(){
+    return view('user/pengajuan');
+});
+
 Route::get('/profile',function(){
     return view('user/profile');
 });
+
 
 Route::get('/tes',function(){
     return view('tes');
 });
 
+
+
+
+// ====================================
+
+//bagian Superadmin
+Route::get('/aproval',function(){
+    return view('superadmin/aproval');
+});
 
 
 
