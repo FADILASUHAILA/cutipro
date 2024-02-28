@@ -9,7 +9,7 @@ class Position extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['position_name'];
+    protected $guarded = ['id'];
 
      // untuk relasi one To Many
      public function users() {
