@@ -7,7 +7,7 @@ use App\Http\Controllers\SuperadminController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 
-
+//bagian User
 Route::get('/beranda',function(){
     return view('dashboard');
 });
@@ -24,6 +24,13 @@ Route::get('/pengajuan',function(){
 
 Route::get('/profile',function(){
     return view('user/profile');
+});
+
+// ====================================
+
+//bagian Superadmin
+Route::get('/aproval',function(){
+    return view('superadmin/aproval');
 });
 
 

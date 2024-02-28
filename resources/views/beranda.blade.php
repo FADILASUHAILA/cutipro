@@ -61,6 +61,12 @@
 
             <!--content-->
             <div class="col-lg-9 mt-2">
+            <div class="container-fluid">
+	<div class="flash-data" data-flashdata=""></div>
+		<div class="alert alert-danger">
+			<a class="close" data-dismiss="alert">x</a>
+			<strong>Selamat datang {{ Auth::user()->name }}</strong>
+		</div>
 				<div class="card">
 				<h5 class="card-header d-flex justify-content-between">
              <strong>Dashboard</strong>

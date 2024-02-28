@@ -3,7 +3,8 @@
 @section('contents')
 
 
-@include('beranda')
+@include('superadmin.home')
+
 
 @endsection
 
