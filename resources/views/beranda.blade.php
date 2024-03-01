@@ -6,7 +6,7 @@
 @section('content')
 <!--content-->
 @include ('header')
-<div class="w-0">
+<div class="w-0" >
 
     <div class="flash-data" data-flashdata=""></div>
     <div class="alert alert-danger">

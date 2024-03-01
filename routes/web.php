@@ -26,12 +26,25 @@ Route::get('/profile',function(){
     return view('user/profile');
 });
 
+
+Route::get('/tes',function(){
+    return view('tes');
+});
+
+
+Route::get('/sidebar',function(){
+    return view('sidebar');
+});
+
+
+
 // ====================================
 
 //bagian Superadmin
 Route::get('/aproval',function(){
     return view('superadmin/aproval');
 });
+
 
 
 //  jika user belum login
@@ -47,7 +60,10 @@ Route::group(['middleware' => ['auth', 'checkrole:1,2,3']], function() {
     Route::get('/redirect', [RedirectController::class, 'cek']);
 });
 
+route:: get('/sidebars', function (){
+    return view ('sidebars');
 
+});
 // untuk superadmin
 Route::group(['middleware' => ['auth', 'checkrole:1']], function() {
     Route::get('/superadmin', [SuperadminController::class, 'index']);
@@ -60,7 +76,7 @@ Route::group(['middleware' => ['auth', 'checkrole:2']], function() {
 
 // untuk pegawai
 Route::group(['middleware' => ['auth', 'checkrole:3']], function() {
-    Route::get('/user', [UserController::class, 'index']);
+    Route::get('/user  ', [UserController::class, 'index']);
 });
 
 

@@ -32,16 +32,14 @@
     </symbol>
 </svg>
 
-<div class="container-lg ">
+<div class="container-fluid ">
     <div class="row ">
-        <div class="col-3">
+        <div class="col-lg-3">
             <!--Sidebar-->
-            <div class="d-flex flex-column flex-shrink-0 p-3 w-auto">
-               
-                <hr>
+            <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="height: 100vh;">
                 <ul class="nav nav-pills flex-column mb-auto">
                     <li class="nav-item">
-                        <a href="/user" class="nav-link active" aria-current="page">
+                        <a href="/user" class="nav-link active text-bg-danger" aria-current="page">
                             <svg class="bi pe-none me-2" width="16" height="16">
                                 <use xlink:href="#home" />
                             </svg>
