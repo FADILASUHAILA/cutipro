@@ -4,95 +4,42 @@
 <!--End Header-->
 <!--End Header-->
 @section('content')
+<!--content-->
+@include ('header')
+<div class="w-0" >
 
- <!--End Header-->
- @extends('header')
+    <div class="flash-data" data-flashdata=""></div>
+    <div class="alert alert-danger">
+        <strong class="">Selamat datang {{ Auth::user()->name }}</strong>
+        <a class="close" data-dismiss="alert">x</a>
+    </div>
 
-    <!--End Header-->
-    <div class="container-lg">
-
-
-        <div class="row ">
-            <!--Sidebar-->
-            <div class="col-lg-3">
-                <nav class="navbar navbar-expand-lg bg-light rounded border mt-2">
-                    <div class="container-fluid">
-                         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="width: 250px;">
-                            <div class="offcanvas-header">
-                                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <div class="card">
+        <h5 class="card-header d-flex justify-content-between">
+            <strong>Dashboard</strong>
+            <div class="d-flex">
+                <div class="row">
+                    <div class="col">
+                        <a class="btn btn-secondary btn-sm mr-2" href="" data-toggle="modal" data-target="#ubah-pass"><i class="fas fa-key"></i> Ubah Password</a>
+                        <a class="btn btn-secondary btn-sm" href="" data-toggle="modal" data-target="#ubah-prof"><i class="fas fa-user-edit"></i> Ubah Profile</a>
+                    </div>
+        </h5>
+        <div class="row">
+            <div class="col-xl-3 col-md-2 mb-2">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">USER BULAN INI</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
                             </div>
-                            <div class="offcanvas-body">
-                                <ul class="navbar-nav nav-pills flex-column justify-content-end flex-grow-1">
-                                    <li class="nav-item">
-                                        <a class="nav-link active link-light" aria-current="page" href="/user"><i class="bi bi-house-door">
-                                            </i> Home</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link link-dark" href="/profile"><i class="bi bi-textarea-resize"></i> Profile</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link link-dark" href="/historyrecord"><i class="bi bi-layout-text-window-reverse"></i>History Record</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link link-dark" href="/pengajuan"><i class="bi bi-question-circle"></i> Leave Application</a>
-                                    </li>
-									<li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						{{ Auth::user()->name }}
-                        </a>
-						<ul class="dropdown-menu dropdown-menu-menu mt-2">
-							<li>
-        <form action="/logout" method="post">
-            @csrf
-            <b type="submit" class="dropdown-item" ><i class="bi bi-box-arrow-left"></i> Log Out</b>
-        </form>
-    </li>
-                        </ul>
-                    </li>			
+                            <div class="col-auto">
+                                <i class="fas fa-user-plus fa-2x text-gray-300"></i>
+                            </div>
                         </div>
                     </div>
-                </nav>
-            </div> 
-            <!--End sidebar-->
-
-            <!--content-->
-            <div class="col-lg-9 mt-2">
-            <div class="container-fluid">
-	<div class="flash-data" data-flashdata=""></div>
-		<div class="alert alert-danger">
-			<a class="close" data-dismiss="alert">x</a>
-			<strong>Selamat datang {{ Auth::user()->name }}</strong>
-		</div>
-				<div class="card">
-				<h5 class="card-header d-flex justify-content-between">
-             <strong>Dashboard</strong>
-       <div class="d-flex">
-	   <div class="row">
-    <div class="col">
-        <a class="btn btn-secondary btn-sm mr-2" href="" data-toggle="modal" data-target="#ubah-pass"><i class="fas fa-key"></i> Ubah Password</a>
-        <a class="btn btn-secondary btn-sm" href="" data-toggle="modal" data-target="#ubah-prof"><i class="fas fa-user-edit"></i> Ubah Profile</a>
-    </div>
-</h5>
-                <div class="row">
-				<div class="col-xl-3 col-md-2 mb-2">
-					<div class="card border-left-primary shadow h-100 py-2">
-						<div class="card-body">
-							<div class="row no-gutters align-items-center">
-								<div class="col mr-2">
-									<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">USER BULAN INI</div>
-									<div class="h5 mb-0 font-weight-bold text-gray-800"></div>
-								</div>
-								<div class="col-auto">
-									<i class="fas fa-user-plus fa-2x text-gray-300"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+                </div>
+            </div>
 
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-2">

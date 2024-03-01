@@ -4,7 +4,7 @@
 
 @section('contents')
 
-
+@extends('navbar')
 
 @include('beranda')
 
