@@ -95,11 +95,11 @@
                             <hr class="dropdown-divider">
                         </li>
                         <li>
-                        <form action="/logout" method="post">
-                                                @csrf  
-                        <a class="dropdown-item" href="/logout">Sign out</a>
-                        </form>
-                    </li>
+            <form action="/logout" method="post">
+                @csrf  
+                <button type="submit" class="dropdown-item">Sign out</button>
+            </form>
+        </li>
                     </ul>
                 </div>
             </div>
