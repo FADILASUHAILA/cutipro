@@ -12,7 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('no_peg')->after('position_id');
+           
+                $table->unsignedBigInteger('department')->nullable(); // Kolom yang akan dijadikan foreign key
+    
+                $table->foreign('department')
+                    ->references('id')
+                    ->on('departements')
+                    ->onDelete('set null'); // Menambahkan foreign key
         });
     }
 
@@ -22,8 +28,9 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign(['no_peg']);
-            $table->dropColumn('no_peg');
+           $table->dropForeign(['department']); // Menghapus foreign key
+            $table->dropColumn('department'); // Menghapus kolom foreign key
+     
         });
     }
 };
