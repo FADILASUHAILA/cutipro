@@ -14,6 +14,9 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel ="stylesheet" type="text/css" href="style.css">
+
 	<style>
 	</style>
 </head>
@@ -22,19 +25,12 @@
 @extends('layouts.header')
 @section('beranda')
 @section('content')
-<nav class="navbar navbar-expand  navbar-dark bg-primary sticky-top">
-        <div class="container-lg">
-            <a class="navbar-brand" href="#"><i class="bi bi-fire"></i>CutiPro</a>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                </ul>
-            </div>
-        </div>
-    </nav>
+
     <!--End Header-->
     <div class="container-lg">
         <div class="row ">
             <!--Sidebar-->
+            
             <div class="col-lg-3">
                 <nav class="navbar navbar-expand-lg bg-light rounded border mt-2">
                     <div class="container-fluid">

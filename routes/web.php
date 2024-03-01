@@ -32,6 +32,10 @@ Route::get('/tes',function(){
 });
 
 
+Route::get('/sidebar',function(){
+    return view('sidebar');
+});
+
 
 
 // ====================================
