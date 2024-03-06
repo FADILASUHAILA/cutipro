@@ -7,7 +7,5 @@
 
     <!--End Header-->
     @include('navbar1')
-    
     <!--End Header-->
-    
 

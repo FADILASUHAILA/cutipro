@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Aplikasi pengajuan cuti') }}</title>
+    <title>Aplikasi pengajuan cuti</title>
 
     <!-- Fonts -->
     

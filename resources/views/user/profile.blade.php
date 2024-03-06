@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
+
 <html>
 <head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -170,6 +170,6 @@ span {
     </div>
 
     <script src="script.js"></script>
->>>>>>> 4bbf2f184a21d4ec8347577cb84a4351fb2c5f1d
+
 </body>
 </html>

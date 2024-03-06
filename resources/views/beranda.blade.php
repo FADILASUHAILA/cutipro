@@ -8,20 +8,19 @@
 @include ('header')
 <div class="w-0" >
 
-    <div class="flash-data" data-flashdata=""></div>
-    <div class="alert alert-danger">
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
         <strong class="">Selamat datang {{ Auth::user()->name }}</strong>
-        <a class="close" data-dismiss="alert">x</a>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 
-    <div class="card">
+    <div class="card mb-4 ">
         <h5 class="card-header d-flex justify-content-between">
             <strong>Dashboard</strong>
             <div class="d-flex">
                 <div class="row">
                     <div class="col">
-                        <a class="btn btn-secondary btn-sm mr-2" href="" data-toggle="modal" data-target="#ubah-pass"><i class="fas fa-key"></i> Ubah Password</a>
-                        <a class="btn btn-secondary btn-sm" href="" data-toggle="modal" data-target="#ubah-prof"><i class="fas fa-user-edit"></i> Ubah Profile</a>
+                        <a class="btn btn-secondary btn-sm mr-2" href="" data-toggle="modal" data-target="#ubah-pass"><i class="bi bi-key-fill"></i> Ubah Password</a>
+                        <a class="btn btn-secondary btn-sm" href="" data-toggle="modal" data-target="#ubah-prof"><i class="bi bi-person-circle"></i> Ubah Profile</a>
                     </div>
         </h5>
         <div class="row">
@@ -42,7 +41,7 @@
             </div>
 
             <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-2">
+            <div class="col-xl-3 col-md-2 mb-2">
                 <div class="card border-left-success shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
@@ -51,7 +50,7 @@
                                 <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-user-check fa-2x text-gray-300"></i>
+                                <i class="fas fa-user-plus fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
@@ -97,6 +96,58 @@
                 </div>
             </div>
         </div>
+    </div>
+        <!-- Page Heading -->
+        <div class="card mt-4">
+            <h5 class="card-header " style="background-color: #e9ecef">
+                <strong>History Cuti Tahun Lalu</strong>
+                <div class="container mt-2 ">
+    <div class="row justify-content-end">
+        <div class="col-md-4">
+            <form class="d-flex justify-content-end align-items-center" action="" method="post">
+                <div class="form-group mb-0">
+                    <input type="number" class="form-control form-control-sm" id="inputPassword2" name="tahun" placeholder="Masukkan Tahun" required>
+                </div>
+                <button type="submit" class="btn btn-danger btn-sm ml-2"><i class="fa fa-fw fa-search"></i> Cari</button>
+            </form>
+        </div>
+    </div>
+</div>
+            </h5>
+            <div class="card-body">
+                <table class="table table-hover mt-2" id="table-id">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Tgl Input</th>
+                            <th scope="col">Jenis Cuti</th>
+                            <th scope="col">Keterangan</th>
+                            <th scope="col">Cuti Diambil</th>
+                            <th scope="col">Sisa Cuti</th>
+                            <th scope="col">Cuti 1</th>
+                            <th scope="col">Cuti 2</th>
+                            <th scope="col">Masuk Kerja</th>
+                        </tr>
+                    </thead>
+                   
+                        <tbody>
+                            <tr>
+                                <th scope="row"></th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
     </div>
     <div class="modal fade" id="ubah-pass" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">

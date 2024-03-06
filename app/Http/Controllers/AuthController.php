@@ -26,6 +26,7 @@ class AuthController extends Controller
 
             if (auth()->user()->role_id === 1) {
                 // jika user superadmin
+                session()->put('status',"superadmin");
                 return redirect()->intended('/superadmin');
             }
             else if (auth()->user()->role_id === 2) {

@@ -11,11 +11,10 @@
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
-	<div class="flash-data" data-flashdata=""></div>
-		<div class="alert alert-danger">
-			<a class="close" data-dismiss="alert">x</a>
-			<strong>Selamat datang {{ Auth::user()->name }}</strong>
-		</div>
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong class="">Selamat datang {{ Auth::user()->name }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
 	<div class="card">
 		<h5 class="card-header">
 			<strong></strong>
@@ -79,7 +78,7 @@
 							<div class="row no-gutters align-items-center">
 								<div class="col mr-2">
 									<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Registrasi User</div>
-									<div class="h5 mb-0 font-weight-bold text-gray-800">Total User</div>
+									<div class="h5 mb-0 font-weight-bold text-gray-800"></div>
 								</div>
 								<div class="col-auto">
 									<i class="fas fa-user-friends fa-2x text-gray-300"></i>
