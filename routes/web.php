@@ -6,6 +6,7 @@ use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\SuperadminController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CutiController;
 
 //bagian User
 Route::get('/beranda',function(){
@@ -79,5 +80,4 @@ Route::group(['middleware' => ['auth', 'checkrole:3']], function() {
     Route::get('/user  ', [UserController::class, 'index']);
 });
 
-
-
+//menampilkan formulir

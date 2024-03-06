@@ -6,7 +6,7 @@
                     <form class="login-form" method="POST" action="/">
                         @csrf
                             <div class="col-md-12">
-                                <input id="email" type="email" placeholder="Masukan Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="email" type="email" placeholder="Masukan Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus style="color: rgba(0, 0, 0, 0, 5);">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
