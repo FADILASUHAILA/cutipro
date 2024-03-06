@@ -11,11 +11,10 @@
     @include('navbar')
 <!--content-->
 <div class="container-fluid">
-	<div class="flash-data" data-flashdata=""></div>
-		<div class="alert alert-danger">
-			<a class="close" data-dismiss="alert">x</a>
-			<strong>Selamat datang {{ Auth::user()->name }}</strong>
-		</div>
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong class="">Selamat datang {{ Auth::user()->name }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
         <!-- Page Heading -->
         <div class="card ">
             <h5 class="card-header " style="background-color: #e9ecef">

@@ -24,6 +24,6 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->dropForeign(['no_peg']);
             $table->dropColumn('no_peg');
-        });
+        });          
     }
 };

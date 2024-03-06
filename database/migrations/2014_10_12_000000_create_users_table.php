@@ -21,9 +21,12 @@ return new class extends Migration
             $table->string('password');
             $table->unsignedBigInteger('role_id');
             $table->unsignedBigInteger('position_id');
+            $table->unsignedBigInteger('department_id');
             $table->rememberToken();
             $table->timestamps();
+      
         });
+
     }
 
     /**

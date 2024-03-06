@@ -3,34 +3,26 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
 
-class Karyawan extends Authenticatable
+class Karyawan extends Model
 {
-    use HasFactory, Notifiable;
-
-    protected $fillable = [
-        'nomor_pegawai',
-        'nama_pegawai',
-        'email',
-        'password',
-        'level',
-    ];
-
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
-    public function getAuthIdentifierName()
-    {
-        return 'nomor_pegawai'; // Set the identifier as 'nomor_pegawai'
-    }
-
-    public function departement()
+    protected $table = 'users';
+    protected $fillable = ['no_peg', 'name', 'email', 'department_id', 'position_id', 'role_id'];
+    
+    public function department()
     {
         return $this->belongsTo(Departement::class);
     }
-}
+    
+    public function position()
+    {
+        return $this->belongsTo(Position::class);
+    }
 
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+}

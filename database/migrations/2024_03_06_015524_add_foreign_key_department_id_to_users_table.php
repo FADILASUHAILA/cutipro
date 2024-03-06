@@ -8,26 +8,22 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
-        Schema::table('karyawans', function (Blueprint $table) {
-            $table->foreignId('departements_id')->after('nama_pegawai')->constrained();
+        Schema::table('users', function (Blueprint $table) {
+            $table->foreign('department_id')->references('id')->on('departments');
         });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign(['departements_id']);
-            $table->dropColumn('departements_id');
+            $table->dropForeign(['department_id']);
+            $table->dropColumn('department_id');
         });
     }
 };

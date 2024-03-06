@@ -38,6 +38,7 @@
             <!--Sidebar-->
             <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="height: 100vh;">
                 <ul class="nav nav-pills flex-column mb-auto">
+            
                     <li class="nav-item">
                         <a href="/user" class="nav-link active text-bg-danger" aria-current="page">
                             <svg class="bi pe-none me-2" width="16" height="16">
@@ -47,7 +48,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/histroryrecord" class="nav-link link-body-emphasis">
+                    <hr>
+                        <a href="/historyrecord" class="nav-link link-body-emphasis">
                             <svg class="bi pe-none me-2" width="16" height="16">
                                 <use xlink:href="#speedometer2" />
                             </svg>
@@ -55,6 +57,7 @@
                         </a>
                     </li>
                     <li>
+                    <hr>
                         <a href="/pengajuan" class="nav-link link-body-emphasis">
                             <svg class="bi pe-none me-2" width="16" height="16">
                                 <use xlink:href="#table" />
@@ -63,6 +66,7 @@
                         </a>
                     </li>
                     <li>
+                    <hr>
                         <a href="#" class="nav-link link-body-emphasis">
                             <svg class="bi pe-none me-2" width="16" height="16">
                                 <use xlink:href="#grid" />
@@ -71,6 +75,7 @@
                         </a>
                     </li>
                     <li>
+                        <hr>
                         <a href="#" class="nav-link link-body-emphasis">
                             <svg class="bi pe-none me-2" width="16" height="16">
                                 <use xlink:href="#people-circle" />
@@ -80,10 +85,10 @@
                     </li>
                 </ul>
                 <hr>
-                <div class="dropdown">
+                <div class="dropdown " >
                     <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-                        <strong>    {{ Auth::user()->name }}</strong>
+                        <strong>{{ Auth::user()->name }}</strong>
                     </a>
                     <ul class="dropdown-menu text-small shadow">
                         <li><a class="dropdown-item" href="#">New project...</a></li>

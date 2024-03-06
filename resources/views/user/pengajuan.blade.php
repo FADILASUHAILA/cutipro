@@ -10,11 +10,10 @@
 
 <!--content-->
 <div class="container-fluid">
-	<div class="flash-data" data-flashdata=""></div>
-		<div class="alert alert-danger">
-			<a class="close" data-dismiss="alert">x</a>
-			<strong>Selamat datang {{ Auth::user()->name }}</strong>
-		</div>
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong class="">Selamat datang {{ Auth::user()->name }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
 <div class="card">
 		<h5 class="card-header">
 	
@@ -140,7 +139,7 @@
 							</div>
 						</div>
 					</div>
-					<button type="submit" name="simpan" class="btn btn-danger"><i class="fas fa-save"></i> Simpan Data</button>
+					<button type="submit" name="simpan" class="btn btn-danger"><i class="bi bi-save-fill"></i> Simpan Data</button>
 					<button type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="far fa-calendar-alt"></i>
 						Kalender
 					</button>
@@ -356,7 +355,7 @@
 							<input type="date" class="form-control" id="tglMasuk" name="masuk" required>
 						</div>
 					</div>
-					<button type="submit" name="simpan" class="btn btn-primary"><i class="fas fa-save"></i> Simpan Data</button>
+					<button type="submit" name="simpan" class="btn btn-primary"><i class="bi bi-save-fill"></i> Simpan Data</button>
 					<button type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="far fa-calendar-alt"></i>
 						Kalender
 					</button>
