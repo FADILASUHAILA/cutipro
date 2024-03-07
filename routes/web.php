@@ -7,6 +7,7 @@ use App\Http\Controllers\SuperadminController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CutiController;
 use App\Models\Karyawan;
 
 //bagian User
@@ -88,5 +89,9 @@ Route::group(['middleware' => ['auth', 'checkrole:3']], function() {
     Route::get('/user  ', [UserController::class, 'index']);
 });
 
+
+// Route::get('/datacuti', [CutiController::class, 'datacuti'])->name('datacuti');
+// Route::post('/submit-cuti', [CutiController::class, 'store'])->name('cuti.store');
+// Route::get('/pengajuan', [CutiController::class, 'showPengajuanForm'])->name('pengajuan.form');
 
 

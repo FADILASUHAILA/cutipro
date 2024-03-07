@@ -12,7 +12,7 @@ class Karyawan extends Model
     
     public function department()
     {
-        return $this->belongsTo(Departement::class);
+        return $this->belongsTo(Departement::class,);
     }
     
     public function position()

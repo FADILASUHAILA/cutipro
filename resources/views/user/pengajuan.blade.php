@@ -22,45 +22,45 @@
 		<div class="card-body">
 	
 
-				<form action="" method="post">
+				<form action="{{ route('cuti.store') }}" method="post">
+				@csrf
 					<div class="row">
 						<div class="col-lg-6">
 							<div class="form-group">
-								<label>Kode Cuti</label>
-								<input type="text" class="form-control" name="kode_unik" value="" readonly>
+								<label>No Pegawai</label>
+								<input type="text" class="form-control" name="no_peg" value="{{ Auth::user()->no_peg }}" readonly>
 							</div>
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
-										<input type="hidden" name="id_user" value="">
+										<input type="hidden" name="id" value="">
 										<input type="hidden" name="role_id" value="">
 										<label for="input">Tanggal Input :</label>
-										<input type="text" id="input" name="input" class="form-control" value="" readonly>
-										
+										<input type="text" id="input" name="input" class="form-control" value="{{ now()->toDateString() }}" readonly>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<label for="nik">No Induk Karyawan :</label>
-										<input type="text" id="nik" name="nik" class="form-control" value="" readonly>
+										<label for="email">No Induk Karyawan :</label>
+										<input type="email" id="email" name="email" class="form-control" value="{{ Auth::user()->email }}" readonly>
 									</div>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="nama">Nama Lengkap :</label>
-								<input type="text" id="nama" name="nama" class="form-control" value="" readonly>
+								<input type="text" id="name" name="name" class="form-control" value="{{ Auth::user()->name }}" readonly>
 							</div>
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
-										<label for="bagian">Bagian / Departemen :</label>
-										<input type="text" id="bagian" name="bagian" class="form-control" value="" readonly>
+										<label for="department">Bagian / Departemen :</label>
+										<input type="text" id="department" name="department" class="form-control" value=" {{ Auth::user()->department->department_name }}" readonly>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="jabatan">Jabatan :</label>
-										<input type="text" id="jabatan" name="jabatan" class="form-control" value="" readonly>
+										<input type="text" id="position_id" name="position_id" class="form-control" value=" {{ Auth::user()->position->position_name }}" readonly>
 									</div>
 								</div>
 							</div>
@@ -81,14 +81,21 @@
 								<div class="col-md-4">
 									<div class="form-group">
 										<label for="txt1">Sisa Cuti Terakhir</label>
-										
-											<input type="text" id="txt1" class="form-control" value="" readonly>
-								
-											<input type="text" id="txt1" class="form-control" value="" readonly>
+										@if($cutis->count() > 0)
+    @php
+        $latestCuti = $cutis->last();
+    @endphp
 
-								
-											<input type="text" id="txt1" class="form-control" value="12" readonly>
-									
+    @if($latestCuti->sisa_cuti > -1)
+        <input type="text" id="txt1" class="form-control" value="{{ $latestCuti->sisa_cuti }}" readonly>
+    @elseif($latestCuti->is_approve == 2)
+        <input type="text" id="txt1" class="form-control" value="{{ $latestCuti->sisa_cuti + $latestCuti->jml_cuti }}" readonly>
+    @else
+        <input type="text" id="txt1" class="form-control" value="12" readonly>
+    @endif
+@else
+    <input type="text" id="txt1" class="form-control" value="Belum ada data cuti" readonly>
+@endif	
 									</div>
 								</div>
 								<div class="col-md-4">

@@ -14,6 +14,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     <div class="card ">
+
             <h5 class="card-header " style="background-color: #e9ecef">
                 <strong>DATA KARYAWAN</strong>
                 <div class="container mt-3">
@@ -29,7 +30,11 @@
     </div>
 </div>
             </h5>
+          
             <div class="card-body">
+            <div class="col d-flex justify-content-end">
+                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ModalDataImunisasi">Tambah User</button>
+</div>
                 <table class="table table-hover mt-2" id="table-id">
                     <thead>
                         <tr>
@@ -45,7 +50,7 @@
                     </thead>
                         <tbody>
                         @foreach($users as $karyawan)
-                            <tr>
+                            <tr style="font-family: 'Calibri', sans-serif;">
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $karyawan->no_peg}}</td>
                                 <td>{{ $karyawan->name}}</td>
@@ -67,3 +72,47 @@
 
 </div>
 </div>
+
+
+<!-- Modal tambah data-->
+<div class="modal fade" id="ModalDataImunisasi" tabindex="-1" aria-labelledby="ModalTambahDataImunisasiLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalTambahDataImunisasiLabel">Masukkan Data Ibu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body lg-4">
+      <form action="" method="post">
+    @csrf
+        <div class="input-group mt-1">
+        <span class="input-group-text">Nama</span>
+          <input type="text" name="nama" class="form-control" placeholder="">
+        </div>
+        <div class="input-group mt-2">
+        <span class="input-group-text">Email</span>
+          <input type="email" name="email" class="form-control" placeholder="">
+        </div>
+      
+        <div class="input-group mt-2">
+        <span class="input-group-text">Password</span>
+          <input type="password" name="pass" class="form-control" placeholder="">
+        </div>
+        <div class="input-group mt-2">
+        <span class="input-group-text">NoPeg</span>
+          <input type="text" name="no_peg" class="form-control" placeholder="">
+        </div>
+        <div class="input-group mt-2">
+        <span class="input-group-text">Department</span>
+          <input type="text" name="keterangan" class="form-control" placeholder="">
+        </div>
+        </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Simpan</button>
+        <button type="button" class="btn btn-Danger" data-bs-dismiss="modal">Batal</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+</html>

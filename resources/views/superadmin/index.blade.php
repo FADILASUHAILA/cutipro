@@ -3,8 +3,9 @@
 @section('contents')
 
 
-@include('superadmin.home')
+@include('navbar1')
 
+@include('superadmin.home')
 
 @endsection
 
