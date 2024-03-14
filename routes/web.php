@@ -9,6 +9,7 @@ use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CutiController;
 use App\Models\Karyawan;
+use App\Model\ProfileController;
 
 //bagian User
 Route::get('/beranda',function(){
@@ -88,4 +89,9 @@ Route::group(['middleware' => ['auth', 'checkrole:3']], function() {
     Route::get('/user  ', [UserController::class, 'index']);
 });
 
-//menampilkan formulir
+
+//profile
+route:: get('/navbar', function (){
+    return view ('navbar');
+
+});
