@@ -5,7 +5,9 @@
  <!--End Header-->
  @extends('header')
 
-    <!--End Header-->
-    @include('navbar1')
-    <!--End Header-->
+@include('navbar1')
+
+
+
+@endsection
 

@@ -12,4 +12,5 @@ class KaryawanController extends Controller
         $users = Karyawan::with(['department', 'position', 'role'])->get();
         return view('superadmin.karyawan')->with('users', $users);
     }
+    
 }

@@ -50,9 +50,12 @@
             <!--Sidebar-->
             <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="height: 100vh;">
                 <ul class="nav nav-pills flex-column mb-auto">
-            
                     <li class="nav-item">
+
                         <a href="/user" class="nav-link text-bg-danger" aria-current="page">
+
+                        <a href="/user" class="nav-link {{ Request::is('user') ? 'active bg-danger' : 'user' }}" aria-current="page" style="color: black;">
+
                             <svg class="bi pe-none me-2" width="16" height="16">
                                 <use xlink:href="#home" />
                             </svg>
@@ -61,8 +64,12 @@
                     </li>
                     <li>
                     <hr>
+
                     <li class="nav-item">
                         <a href="/historyrecord" class="nav-link link-body-emphasis" >
+
+                        <a href="/historyrecord" class="nav-link link-body-emphasis {{ Request::is('historyrecord') ? 'active bg-danger' : 'historyrecord' }}" aria-current="page" style="color: black;">
+
                             <svg class="bi pe-none me-2" width="16" height="16">
                                 <use xlink:href="#speedometer2" />
                             </svg>
@@ -71,7 +78,7 @@
                     </li>
                     <li>
                     <hr>
-                        <a href="/pengajuan" class="nav-link link-body-emphasis">
+                        <a href="/pengajuan" class="nav-link link-body-emphasis {{ Request::is('pengajuan') ? 'active bg-danger' : 'pengajuan' }}" aria-current="page" style="color: black;">
                             <svg class="bi pe-none me-2" width="16" height="16">
                                 <use xlink:href="#table" />
                             </svg>
@@ -80,7 +87,11 @@
                     </li>
                     <li>
                     <hr>
+
                         <a href="user/profile" class="nav-link link-body-emphasis">
+
+                        <a href="#" class="nav-link link-body-emphasis {{ Request::is('profile') ? 'active bg-danger' : 'profile' }}" aria-current="page" style="color: black;">
+
                             <svg class="bi pe-none me-2" width="16" height="16">
                                 <use xlink:href="#grid" />
                             </svg>
@@ -89,7 +100,7 @@
                     </li>
                     <li>
                         <hr>
-                        <a href="#" class="nav-link link-body-emphasis">
+                        <a href="#" class="nav-link link-body-emphasis {{ Request::is('') ? 'active bg-danger' : '' }}" aria-current="page" style="color: black;">
                             <svg class="bi pe-none me-2" width="16" height="16">
                                 <use xlink:href="#people-circle" />
                             </svg>
@@ -97,6 +108,7 @@
                         </a>
                     </li>
                 </ul>
+
                 <hr>
                 <div class="dropdown" >
                     <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown dropup" aria-expanded="false">
@@ -118,6 +130,32 @@
         </li>
                     </ul>
                 </div>
+
+                <!-- Dropdown Menu -->
+
+    <hr>
+    <div class="dropdown">
+        <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle active" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+            <strong>{{ Auth::user()->name }}</strong>
+        </a>
+        <ul class="dropdown-menu text-small shadow">
+            <li><a class="dropdown-item" href="#">New project...</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li>
+                <form action="/logout" method="post">
+                    @csrf  
+                    <button type="submit" class="dropdown-item">Sign out</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+</li>
+
             </div>
             <!--End sidebar-->
         </div>

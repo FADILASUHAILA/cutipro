@@ -20,46 +20,52 @@
         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-fw fa-plus"></i>Cuti Lain
 </button> </h5>
 		<div class="card-body">
+
 			
 				<form action="" method="post">
+
+	
+
+		<form action="{{ route('cuti.store') }}" method="post">
+
 					<div class="row">
 						<div class="col-lg-6">
 							<div class="form-group">
-								<label>Kode Cuti</label>
-								<input type="text" class="form-control" name="kode_unik" value="" readonly>
+								<label>No Pegawai</label>
+								<input type="text" class="form-control" name="no_peg" value="{{ Auth::user()->no_peg }}" readonly>
 							</div>
+							
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
-										<input type="hidden" name="id_user" value="">
+										<input type="hidden" name="id" value="">
 										<input type="hidden" name="role_id" value="">
 										<label for="input">Tanggal Input :</label>
-										<input type="text" id="input" name="input" class="form-control" value="" readonly>
-										
+										<input type="text" id="input" name="input" class="form-control" value="{{ now()->toDateString() }}" readonly>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<label for="nik">No Induk Karyawan :</label>
-										<input type="text" id="nik" name="nik" class="form-control" value="" readonly>
+										<label for="email">Email :</label>
+										<input type="email" id="email" name="email" class="form-control" value="{{ Auth::user()->email }}" readonly>
 									</div>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="nama">Nama Lengkap :</label>
-								<input type="text" id="nama" name="nama" class="form-control" value="" readonly>
+								<input type="text" id="name" name="nama" class="form-control" value="{{ Auth::user()->name }}" readonly>
 							</div>
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
-										<label for="bagian">Bagian / Departemen :</label>
-										<input type="text" id="bagian" name="bagian" class="form-control" value="" readonly>
+										<label for="department">Bagian / Departemen :</label>
+										<input type="text" id="department" name="department" class="form-control" value=" {{ Auth::user()->department->department_name }}" readonly>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="jabatan">Jabatan :</label>
-										<input type="text" id="jabatan" name="jabatan" class="form-control" value="" readonly>
+										<input type="text" id="position_id" name="position" class="form-control" value=" {{ Auth::user()->position->position_name }}" readonly>
 									</div>
 								</div>
 							</div>
@@ -77,20 +83,7 @@
 								
 							</div>
 							<div class="row">
-								<div class="col-md-4">
-									<div class="form-group">
-										<label for="txt1">Sisa Cuti Terakhir</label>
-										
-											<input type="text" id="txt1" class="form-control" value="" readonly>
-								
-											<input type="text" id="txt1" class="form-control" value="" readonly>
-
-								
-											<input type="text" id="txt1" class="form-control" value="12" readonly>
-									
-									</div>
-								</div>
-								<div class="col-md-4">
+							<div class="col-md-4">
 									<div class="form-group">
 										<label for="txt2">Jumlah Cuti Diambil :</label>
 										<input type="text" id="txt2" name="jml_cuti" class="form-control" onkeyup="sum();">
@@ -106,16 +99,11 @@
 								</div>
 							</div>
 							<div class="row">
+	
 								<div class="col-md-4">
 									<div class="form-group">
-										<label for="tglCuti1">Tanggal Cuti 1 :</label>
-										<input type="date" id="tglCuti1" name="cuti" class="form-control">
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<label for="tglCuti2">Tanggal Cuti 2 :</label>
-										<input type="date" id="tglCuti2" name="cuti2" class="form-control">
+										<label for="tglCuti2">Tanggal Cuti :</label>
+										<input type="date" id="tglCuti" name="cuti" class="form-control">
 									
 									</div>
 								</div>
@@ -125,20 +113,26 @@
 										<input type="date" id="tglMasuk" name="masuk" class="form-control">
 									</div>
 								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<label for="tglMasuk">User ID :</label>
+										<input type="text" id="userid" name="id_user" value="{{ Auth::user()->id }}" class="form-control" readonly>
+									</div>
+								</div>
 							</div>
 							<div class="form-group">
 								<label for="alamat">Alamat :</label>
-								<input type="varchar" id="alamat" name="alamat" class="form-control" value="">
+								<input type="text" id="alamat" name="alamat" class="form-control" value="">
 
 							</div>
 							<div class="form-group">
 								<label for="telp">No Telp / HP :</label>
-								<input type="varchar" id="telp" name="telp" class="form-control" value="">
+								<input type="int" id="telp" name="telp" class="form-control" value="">
 								
 							</div>
 						</div>
 					</div>
-					<button type="submit" name="simpan" class="btn btn-danger"><i class="bi bi-save-fill"></i> Simpan Data</button>
+					<button type="submit" class="btn btn-danger"><i class="bi bi-save-fill"></i> Simpan Data</button>
 					<button type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="far fa-calendar-alt"></i>
 						Kalender
 					</button>
@@ -303,6 +297,7 @@
 							<label for="tglInput">Tanggal Input</label>
 							<input type="text" class="form-control" id="tglInput" name="tgl_input" value="" readonly>
 						</div>
+
 						<div class="form-group col-md-3">
 							<label for="nik">NIK</label>
 							<input type="text" class="form-control" id="nik" name="nik" value="" readonly>
@@ -337,7 +332,7 @@
 						</div>
 						<div class="form-group col-md-4">
 							<label for="jenisCuti">No Telp / Handphone</label>
-							<input type="text" class="form-control" id="jenisCuti" name="telp" required>
+							<input type="text" class="form-control" id="tlp" name="telp" required>
 						</div>
 					</div>
 					<div class="row">
@@ -389,11 +384,20 @@
 
 
 
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    </div>	
+	<script>
+    function updateSisaCuti() {
+        var sisaCutiTerakhir = parseInt("{{ Auth::user()->jml_cuti }}") || 0;
+        var jumlahCutiDiambil = parseInt(document.getElementById('txt2').value) || 0;
+        var sisaCutiSekarang = sisaCutiTerakhir - jumlahCutiDiambil;
+        
+        // Ensure the result is non-negative
+        sisaCutiSekarang = Math.max(sisaCutiSekarang, 0);
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
-	</body>
+        document.getElementById('txt3').value = sisaCutiSekarang;
+    }
+
+    document.getElementById('txt2').onkeyup = updateSisaCuti;
+</script>
+</body>
 </html>
