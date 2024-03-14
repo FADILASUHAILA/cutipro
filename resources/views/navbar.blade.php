@@ -38,7 +38,6 @@
             <!--Sidebar-->
             <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="height: 100vh;">
                 <ul class="nav nav-pills flex-column mb-auto">
-            
                     <li class="nav-item">
                         <a href="/user" class="nav-link {{ Request::is('user') ? 'active bg-danger' : 'user' }}" aria-current="page" style="color: black;">
                             <svg class="bi pe-none me-2" width="16" height="16">
@@ -85,7 +84,7 @@
                     </li>
                 </ul>
                 <!-- Dropdown Menu -->
-<li>
+
     <hr>
     <div class="dropdown">
         <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle active" data-bs-toggle="dropdown" aria-expanded="false">

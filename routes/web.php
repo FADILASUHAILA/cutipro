@@ -52,6 +52,8 @@ Route::get('/karyawan',function(){
     return view('superadmin/karyawan');
 });
 
+Route::post('/cuti/store', [CutiController::class, 'store'])->name('cuti.store');
+
 Route::get('/karyawan', [KaryawanController::class, 'index'])->name('/karyawan');
 
 
@@ -88,10 +90,4 @@ Route::group(['middleware' => ['auth', 'checkrole:2']], function() {
 Route::group(['middleware' => ['auth', 'checkrole:3']], function() {
     Route::get('/user  ', [UserController::class, 'index']);
 });
-
-
-// Route::get('/datacuti', [CutiController::class, 'datacuti'])->name('datacuti');
-// Route::post('/submit-cuti', [CutiController::class, 'store'])->name('cuti.store');
-// Route::get('/pengajuan', [CutiController::class, 'showPengajuanForm'])->name('pengajuan.form');
-
 

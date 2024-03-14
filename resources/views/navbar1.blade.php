@@ -108,7 +108,7 @@
     </div>
 </li>
 
-            </div>
+</div>
             <!--End sidebar-->
         </div>
         <!--content-->

@@ -55,5 +55,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Departement::class,'department_id');
     }
+    public function cutis()
+    {
+        return $this->hasMany(Cuti::class);
+    }
 
 }

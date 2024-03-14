@@ -8,16 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Cuti extends Model
 {
     use HasFactory;
+    protected $table = 'listcutis';
     protected $fillable = [
-        'user_id',
-        'jenis_cuti',
-        'keterangan',
-        'jml_cuti',
-        'cuti_start',
-        'cuti_end',
-        'masuk_kerja',
-        'alamat',
-        'telp',
+        // Sesuaikan dengan kolom-kolom yang dapat diisi
+        'id_user', 'input', 'no_peg', 'nama', 'email', 'department', 'position', 'jenis_cuti',
+        'keterangan', 'jml_cuti', 'sisa_cuti', 'cuti', 'masuk', 'alamat', 'telp',
     ];
     public function user()
     {
