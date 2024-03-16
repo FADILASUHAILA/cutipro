@@ -1,26 +1,22 @@
 @section('title')
-Data Posts - Belajar Livewire 3 di SantriKoding.com
+Data Karyawan
 @endsection
 
+<div class="row">
 
-
-
-<div class="col">
-
-    <!-- flash message -->
-    @if (session()->has('message'))
-    <div class="alert alert-success">
-        {{ session('message') }}
-    </div>
-    @endif
+    @include('partials.alerts')
     <!-- end flash message -->
-
-    <a href="/create" wire:navigate class="btn btn-md btn-success rounded shadow-sm border-0 mb-3">Tambah Karyawan Baru</a>
+    <div class="col-lg-9 col-6">
+        <h2>Data Karyawan</h2>
+    </div>
+    <div class="col-lg-3 col-6 text-end">
+        <a href="{{ route('karyawan.create') }}" wire:navigate class="btn btn-md btn-success rounded shadow-sm border-0 mb-3">Tambah Karyawan Baru</a>
+    </div>
     <div class="card border-0 rounded shadow-sm">
-        <div class="card-body">
+        <div class="card-body text-nowrap overflow-x-auto">
             <table class="table table-bordered">
                 <thead class="bg-dark text-white">
-                    <tr class="text-center">
+                    <tr class="text-center text-nowrap">
                         <th scope="col">Nama</th>
                         <th scope="col">Email</th>
                         <th scope="col">Posisi</th>

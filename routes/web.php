@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\HomeController;
 use App\Livewire\KaryawanIndex;
 use App\Livewire\KaryawanCreate;
 use App\Livewire\KaryawanEdit;
@@ -54,4 +54,7 @@ use App\Livewire\KaryawanEdit;
 
 // });
 
-Route::get('/', App\Livewire\Karyawan\Index::class)->name('karyawan.index');
+Route::get('/dashboard', App\Livewire\Dashboard\Index::class)->name('dashboard.index');
+Route::get('/karyawan', App\Livewire\Karyawan\Index::class)->name('karyawan.index');
+Route::get('/karyawan/create', App\Livewire\Karyawan\Create::class)->name('karyawan.create');
+Route::get('/home', [HomeController::class, 'index'])->name('home.index');
