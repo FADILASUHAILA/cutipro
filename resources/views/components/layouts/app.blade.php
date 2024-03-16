@@ -19,15 +19,16 @@
     </style>
 </head>
 <body>
-    @include('partials.navbar')
 
+    @include('partials.navbar')
+    
     <div class="container-fluid">
-        <div class="row border border-dark">
-            <div class="col-lg-3">
+        <div class="row">
+            <div class="col-lg-2">
                 @include('partials.sidebar')
             </div>
 
-            <main class="col-lg-9 border border-dark">
+            <div class="col-lg-10 pt-5 px-5">
                 <div class="d-flex">
                     {{ $slot }}
                 </div>
@@ -35,7 +36,7 @@
                 <div class="py-4">
                     @yield('content')
                 </div>
-            </main>
+    </div>
         </div>
     </div>
 
