@@ -54,6 +54,4 @@ use App\Livewire\KaryawanEdit;
 
 // });
 
-Route::get('/' , KaryawanIndex::class)->name('karyawan-index');
-Route::get('/create' , KaryawanCreate::class)->name('karyawan-create');
-Route::get('/edit/{id}' , KaryawanEdit::class)->name('karyawan-edit');
+Route::get('/', App\Livewire\Karyawan\Index::class)->name('karyawan.index');
