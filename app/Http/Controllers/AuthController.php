@@ -15,7 +15,7 @@ class AuthController extends Controller
     public function dologin(Request $request) {
         // validasi
         $credentials = $request->validate([
-            'email' => 'required|email',
+            'no_peg' => 'required',
             'password' => 'required'
         ]);
 

@@ -7,6 +7,26 @@
 
     <!--End Header-->
 @include('navbar')
+<style>
+    .form-group {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px; /* Optional: Sesuaikan margin sesuai kebutuhan */
+    }
+
+    .form-group label {
+        flex: 0 0 auto; /* Label tidak akan memperpanjang */
+        width: 150px; /* Sesuaikan lebar label sesuai kebutuhan */
+        margin-right: 70px; /* Optional: Sesuaikan margin antara label dan input */
+        text-align: left; /* Atur label agar berada di sebelah kiri */
+    }
+
+    .form-group input,
+    .form-group select {
+        flex: 1; /* Input akan mengisi sisa ruang yang tersedia */
+    }
+
+</style>
 
 <!--content-->
 <div class="container-fluid">
@@ -25,14 +45,15 @@
 		<form action="{{ route('cuti.store') }}" method="post">
 				@csrf
 					<div class="row">
-						<div class="col-lg-6">
+						<div class="col-md-10">
 							<div class="form-group">
 								<label>No Pegawai</label>
 								<input type="text" class="form-control" name="no_peg" value="{{ Auth::user()->no_peg }}" readonly>
 							</div>
-							
+						</div>
+					</div>
 							<div class="row">
-								<div class="col-md-6">
+								<div class="col-md-10">
 									<div class="form-group">
 										<input type="hidden" name="id" value="">
 										<input type="hidden" name="role_id" value="">
@@ -40,31 +61,41 @@
 										<input type="text" id="input" name="input" class="form-control" value="{{ now()->toDateString() }}" readonly>
 									</div>
 								</div>
-								<div class="col-md-6">
+							</div>
+								<div class="row">
+								<div class="col-md-10">
 									<div class="form-group">
 										<label for="email">Email :</label>
 										<input type="email" id="email" name="email" class="form-control" value="{{ Auth::user()->email }}" readonly>
 									</div>
 								</div>
 							</div>
+							<div class="row">
+							<div class="col-md-10">
 							<div class="form-group">
 								<label for="nama">Nama Lengkap :</label>
 								<input type="text" id="name" name="nama" class="form-control" value="{{ Auth::user()->name }}" readonly>
 							</div>
+							</div>
+							</div>
 							<div class="row">
-								<div class="col-md-6">
+								<div class="col-md-10">
 									<div class="form-group">
 										<label for="department">Bagian / Departemen :</label>
 										<input type="text" id="department" name="department" class="form-control" value=" {{ Auth::user()->department->department_name }}" readonly>
 									</div>
 								</div>
-								<div class="col-md-6">
+							</div>
+							<div class="row">
+								<div class="col-md-10">
 									<div class="form-group">
 										<label for="jabatan">Jabatan :</label>
 										<input type="text" id="position_id" name="position" class="form-control" value=" {{ Auth::user()->position->position_name }}" readonly>
 									</div>
 								</div>
 							</div>
+							<div class="row">
+							<div class="col-md-10">
 							<div class="form-group">
 								<label for="jenisCuti">Jenis Cuti</label>
 								<select class="form-control" id="jenisCuti" name="jenis_cuti">
@@ -72,62 +103,82 @@
 								</select>
 							</div>
 						</div>
-						<div class="col-lg-6">
+							</div>
+						<div class="row">
+						<div class="col-md-10">
 							<div class="form-group">
 								<label for="ket">Keterangan :</label>
 								<input type="text" id="ket" name="keterangan" class="form-control" value="">
-								
+							</div>
+						</div>
+						</div>
+							<div class="row">
+							<div class="col-md-6">
+							<div class="form-group d-flex flex-row align-items-center">
+										<label for="txt1">Sisa Cuti Sebelumnya :</label>
+										<input type="text" id="txt1" name="jml_cuti1" value="{{ Auth::user()->jml_cuti }}" class="form-control" onkeyup="sum();">
+									</div>
+								</div>
 							</div>
 							<div class="row">
-							<div class="col-md-4">
-									<div class="form-group">
+							<div class="col-md-6">
+							<div class="form-group d-flex flex-row align-items-center">
 										<label for="txt2">Jumlah Cuti Diambil :</label>
 										<input type="text" id="txt2" name="jml_cuti" class="form-control" onkeyup="sum();">
-										
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<label for="txt3">Sisa Cuti Sekarang :</label>
-										<input type="text" id="txt3" name="sisa_cuti" class="form-control" readonly>
-										
 									</div>
 								</div>
 							</div>
 							<div class="row">
-	
-								<div class="col-md-4">
+								<div class="col-md-6">
+								<div class="form-group d-flex flex-row align-items-center">
+										<label for="txt3">Sisa Cuti Sekarang :</label>
+										<input type="text" id="txt3" name="sisa_cuti" class="form-control" readonly>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
 									<div class="form-group">
 										<label for="tglCuti2">Tanggal Cuti :</label>
 										<input type="date" id="tglCuti" name="cuti" class="form-control">
 									
 									</div>
 								</div>
-								<div class="col-md-4">
+							</div>
+							<div class="row">
+								<div class="col-md-6">
 									<div class="form-group">
 										<label for="tglMasuk">Tanggal Masuk :</label>
 										<input type="date" id="tglMasuk" name="masuk" class="form-control">
 									</div>
 								</div>
-								<div class="col-md-4">
+							</div>
+							<div class="row">
+								<div class="col-md-6">
 									<div class="form-group">
 										<label for="tglMasuk">User ID :</label>
 										<input type="text" id="userid" name="id_user" value="{{ Auth::user()->id }}" class="form-control" readonly>
 									</div>
 								</div>
 							</div>
+							<div class="row">
+							<div class="col-md-10">
 							<div class="form-group">
 								<label for="alamat">Alamat :</label>
 								<input type="text" id="alamat" name="alamat" class="form-control" value="">
 
 							</div>
+							</div>
+							</div>
+							<div class="row">
+							<div class="col-md-10">
 							<div class="form-group">
 								<label for="telp">No Telp / HP :</label>
 								<input type="int" id="telp" name="telp" class="form-control" value="">
-								
 							</div>
 						</div>
 					</div>
+					
 					<button type="submit" class="btn btn-danger"><i class="bi bi-save-fill"></i> Simpan Data</button>
 					<button type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="far fa-calendar-alt"></i>
 						Kalender
@@ -355,6 +406,24 @@
 	</div>
 </div>
 
+<!-- Modal Notifikasi -->
+<div class="modal" id="errorModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Peringatan</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Anda telah menggunakan semua cuti Anda.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <!-- Modal Kalender -->
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-lg">
@@ -394,6 +463,16 @@
     }
 
     document.getElementById('txt2').onkeyup = updateSisaCuti;
+
+	$(document).ready(function(){
+        // Cek apakah terdapat pesan error dalam session
+        var hasError = "{{ Session::has('error') }}";
+
+        if (hasError) {
+            $('#errorModal').modal('show');
+        }
+    });
 </script>
+
 </body>
 </html>

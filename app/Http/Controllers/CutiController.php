@@ -6,6 +6,7 @@ use App\Models\Cuti;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; 
+use Illuminate\Support\Facades\Session;
 
 class CutiController extends Controller
 {
@@ -26,8 +27,22 @@ class CutiController extends Controller
             'alamat' => 'required',
             'telp' => 'required',
         ]);
-
-        // $sisa_cuti = Auth::user()->jml_cuti - $request->jml_cuti;
+        $user = Auth::user();
+        // Menghitung sisa cuti terbaru
+        $sisaCutiTerbaru = $user->jml_cuti - $request->jml_cuti;
+        
+        // Memastikan sisa cuti tidak kurang dari 0
+        $sisaCutiTerbaru = max($sisaCutiTerbaru, 0);
+        if ($user->jml_cuti == 0) {
+            // Jika iya, kirimkan pesan notifikasi
+            return redirect()->back()->with('error', 'Anda telah menggunakan semua cuti Anda.');
+        }
+    
+        // Logika penyimpanan data cuti
+    
+        // Mengirim notifikasi ke view jika penyimpanan berhasil
+        Session::flash('success', 'Data cuti berhasil disimpan.');
+        return redirect()->back();
 
         // Simpan data ke dalam tabel listcutis
         Cuti::create([
@@ -47,7 +62,14 @@ class CutiController extends Controller
             'alamat' => $request->alamat,
             'telp' => $request->telp,
         ]);
- 
+
+        
+        // Memperbarui nilai jml_cuti pada pengguna
+        $user->jml_cuti = $sisaCutiTerbaru;
+        
+            $user->save();
+  // Cetak pesan kesalahan
+        
         // Redirect atau berikan respons sesuai kebutuhan
         return redirect()->back()->with('success', 'Data ibu berhasil disimpan.');
     }

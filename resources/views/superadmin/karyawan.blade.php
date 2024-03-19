@@ -12,10 +12,9 @@
 <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <strong class="">Selamat datang {{ Auth::user()->name }}</strong>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    <div class="card ">
-
-            <h5 class="card-header " style="background-color: #e9ecef">
+</div>
+<div class="card ">
+<h5 class="card-header " style="background-color: #e9ecef">
                 <strong>DATA KARYAWAN</strong>
                 <div class="container mt-3">
     <div class="row justify-content-end">

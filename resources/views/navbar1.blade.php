@@ -85,7 +85,7 @@
                     </li>
                 </ul>
                 <!-- Dropdown Menu -->
-    <hr>
+    <hr> 
     <div class="dropdown">
         <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle active" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">

@@ -52,6 +52,10 @@ Route::get('/karyawan',function(){
     return view('superadmin/karyawan');
 });
 
+Route::get('/recordkaryawan',function(){
+    return view('superadmin/recordkaryawan');
+});
+
 Route::post('/cuti/store', [CutiController::class, 'store'])->name('cuti.store');
 
 Route::get('/karyawan', [KaryawanController::class, 'index'])->name('/karyawan');
