@@ -1,11 +1,6 @@
 @extends('layouts.app')
 
 @section('contents')
-    <div class="container">
-        <h2>Selamat Datang Admin</h2>
-        <form action="/logout" method="post">
-            @csrf
-            <button type="submit" class="btn btn-primary">Logout</button>
-        </form>
-    </div>
+@extends('navbaradmin')
+@include('admin.home')
 @endsection  

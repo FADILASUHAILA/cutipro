@@ -1,175 +1,115 @@
 <!DOCTYPE html>
-
-<html>
-<head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
-  margin: auto;
-  text-align: center;
-  font-family: arial;
-}
-
-.title {
-  color: grey;
-  font-size: 18px;
-}
-
-button {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 8px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-}
-
-a {
-  text-decoration: none;
-  font-size: 22px;
-  color: black;
-}
-
-button:hover, a:hover {
-  opacity: 0.7;
-}
-</style>
-</head>
-<body>
-
-<h2 style="text-align:center">User Profile Card</h2>
-
-<div class="card">
-  <img src="asset/1.jpeg" alt="John" style="width:100%">
-  <h1>Fadila Suhaila</h1>
-  <p class="title">Admin</p>
-  <p>Lhokseumawe</p>
-  <div style="margin: 24px 0;">
-    <a href="#"><i class="fa fa-dribbble"></i></a> 
-    <a href="#"><i class="fa fa-twitter"></i></a>  
-    <a href="#"><i class="fa fa-linkedin"></i></a>  
-    <a href="#"><i class="fa fa-facebook"></i></a> 
-  </div>
-  <p><button>Contact</button></p>
-</div>
-
-=======
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Instagram-like Profile</title>
-
+    <title>Admin Profile Menu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
+
         body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #fafafa;
-}
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+        }
 
-.profile-container {
-    max-width: 600px;
-    margin: 50px auto;
-    background-color: #fff;
-    border: 1px solid #e6e6e6;
-    border-radius: 5px;
-}
+        .profile-container {
+            margin-top: 50px;
+        }
 
-.profile-header {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    border-bottom: 1px solid #e6e6e6;
-}
+        .profile-card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            background-color: #fff;
+            transition: transform 0.3s;
+        }
 
-.profile-avatar {
-    margin-right: 20px;
-}
+        .profile-card:hover {
+            transform: scale(1.02);
+        }
 
-.avatar {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-}
+        .profile-header {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 30px;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
 
-.profile-info {
-    flex-grow: 1;
-}
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: -60px auto 20px auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
 
-h1 {
-    margin: 0;
-    font-size: 1.2em;
-}
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-.follow-button {
-    background-color: #3498db;
-    color: #fff;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+        .profile-body {
+            padding: 20px;
+            text-align: center;
+        }
 
-.profile-details {
-    padding: 20px;
-}
+        .profile-body h2 {
+            color: #007bff;
+        }
 
-h2 {
-    color: #333;
-    margin-bottom: 10px;
-}
+        .profile-body p {
+            color: #555;
+        }
 
-ul {
-    list-style: none;
-    padding: 0;
-}
+        .menu-item {
+            padding: 15px;
+            color: #007bff;
+            text-align: center;
+            border-top: 1px solid #ddd;
+            transition: background-color 0.3s;
+        }
 
-li {
-    margin-bottom: 10px;
-}
-
-strong {
-    font-weight: bold;
-    margin-right: 5px;
-}
-
-span {
-    color: #3498db;
-}
-
+        .menu-item:hover {
+            background-color: #f0f0f0;
+        }
     </style>
 </head>
 <body>
-    <div class="profile-container">
-        <div class="profile-header">
-            <div class="profile-avatar">
-                <img src="user-avatar.jpg" alt="User Avatar" class="avatar">
+
+    <div class="container-fluid profile-container">
+        <div class="card profile-card">
+            <div class="card-header profile-header">
+                <div class="profile-image">
+                    <img src="https://via.placeholder.com/120" alt="Profile Image">
+                </div>
+                <h1>Admin Name</h1>
+                <p>Email: admin@example.com</p>
             </div>
-            <div class="profile-info">
-                <h1 id="username">John_Doe</h1>
-                <button class="follow-button">Follow</button>
+
+            <div class="card-body profile-body">
+                <h2>About Me</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac justo sit amet ligula viverra porta ut non felis.</p>
+
+                <h2>Contact Information</h2>
+                <p>Address: 123 Street, City, Country</p>
+                <p>Phone: +123 456 789</p>
             </div>
-        </div>
-        <div class="profile-details">
-            <h2>Your Details</h2>
-            <ul>
-                <li><strong>Email:</strong> <span id="email">john.doe@example.com</span></li>
-                <li><strong>Location:</strong> <span id="location">City, Country</span></li>
-                <li><strong>Member Since:</strong> <span id="member-since">January 1, 2022</span></li>
-            </ul>
+
+            <div class="menu-item">Dashboard</div>
+            <div class="menu-item">Leave Requests</div>
+            <div class="menu-item">Settings</div>
+            <div class="menu-item">Logout</div>
         </div>
     </div>
 
-    <script src="script.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
+

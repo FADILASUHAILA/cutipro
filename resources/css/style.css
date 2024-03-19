@@ -1,217 +1,201 @@
-/* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-/* Reset styles */
-* {
-    margin: 0;
-    padding: 0;
+*,
+::after,
+::before {
     box-sizing: border-box;
 }
 
-/* Root variables */
-:root {
-    --body-color: #E4E9F7;
-    --sidebar-color: #FFF;
-    --primary-color: #f6f6f6;
-    --primary-color-light: #f6f5ff;
-    --toggle-color: #DDD;
-    --text-color: #707070;
-    --tran-02: all 0.2s ease;
-    --tran-03: all 0.3s ease;
-    --tran-04: all 0.4s ease;
-    --tran-05: all 0.5s ease;
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.875rem;
+    opacity: 1;
+    overflow-y: scroll;
+    margin: 0;
 }
 
-body {
-    height: 100vh;
-    background: var(--body-color);
+a {
+    cursor: pointer;
+    text-decoration: none;
     font-family: 'Poppins', sans-serif;
 }
 
-/* Gaya Sidebar */
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 250px;
-    padding: 10px 14px;
-    background: var(--sidebar-color);
-}
-
-.sidebar .text {
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--text-color);
-}
-
-.sidebar li {
-    height: 50px;
-    background-color: rgb(248, 244, 245);
-    margin-top: 5px; /* Mengurangi margin-top menjadi 5px */
+li {
     list-style: none;
+}
+
+h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.275rem;
+    color: var(--bs-emphasis-color);
+}
+
+/* Layout for admin dashboard skeleton */
+
+.wrapper {
+    align-items: stretch;
     display: flex;
-    align-items: center;
+    width: 100%;
 }
 
-
-.sidebar li.icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 60px;
-    font-size: 20px;
+#sidebar {
+    max-width: 264px;
+    min-width: 264px;
+    background: var(--bs-dark);
+    transition: all 0.35s ease-in-out;
 }
 
-.sidebar li.icon,
-.sidebar li .text {
-    color: var(--text-color);
-    transition: var(--tran-02);
-}
-
-.sidebar header {
-    position: relative;
-}
-
-.sidebar .image-text img {
-    width: 40px;
-    border-radius: 6px;
-}
-
-.sidebar header .image-text {
-    display: flex;
-    align-items: center;
-}
-
-.header .image-text .header-text {
+.main {
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
+    min-width: 0;
+    overflow: hidden;
+    transition: all 0.35s ease-in-out;
+    width: 100%;
+    background: var(--bs-dark-bg-subtle);
 }
 
-.header-text .name {
+/* Sidebar Elements Style */
+
+.sidebar-logo {
+    padding: 1.15rem;
+}
+
+.sidebar-logo a {
+    color: #e9ecef;
+    font-size: 1.15rem;
     font-weight: 600;
 }
 
-.header-text .profession {
-    margin-top: -2px;
+.sidebar-nav {
+    flex-grow: 1;
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+    margin-left: 0;
 }
 
-.sidebar header .toggle {
-    position: absolute;
-    top: 50%;
-    left: -25px;
-    transform: translateY(-50%);
-    height: 25px;
-    width: 25px;
-    background: var(--primary-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    color: var(--sidebar-color);
-    font-size: 22px;
+.sidebar-header {
+    color: #e9ecef;
+    font-size: .75rem;
+    padding: 1.5rem 1.5rem .375rem;
 }
 
-
-
-.sidebar li a {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    border-radius: 6px;
-    transition: var(--tran-04);
-}
-
-.sidebar li a {
-    background: var(--primary-color);
-}
-
-.sidebar li a:hover .icon,
-.sidebar li a:hover .text {
-    color: var(--sidebar-color);
-}
-
-.sidebar .menu-bar {
-    height: calc(100% - 50px);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.menu-bar .mode {
-    margin-top: auto;
-    margin-bottom: 10px;
-    padding-top: 10px;
-    border-top: 1px solid var(--primary-color);
-    background: var(--primary-color-light);
-}
-
-.menu-bar .mode .moon-stars {
-    height: 50px;
-    width: 60px;
-    display: flex;
-    align-items: center;
-}
-
-.menu-bar .mode i {
-    position: absolute;
-}
-
-.menu-bar .mode i.moon-stars {
-    opacity: 0;
-}
-
-.menu-bar .mode .toggle-switch {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    min-width: 60px;
-    cursor: pointer;
-}
-
-.toggle-switch {
+a.sidebar-link {
+    padding: .625rem 1.625rem;
+    color: #e9ecef;
     position: relative;
-    width: 50px;
-    height: 24px;
-    background-color: #ddd;
-    border-radius: 12px;
+    display: block;
+    font-size: 0.875rem;
+}
+
+.sidebar-link[data-bs-toggle="collapse"]::after {
+    border: solid;
+    border-width: 0 .075rem .075rem 0;
+    content: "";
     display: inline-block;
-    margin-left: 10px;
-}
-
-.switch {
+    padding: 2px;
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 24px;
-    height: 24px;
-    background-color: #fff;
-    border-radius: 50%;
-    transition: transform 0.3s ease;
+    right: 1.5rem;
+    top: 1.4rem;
+    transform: rotate(-135deg);
+    transition: all .2s ease-out;
 }
 
-.dark-mode .switch {
-    transform: translateX(26px);
+.sidebar-link[data-bs-toggle="collapse"].collapsed::after {
+    transform: rotate(45deg);
+    transition: all .2s ease-out;
 }
 
-/* Gaya Toggle Dark Mode */
-#toggleModeButton {
-    width: 30px;
-    height: 30px;
-    background-color: var(--background-color);
+.avatar {
+    height: 40px;
+    width: 40px;
+}
+
+.navbar-expand .navbar-nav {
+    margin-left: auto;
+}
+
+.content {
+    flex: 1;
+    max-width: 100vw;
+    width: 100vw;
+}
+
+@media (min-width:768px) {
+    .content {
+        max-width: auto;
+        width: auto;
+    }
+}
+
+.card {
+    box-shadow: 0 0 .875rem 0 rgba(34, 46, 60, .05);
+    margin-bottom: 24px;
+}
+
+.illustration {
+    background-color: var(--bs-primary-bg-subtle);
+    color: var(--bs-emphasis-color);
+}
+
+.illustration-img {
+    max-width: 150px;
+    width: 100%;
+}
+
+/* Sidebar Toggle */
+
+#sidebar.collapsed {
+    margin-left: -264px;
+}
+
+/* Footer and Nav */
+
+@media (max-width:767.98px) {
+
+    .js-sidebar {
+        margin-left: -264px;
+    }
+
+    #sidebar.collapsed {
+        margin-left: 0;
+    }
+
+    .navbar,
+    footer {
+        width: 100vw;
+    }
+}
+
+/* Theme Toggler */
+
+.theme-toggle {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-65%);
+    text-align: center;
+    z-index: 10;
+    right: 0;
+    left: auto;
     border: none;
+    background-color: var(--bs-body-color);
+}
+
+html[data-bs-theme="dark"] .theme-toggle .fa-sun,
+html[data-bs-theme="light"] .theme-toggle .fa-moon {
     cursor: pointer;
+    padding: 10px;
+    display: block;
+    font-size: 1.25rem;
+    color: #FFF;
 }
 
-/* Gaya Dark Mode */
-.dark-mode {
-    background-color: #1a1a1a;
-    color: #ffffff;
+html[data-bs-theme="dark"] .theme-toggle .fa-moon {
+    display: none;
 }
 
-.dark-mode-text {
-    margin-right: 10px;
+html[data-bs-theme="light"] .theme-toggle .fa-sun {
+    display: none;
 }

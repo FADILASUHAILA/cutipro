@@ -40,10 +40,14 @@
         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-fw fa-plus"></i>Cuti Lain
 </button> </h5>
 		<div class="card-body">
+
+			
+				<form action="" method="post">
+
 	
 
 		<form action="{{ route('cuti.store') }}" method="post">
-				@csrf
+
 					<div class="row">
 						<div class="col-md-10">
 							<div class="form-group">

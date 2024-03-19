@@ -9,6 +9,7 @@ use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CutiController;
 use App\Models\Karyawan;
+use App\Model\ProfileController;
 
 //bagian User
 Route::get('/beranda',function(){
@@ -41,7 +42,6 @@ Route::get('/sidebar',function(){
 
 
 
-// ====================================
 
 //bagian Superadmin
 Route::get('/aproval',function(){
@@ -95,3 +95,31 @@ Route::group(['middleware' => ['auth', 'checkrole:3']], function() {
     Route::get('/user  ', [UserController::class, 'index']);
 });
 
+
+
+//profile
+route:: get('/navbar', function (){
+    return view ('navbar');
+
+});
+
+route:: get('/datacuti', function (){
+    return view ('admin/datacuti');
+
+});
+
+route:: get('/datakaryawan', function (){
+    return view ('admin/datakaryawan');
+
+}); 
+
+route:: get('/tes', function (){
+    return view ('admin/tes');
+
+}); 
+
+
+route:: get('/home', function (){
+    return view ('admin/home');
+
+}); 
