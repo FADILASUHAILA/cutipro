@@ -98,3 +98,24 @@ route:: get('/navbar', function (){
     return view ('navbar');
 
 });
+
+route:: get('/datacuti', function (){
+    return view ('admin/datacuti');
+
+});
+
+route:: get('/datakaryawan', function (){
+    return view ('admin/datakaryawan');
+
+}); 
+
+route:: get('/tes', function (){
+    return view ('admin/tes');
+
+}); 
+
+
+route:: get('/home', function (){
+    return view ('admin/home');
+
+}); 
