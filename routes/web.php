@@ -119,3 +119,8 @@ route:: get('/home', function (){
     return view ('admin/home');
 
 }); 
+
+route:: get('/surat', function (){
+    return view ('surat');
+
+}); 
