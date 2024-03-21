@@ -1,13 +1,18 @@
 @extends('layouts.app')
-@section('home')
+@section('beranda')
 
 @section('content')
 
- <!--End Header-->
+
 @extends('header')
 
 <main class="content px-3 py-2">
                 <div class="container-fluid">
+		<h5 class="card-header">
+			<strong></strong>
+			<a class="btn btn-secondary btn-sm float-right" href="" data-toggle="modal" data-target="#ubah-pass"><i class="fas fa-key"></i> Ubah Password</a>
+			<a class="btn btn-secondary btn-sm float-right mr-2" href="" data-toggle="modal" data-target="#ubah-prof"><i class="fas fa-user-edit"></i> Ubah Profile</a>
+		</h5>
                     <div class="mb-3">
                         <h4>Dashboard</h4>
                     </div>
@@ -59,7 +64,7 @@
                     <div class="card border-0">
                         <div class="card-header">
                             <h5 class="card-title">
-                                DATA
+                                DATA APASIH
                             </h5>
                             <h6 class="card-subtitle text-muted">
                                

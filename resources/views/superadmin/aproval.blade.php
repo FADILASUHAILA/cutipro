@@ -8,6 +8,5 @@
 @include('navbar1')
 
 
-
 @endsection
 

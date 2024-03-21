@@ -9,14 +9,9 @@
 
 <!-- Page Heading -->
 <div class="container-fluid">
-<div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong class="">Selamat datang {{ Auth::user()->name }}</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    <div class="card ">
-
-            <h5 class="card-header " style="background-color: #e9ecef">
-                <strong>DATA KARYAWAN</strong>
+<div class="card ">
+<h5 class="card-header " style="background-color: #e9ecef">
+                <span>DATA KARYAWAN</span>
                 <div class="container mt-3">
     <div class="row justify-content-end">
         <div class="col-md-4">
@@ -24,20 +19,19 @@
                 <div class="form-group mb-0">
                     <input type="number" class="form-control form-control-sm" id="inputPassword2" name="tahun" placeholder="Masukkan Tahun" required>
                 </div>
-                <button type="submit" class="btn btn-danger btn-sm ml-2"><i class="fa fa-fw fa-search"></i> Cari</button>
+                <button type="submit" class="btn btn-secondary btn-sm ml-2"><i class="fa fa-fw fa-search"></i> Cari</button>
             </form>
         </div>
     </div>
 </div>
-            </h5>
-          
-            <div class="card-body">
-            <div class="col d-flex justify-content-end">
-                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ModalDataImunisasi">Tambah User</button>
-</div>
-                <table class="table table-hover mt-2" id="table-id">
-                    <thead>
-                        <tr>
+                            </h5>
+                            <h6 class="card-subtitle text-muted">
+                            </h6>
+                        </div>
+                        <div class="card-body">
+                            <table class="table">
+                                <thead>
+                                    <tr>
                             <th scope="col">No</th>
                             <th scope="col">Nopeg</th>
                             <th scope="col">Nama</th>
@@ -45,27 +39,28 @@
                             <th scope="col">Departement</th>
                             <th scope="col">Position</th>
                             <th scope="col">Level</th>
-                           
-                        </tr>
-                    </thead>
-                        <tbody>
-                        @foreach($users as $karyawan)
-                            <tr style="font-family: 'Calibri', sans-serif;">
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($users as $user)
+                            <tr >
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $karyawan->no_peg}}</td>
-                                <td>{{ $karyawan->name}}</td>
-                                <td>{{ $karyawan->email}}</td>
-                                <td>   @if($karyawan->department)
-                {{ $karyawan->department->department_name }}
+                                <td>{{ $user->no_peg}}</td>
+                                <td>{{ $user->name}}</td>
+                                <td>{{ $user->email}}</td>
+                                <td>   @if($user->department)
+                {{ $user->department->department_name }}
             @else
                 Departement Not Assigned
             @endif</td>
-                                <td>{{ $karyawan->position->position_name}}</td>
-                                <td>{{ $karyawan->role->role_name}}</td>
+                                <td>{{ $user->position->position_name}}</td>
+                                <td>{{ $user->role->role_name}}</td>
                             </tr>
                             @endforeach
   </tbody>
-                </table>
+                            </table>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>

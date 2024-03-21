@@ -7,12 +7,7 @@
 
 <!-- Begin Page Content -->
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootstrap Admin Dashboard</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css">
-    <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
@@ -222,6 +217,7 @@ html[data-bs-theme="light"] .theme-toggle .fa-sun {
 
 <body>
     <div class="wrapper">
+        
         <aside id="sidebar" class="js-sidebar">
             <!-- Content For Sidebar -->
             <div class="h-100">
@@ -233,7 +229,7 @@ html[data-bs-theme="light"] .theme-toggle .fa-sun {
                         Admin
                     </li>
                     <li class="sidebar-item">
-                        <a href="/home" class="sidebar-link">
+                        <a href="/admin" class="sidebar-link">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
                                 <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1z"/>
                                 <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0z"/>
@@ -251,13 +247,13 @@ html[data-bs-theme="light"] .theme-toggle .fa-sun {
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="#" class="sidebar-link">
+                        <a href="/datacuti" class="sidebar-link">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-data" viewBox="0 0 16 16">
                                 <path d="M4 11a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0zm6-4a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0zM7 9a1 1 0 0 1 2 0v3a1 1 0 1 1-2 0z"/>
                                 <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1z"/>
                                 <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0z"/>
                               </svg>
-                            Main Data
+                            Data Cuti
                         </a>
                     </li>
                 </div>
@@ -271,7 +267,7 @@ html[data-bs-theme="light"] .theme-toggle .fa-sun {
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                             <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
-                                <img src="asset/profile.jpg" class="avatar img-fluid rounded" alt="">
+                            <i class="bi bi-person-circle" style="font-size: 24px;"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
                                 <a href="#" class="dropdown-item">Profile</a>
@@ -290,15 +286,15 @@ html[data-bs-theme="light"] .theme-toggle .fa-sun {
                     </ul>
                 </div>  
             </nav>
+    
             <a href="#" class="theme-toggle">
                 <i class="fa-regular fa-moon"></i>
                 <i class="fa-regular fa-sun"></i>
             </a>
-        </div>
-    </div>
+     
+ 
     <!--content-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
+<script>
         const sidebarToggle = document.querySelector("#sidebar-toggle");
 sidebarToggle.addEventListener("click",function(){
     document.querySelector("#sidebar").classList.toggle("collapsed");
