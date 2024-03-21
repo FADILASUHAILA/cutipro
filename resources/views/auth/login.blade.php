@@ -22,7 +22,7 @@
 
 body {
     height: 100vh;
-    background-image: url('asset/bg.png');
+    background:fixed;
     display: grid;
     place-content: center;
     font-family: 'Poppins', sans-serif;
@@ -46,7 +46,7 @@ footer a {
 }
 .container{
     position: relative;
-    width: 950px;
+    width: 850px;
     height: 500px;
     background-color: #FFF;
     box-shadow: 25px 30px 55px #5557;
@@ -253,7 +253,7 @@ p{
                     <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
-                <span>or use your account</span>
+                <span>Atau</span>
                 <div class="infield">
                     <input type="text" placeholder="No Pegawai" name="no_peg" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus/>
                     @error('email')
@@ -272,13 +272,15 @@ p{
                                 @enderror
                     <label></label>
                 </div>
+        
                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
                                         {{ __('Remember Me') }}
                                     </label>
                                 </div>
+        
                 <button type="submit">Sign In</button>
                 @if (Route::has('password.request'))
                              
@@ -292,13 +294,11 @@ p{
         <div class="overlay-container" id="overlayCon">
             <div class="overlay">
                 <div class="overlay-panel overlay-left">
-                    <h1>Welcome Back!</h1>
-                    <p>To keep connected with us please login with your personal info</p>
                     <button>Sign In</button>
                 </div>
                 <div class="overlay-panel overlay-right">
                     <h1>Hello, Friend!</h1>
-                    <p>Enter your personal details and start journey with us</p>
+                    <p>Formulir manual? Buang jauh-jauh! Bersama kami, cuti jadi gak ada drama!</p>
                 </div>
             </div>
          

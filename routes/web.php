@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CutiController;
+use App\Http\Controllers\DataController;
 use App\Models\Karyawan;
 use App\Model\ProfileController;
 
@@ -56,11 +57,16 @@ Route::get('/recordkaryawan',function(){
     return view('superadmin/recordkaryawan');
 });
 
-Route::post('/cuti/store', [CutiController::class, 'store'])->name('cuti.store');
-
-Route::get('/karyawan', [KaryawanController::class, 'index'])->name('/karyawan');
+Route::post('/tambah-pengajuan', [CutiController::class, 'store'])->name('cuti.store');
 
 
+
+Route::get('/karyawan', [KaryawanController::class, 'index1'])->name('/karyawan');
+
+Route::get('/datakaryawan', [KaryawanController::class, 'index2'])->name('/datakaryawan');
+
+Route::get('/datacuti', [DataController::class, 'index'])->name('/datacuti');
+Route::get('/historyrecord', [DataController::class, 'index1'])->name('/historyrecord');
 
 //  jika user belum login
 Route::group(['middleware' => 'guest'], function() {
@@ -103,15 +109,11 @@ route:: get('/navbar', function (){
 
 });
 
-route:: get('/datacuti', function (){
-    return view ('admin/datacuti');
 
-});
+// route:: get('/datakaryawan', function (){
+//     return view ('admin/datakaryawan');
 
-route:: get('/datakaryawan', function (){
-    return view ('admin/datakaryawan');
-
-}); 
+// }); 
 
 route:: get('/tes', function (){
     return view ('admin/tes');
@@ -119,7 +121,7 @@ route:: get('/tes', function (){
 }); 
 
 
-route:: get('/home', function (){
-    return view ('admin/home');
+// route:: get('/home', function (){
+//     return view ('admin/home');
 
-}); 
+// }); 

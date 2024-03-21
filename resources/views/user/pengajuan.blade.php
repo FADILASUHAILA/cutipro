@@ -30,24 +30,14 @@
 
 <!--content-->
 <div class="container-fluid">
-<div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong class="">Selamat datang {{ Auth::user()->name }}</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
 <div class="card">
 		<h5 class="card-header">
 	
-        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-fw fa-plus"></i>Cuti Lain
+        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-fw fa-plus"></i>Cuti Lain
 </button> </h5>
 		<div class="card-body">
-
-			
-				<form action="" method="post">
-
-	
-
-		<form action="{{ route('cuti.store') }}" method="post">
-
+		<form action="{{ route('cuti.store') }}" method="POST">
+		@csrf
 					<div class="row">
 						<div class="col-md-10">
 							<div class="form-group">
@@ -120,23 +110,7 @@
 							<div class="col-md-6">
 							<div class="form-group d-flex flex-row align-items-center">
 										<label for="txt1">Sisa Cuti Sebelumnya :</label>
-										<input type="text" id="txt1" name="jml_cuti1" value="{{ Auth::user()->jml_cuti }}" class="form-control" onkeyup="sum();">
-									</div>
-								</div>
-							</div>
-							<div class="row">
-							<div class="col-md-6">
-							<div class="form-group d-flex flex-row align-items-center">
-										<label for="txt2">Jumlah Cuti Diambil :</label>
-										<input type="text" id="txt2" name="jml_cuti" class="form-control" onkeyup="sum();">
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-6">
-								<div class="form-group d-flex flex-row align-items-center">
-										<label for="txt3">Sisa Cuti Sekarang :</label>
-										<input type="text" id="txt3" name="sisa_cuti" class="form-control" readonly>
+										<input type="text" id="txt1" name="jml_cuti1" value="{{ Auth::user()->jml_cuti }}" class="form-control" onkeyup="sum();" readonly>
 									</div>
 								</div>
 							</div>
@@ -157,6 +131,23 @@
 									</div>
 								</div>
 							</div>
+							<div class="row">
+							<div class="col-md-6">
+							<div class="form-group d-flex flex-row align-items-center">
+										<label for="txt2">Jumlah Cuti Diambil :</label>
+										<input type="text" id="txt2" name="jml_cuti" class="form-control" onkeyup="sum();" readonly>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+								<div class="form-group d-flex flex-row align-items-center">
+										<label for="txt3">Sisa Cuti Sekarang :</label>
+										<input type="text" id="txt3" name="sisa_cuti" class="form-control" readonly>
+									</div>
+								</div>
+							</div>
+							
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
@@ -476,6 +467,25 @@
             $('#errorModal').modal('show');
         }
     });
+
+	function hitungCuti() {
+    // Ambil nilai dari input tanggal cuti dan tanggal masuk
+    var tanggalCuti = new Date(document.getElementById('tglCuti').value);
+    var tanggalMasuk = new Date(document.getElementById('tglMasuk').value);
+
+    // Hitung selisih hari antara tanggal cuti dan tanggal masuk
+    var selisihHari = Math.abs(Math.ceil((tanggalMasuk - tanggalCuti) / (1000 * 60 * 60 * 24)));
+
+    // Masukkan hasil perhitungan ke input jumlah cuti diambil
+    document.getElementById('txt2').value = selisihHari;
+
+    // Update sisa cuti
+    updateSisaCuti();
+}
+
+// Panggil fungsi hitungCuti() saat nilai tanggal cuti atau tanggal masuk berubah
+document.getElementById('tglCuti').addEventListener('change', hitungCuti);
+document.getElementById('tglMasuk').addEventListener('change', hitungCuti);
 </script>
 
 </body>

@@ -2,7 +2,6 @@
 
 @section('contents')
 
-
 @include('navbar1')
 
 @include('superadmin.home')

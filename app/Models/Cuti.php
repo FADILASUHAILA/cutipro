@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Cuti extends Model
 {
     use HasFactory;
+    
     protected $table = 'listcutis';
     protected $fillable = [
         // Sesuaikan dengan kolom-kolom yang dapat diisi
@@ -18,4 +19,20 @@ class Cuti extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function department()
+    {
+        return $this->belongsTo(Departement::class,);
+    }
+    
+    public function position()
+    {
+        return $this->belongsTo(Position::class);
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+
 }

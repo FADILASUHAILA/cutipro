@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('contents')
+@section('content')
 
-@extends('navbar')
+@include('navbar')
 
-@include('beranda')
+@include('user.beranda')
 
-@endsection
+@endsection  

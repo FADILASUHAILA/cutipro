@@ -10,11 +10,9 @@ use Illuminate\Support\Facades\Session;
 
 class CutiController extends Controller
 {
-    public function dataibu()
-    {
-       $listcutis = Cuti::all();
-        return view('pengajuan')->with('listcutis',$listcutis);
-    }
+
+
+
     public function store(Request $request)
     {
         // Validasi form input jika diperlukan
@@ -41,9 +39,6 @@ class CutiController extends Controller
         // Logika penyimpanan data cuti
     
         // Mengirim notifikasi ke view jika penyimpanan berhasil
-        Session::flash('success', 'Data cuti berhasil disimpan.');
-        return redirect()->back();
-
         // Simpan data ke dalam tabel listcutis
         Cuti::create([
             'id_user' => $request->id_user,
@@ -66,8 +61,7 @@ class CutiController extends Controller
         
         // Memperbarui nilai jml_cuti pada pengguna
         $user->jml_cuti = $sisaCutiTerbaru;
-        
-            $user->save();
+        $user->save();
   // Cetak pesan kesalahan
         
         // Redirect atau berikan respons sesuai kebutuhan

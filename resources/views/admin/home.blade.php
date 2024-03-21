@@ -1,14 +1,15 @@
 @extends('layouts.app')
-
 @section('home')
+
 @section('content')
 
+ <!--End Header-->
 @extends('header')
 
 <main class="content px-3 py-2">
                 <div class="container-fluid">
                     <div class="mb-3">
-                        <h4>Admin Dashboard</h4>
+                        <h4>Dashboard</h4>
                     </div>
                     <div class="row">
                         <div class="col-12 col-md-6 d-flex">
@@ -17,8 +18,8 @@
                                     <div class="row g-0 w-100">
                                         <div class="col-6">
                                             <div class="p-3 m-1">
-                                                <h4>Welcome Back, Admin</h4>
-                                                <p class="mb-0">Admin Dashboard, CodzSword</p>
+                                                <h4>Selamat Datang {{ Auth::user()->name }}</h4>
+                                                <p class="mb-0"></p>
                                             </div>
                                         </div>
                                         <div class="col-6 align-self-end text-end">
@@ -35,17 +36,17 @@
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
                                             <h4 class="mb-2">
-                                                $ 78.00
+                                                5
                                             </h4>
                                             <p class="mb-2">
-                                                Total Earnings
+                                                Total Pengajuan
                                             </p>
                                             <div class="mb-0">
                                                 <span class="badge text-success me-2">
-                                                    +9.0%
+                                                    +10%
                                                 </span>
                                                 <span class="text-muted">
-                                                    Since Last Month
+                                                    Pengajuan Tahun ini
                                                 </span>
                                             </div>
                                         </div>
