@@ -75,8 +75,8 @@
 							<div class="row">
 								<div class="col-md-10">
 									<div class="form-group">
-										<label for="department">Bagian / Departemen :</label>
-										<input type="text" id="department" name="department" class="form-control" value=" {{ Auth::user()->department->department_name }}" readonly>
+										<label for="departement">Bagian / Departemen :</label>
+										<input type="text" id="departement" name="departement" class="form-control" value=" {{ Auth::user()->departement->departement_name }}" readonly>
 									</div>
 								</div>
 							</div>

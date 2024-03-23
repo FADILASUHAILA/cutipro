@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('no_peg');
             $table->string('email');
             $table->string('nama');
-            $table->string('department');
+            $table->string('departement');
             $table->string('position');
             $table->string('jenis_cuti');
             $table->string('keterangan');

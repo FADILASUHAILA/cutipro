@@ -25,6 +25,9 @@ class UserFactory extends Factory
             
             // tambahkan baris diawah ini
             'role_id' => mt_rand(1, 3),
+            'no_peg' => mt_rand(1000000, 9999999),
+            'jml_cuti' => $this->faker->randomNumber(1,10),
+            'departement_id' => mt_rand(1, 3),
 
             'remember_token' => Str::random(10),
         ];

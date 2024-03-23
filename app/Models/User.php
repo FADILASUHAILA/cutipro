@@ -52,9 +52,9 @@ class User extends Authenticatable
         return $this->belongsTo(Position::class);
     }
 
-    public function department()
+    public function departement()
     {
-        return $this->belongsTo(Departement::class,'department_id');
+        return $this->belongsTo(Departement::class,'departement_id');
     }
     public function cutis()
     {

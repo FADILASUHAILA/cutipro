@@ -92,8 +92,8 @@
                                 <td>{{ $user->no_peg}}</td>
                                 <td>{{ $user->name}}</td>
                                 <td>{{ $user->email}}</td>
-                                <td>   @if($user->department)
-                {{ $user->department->department_name }}
+                                <td>   @if($user->departement)
+                {{ $user->departement->departement_name }}
             @else
                 Departement Not Assigned
             @endif</td>

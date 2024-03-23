@@ -13,7 +13,7 @@ class AdminController extends Controller
 
     public function index1()
     {
-        $listcutis = Cuti::with(['department', 'position', 'role'])->get();
+        $listcutis = Cuti::with(['departement', 'position', 'role'])->get();
         return view('admin.datacuti')->with('listcutis', $listcutis);
     }
     

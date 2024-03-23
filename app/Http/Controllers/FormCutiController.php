@@ -40,7 +40,7 @@ class FormCutiController extends Controller
             'input' => now(),
             'no_peg' => $request->no_peg,
             'nama' => $request->name,
-            'department' => $request->department,
+            'departement' => $request->departement,
             'position' => $request->position_id,
             'jenis_cuti' => $request->jenis_cuti,
             'keterangan' => $request->keterangan,

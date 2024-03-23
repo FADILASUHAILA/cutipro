@@ -88,6 +88,7 @@ route:: get('/sidebars', function (){
 // untuk superadmin
 Route::group(['middleware' => ['auth', 'checkrole:1']], function() {
     Route::get('/superadmin', [SuperadminController::class, 'index']);
+    Route::resource('/karyawan', KaryawanController::class);
 });
 
 // untuk admin

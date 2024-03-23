@@ -46,7 +46,7 @@ class CutiController extends Controller
             'no_peg' => $request->no_peg,
             'nama' => $request->nama,
             'email' => $request->email,
-            'department' => $request->department,
+            'departement' => $request->departement,
             'position' => $request->position,
             'jenis_cuti' => $request->jenis_cuti,
             'keterangan' => $request->keterangan,

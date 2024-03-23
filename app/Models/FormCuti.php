@@ -16,7 +16,7 @@ class FormCuti extends Model
         'input',
         'no_peg',
         'nama',
-        'department',
+        'departement',
         'position',
         'jenis_cuti',
         'keterangan',
