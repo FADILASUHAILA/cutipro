@@ -10,8 +10,8 @@ class DataController extends Controller
 {
     public function index()
     {
-        $listcutis = Cuti::with(['department', 'position', 'role'])->get();
-        return view('admin.datacuti')->with('listcutis', $listcutis);
+    $listcutis = Cuti::with(['department', 'position', 'role'])->get();
+    return view('admin.datacuti', compact('listcutis'));
     }
 
     public function index1()
@@ -25,4 +25,22 @@ class DataController extends Controller
     // Kemudian, lewatkan data cuti ke dalam view untuk ditampilkan
     return view('user.recorduser', compact('listcutis'));
 }
+
+
+public function index2(Request $request)
+{
+    $tahun = $request->tahun;
+    
+    if ($tahun) {
+        $listcutis = Cuti::whereYear('input', $tahun)->get();
+    } else {
+        $listcutis = Cuti::all();
+    }
+
+    return view('user.recorduser', compact('listcutis'));
+}
+
+
+
+
 }

@@ -35,9 +35,7 @@
                                 <div class="card-body py-4">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
-                                            <h4 class="mb-2">
-                                                5
-                                            </h4>
+                                        <h4 class="mb-2">5</h4>
                                             <p class="mb-2">
                                                 Total Pengajuan
                                             </p>

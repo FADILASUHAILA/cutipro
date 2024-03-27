@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 @section('beranda')
 @section('content')
@@ -12,7 +11,7 @@
 <!--content-->
 <main class="content px-3 py-2">
 <div class="card border-0">
-                        <div class="card-header">
+<div class="card-header">
                             <h5 class="card-title">
                                 DATA CUTI KARYAWAN
                             </h5>
@@ -20,12 +19,13 @@
                                                            </h6>
                                                            <div class="row justify-content-end">
         <div class="col-md-4">
-            <form class="d-flex justify-content-end align-items-center" action=" " method="post">
-                <div class="form-group mb-0">
-                    <input type="number" class="form-control form-control-sm" id="inputPassword2" name="tahun" placeholder="Masukkan Tahun" required>
-                </div>
-                <button type="submit" class="btn btn-secondary btn-sm ml-2"><i class="fa fa-fw fa-search"></i> Cari</button>
-            </form>
+        <form class="d-flex justify-content-end align-items-center" action="{{ route('cuti.search') }}" method="POST">
+    @csrf
+    <div class="form-group mb-0">
+        <input type="number" class="form-control form-control-sm" id="tahun" name="tahun" placeholder="Masukkan Tahun" required>
+    </div>
+    <button type="submit" class="btn btn-secondary btn-sm ml-2"><i class="fa fa-fw fa-search"></i> Cari</button>
+</form>
         </div>
     </div>
                         </div>

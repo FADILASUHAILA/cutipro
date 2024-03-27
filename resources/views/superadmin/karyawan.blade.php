@@ -10,14 +10,17 @@
 <!-- Page Heading -->
 <div class="container-fluid">
 <div class="card ">
-<h5 class="card-header " style="background-color: #e9ecef">
-                <span>DATA KARYAWAN</span>
+<div class="card-header">
+                            <h5 class="card-title">
+                                DATA KARYAWAN
+                            </h5>
                 <div class="container mt-3">
     <div class="row justify-content-end">
         <div class="col-md-4">
-            <form class="d-flex justify-content-end align-items-center" action="" method="post">
+        <form class="d-flex justify-content-end align-items-center" action="{{ route('karyawan.search') }}" method="POST">
+    @csrf
                 <div class="form-group mb-0">
-                    <input type="number" class="form-control form-control-sm" id="inputPassword2" name="tahun" placeholder="Masukkan Tahun" required>
+                    <input type="text" class="form-control form-control-sm" id="no_peg" name="no_peg" placeholder="Masukkan No Pegawai" required>
                 </div>
                 <button type="submit" class="btn btn-secondary btn-sm ml-2"><i class="fa fa-fw fa-search"></i> Cari</button>
             </form>
