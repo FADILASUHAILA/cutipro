@@ -8,6 +8,7 @@
 @include('navbar1')
 
 <!-- Page Heading -->
+<main class="content px-3 py-2">
 <div class="container-fluid">
 <div class="card ">
 <div class="card-header">
@@ -101,9 +102,28 @@
           <input type="text" name="no_peg" class="form-control" placeholder="">
         </div>
         <div class="input-group mt-2">
-        <span class="input-group-text">Department</span>
-          <input type="text" name="keterangan" class="form-control" placeholder="">
+        <span class="input-group-text">Level</span>
+        <select name="role_id">
+          <option value="Admin">Admin</option>
+          <option value="Superadmin">Superadmin</option>
+          <option value="Karyawan">Karyawan</option>
+        </select>
         </div>
+        <div class="input-group mt-2">
+        <span class="input-group-text">Position</span>
+        <select name="role_id">
+          <option value="Operator">Operator</option>
+          <option value="Manager">Manager</option>
+          <option value="Karyawan">Karyawan</option>
+        </select>
+        </div>
+        <div class="input-group mt-2">
+        <span class="input-group-text">Departement</span>
+        <select name="role_id">
+          <option value="Operator">Operator</option>
+          <option value="Manager">Manager</option>
+          <option value="Karyawan">Karyawan</option>
+        </select>
         </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-primary">Simpan</button>

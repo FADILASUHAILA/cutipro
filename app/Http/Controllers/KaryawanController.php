@@ -8,13 +8,14 @@ use Illuminate\Http\Request;
 
 class KaryawanController extends Controller
 {
-    
+    //menampilkan data karyawan di superadmin
     public function index1()
     {
         $users = Karyawan::with(['department', 'position', 'role'])->get();
         return view('superadmin.karyawan')->with('users', $users);
     }
 
+    //Fitur search menampilkan data karyawan berdasarkan nopeg di superadmin
     public function index3(Request $request)
 {
     $no_peg = $request->no_peg;
@@ -28,11 +29,6 @@ class KaryawanController extends Controller
     return view('superadmin.karyawan', compact('users'));
 }
     
-    public function index2()
-    {
-        $users = Karyawan::with(['department', 'position', 'role'])->get();
-        return view('admin.datakaryawan')->with('users', $users);
-    }
 
     
 }

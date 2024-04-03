@@ -204,15 +204,15 @@ html[data-bs-theme="light"] .theme-toggle .bi-moon {
     
 }
 
-
 input[readonly] {
   /* Sesuaikan dengan warna latar belakang mode terang Anda */
-  background-color: black;
+  background-color: white;
   /* Sesuaikan dengan warna teks di mode terang Anda */
-  color: black;
+  color: black
   /* Sesuaikan dengan warna border di mode terang Anda */
  
 }
+
 
 /* Gaya untuk mode terang */
 
@@ -222,6 +222,7 @@ input[readonly] {
 
 html[data-bs-theme="dark"] .theme-toggle .bi-moon {
     display: none;
+
 
 }
 

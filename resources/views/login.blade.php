@@ -61,8 +61,7 @@ body {
     border-radius: 4px;
     box-sizing: border-box;
 }
-
-        .login-form button {
+    .login-form button {
             background-color: rgba(0, 0, 0, 0.5);
             color: #fff;
             padding: 10px;
@@ -70,7 +69,6 @@ body {
             border-radius: 4px;
             cursor: pointer;
         }
-
         .login-form button:hover {
             background-color: #2980b9;
         }
@@ -84,9 +82,7 @@ body {
         }
     </style>
 </head>
-
 <body>
-
 <div class="login-container">
     <img src="asset/logo.png" alt="Company Logo">
     <h2>Login</h2>

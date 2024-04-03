@@ -12,44 +12,34 @@ use App\Http\Controllers\DataController;
 use App\Models\Karyawan;
 use App\Model\ProfileController;
 
-
 //  jika user belum login
 Route::group(['middleware' => 'guest'], function() {
     Route::get('/', [AuthController::class, 'login'])->name('login');
     Route::post('/', [AuthController::class, 'dologin']);
-
 });
-
 // untuk superadmin dan pegawai
 Route::group(['middleware' => ['auth', 'checkrole:1,2,3']], function() {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/redirect', [RedirectController::class, 'cek']);
 });
-
 // untuk superadmin
 Route::group(['middleware' => ['auth', 'checkrole:1']], function() {
     Route::get('/superadmin', [SuperadminController::class, 'index']);
     Route::get('/karyawan', [KaryawanController::class, 'index1'])->name('/karyawan');
 });
-
 // untuk admin
 Route::group(['middleware' => ['auth', 'checkrole:2']], function() {
     Route::get('/admin', [AdminController::class, 'index']);
     Route::get('/datacuti', [DataController::class, 'index'])->name('/datacuti');
-    Route::post('/cuti/search', [DataController::class, 'index2'])->name('cuti.search');
-    Route::get('/datakaryawan', [AdminController::class, 'datakaryawan']);
-    Route::post('/karyawan/search', [KaryawanController::class, 'index3'])->name('karyawan.search');
-    
+    Route::post('/cuti/search', [AdminController::class, 'search'])->name('datacuti.search');
+    Route::get('/datakaryawan', [AdminController::class, 'index3'])->name('/datakaryawan');
+    Route::post('/karyawan/search', [KaryawanController::class, 'index3'])->name('');  
 });
-
 // untuk pegawai
 Route::group(['middleware' => ['auth', 'checkrole:3']], function() {
     Route::get('/user  ', [UserController::class, 'index']);
     Route::get('/pengajuan  ', [UserController::class, 'pengajuan']);
     Route::post('/tambah-pengajuan', [CutiController::class, 'store'])->name('cuti.store');
-    Route::get('/datacuti', [DataController::class, 'index'])->name('/datacuti');
     Route::get('/historyrecord', [DataController::class, 'index1'])->name('/historyrecord');
     Route::post('/cuti/search', [DataController::class, 'index2'])->name('cuti.search');
 });
-
-

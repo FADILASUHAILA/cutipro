@@ -1,10 +1,6 @@
-
 @extends('layouts.app')
-
 @section('content')
-
 @extends('header')
-
     <!--End Header-->
 @include('navbar')
 <style>
@@ -87,7 +83,7 @@
 										<input type="text" id="position_id" name="position" class="form-control" value=" {{ Auth::user()->position->position_name }}" readonly>
 									</div>
 								</div>
-							</div>
+							</div>	
 							<div class="row">
 							<div class="col-md-10">
 							<div class="form-group">
@@ -503,6 +499,7 @@
 				</button>
 			</div>
 			<br>
+			
 			<center>
 				<iframe src="https://calendar.google.com/calendar/embed?height=400&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FBangkok&amp;showTitle=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;hl=id&amp;src=ZW4uaW5kb25lc2lhbiNob2xpZGF5QGdyb3VwLnYuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%237986CB" style="border-width:0" width="700" height="400" frameborder="0" scrolling="no"></iframe>
 			</center>

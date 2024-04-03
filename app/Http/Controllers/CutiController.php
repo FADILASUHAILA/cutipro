@@ -11,20 +11,19 @@ use Illuminate\Support\Facades\Session;
 class CutiController extends Controller
 {
 
-
-
+    //input pengajuan cuti
     public function store(Request $request)
     {
-        // Validasi form input jika diperlukan
         $request->validate([
             'jenis_cuti' => 'required',
             'keterangan' => 'required',
-            'jml_cuti' => 'required|numeric',
+            'jml_cuti' => 'required|numeric             ',
             'cuti' => 'required|date',
             'masuk' => 'required|date',
             'alamat' => 'required',
             'telp' => 'required',
         ]);
+
         $user = Auth::user();
         // Menghitung sisa cuti terbaru
         $sisaCutiTerbaru = $user->jml_cuti - $request->jml_cuti;
@@ -35,10 +34,6 @@ class CutiController extends Controller
             // Jika iya, kirimkan pesan notifikasi
             return redirect()->back()->with('error', 'Anda telah menggunakan semua cuti Anda.');
         }
-    
-        // Logika penyimpanan data cuti
-    
-        // Mengirim notifikasi ke view jika penyimpanan berhasil
         // Simpan data ke dalam tabel listcutis
         Cuti::create([
             'id_user' => $request->id_user,
@@ -57,14 +52,15 @@ class CutiController extends Controller
             'alamat' => $request->alamat,
             'telp' => $request->telp,
         ]);
-
+        
+      
         
         // Memperbarui nilai jml_cuti pada pengguna
         $user->jml_cuti = $sisaCutiTerbaru;
         $user->save();
-  // Cetak pesan kesalahan
-        
+
         // Redirect atau berikan respons sesuai kebutuhan
         return redirect()->back()->with('success', 'Data ibu berhasil disimpan.');
     }
+
 }
