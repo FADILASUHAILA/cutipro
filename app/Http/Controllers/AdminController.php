@@ -10,7 +10,7 @@ class AdminController extends Controller
 {
     public function index() {
 
-            // Ambil jumlah data cuti dari database
+// Ambil jumlah data cuti dari database
     $totalCuti = Cuti::count();
 
     // Kirim total cuti ke view
@@ -22,11 +22,12 @@ class AdminController extends Controller
         $users = Karyawan::with(['department', 'position', 'role'])->get();
         $totalKaryawan = $users->count();
 
-    // Mengirimkan data karyawan dan total karyawan ke tampilan
+// Mengirimkan data karyawan dan total karyawan ke tampilan
     return view('admin.datakaryawan', [
         'users' => $users,
         'totalKaryawan' => $totalKaryawan
     ]);
+
     }
 
 
@@ -39,7 +40,7 @@ class AdminController extends Controller
         return view('admin.datacuti')->with('listcutis', $listcutis);
     }
 
-    public function index2()
+public function index2()
 {
     $listcutis = Cuti::with(['department', 'position', 'role'])->get();
     $totalCuti = Cuti::sum('jml_cuti');

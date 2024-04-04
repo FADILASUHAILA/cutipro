@@ -10,14 +10,13 @@ use Illuminate\Support\Facades\Session;
 
 class CutiController extends Controller
 {
-
     //input pengajuan cuti
     public function store(Request $request)
     {
         $request->validate([
             'jenis_cuti' => 'required',
             'keterangan' => 'required',
-            'jml_cuti' => 'required|numeric             ',
+            'jml_cuti' => 'required|numeric',
             'cuti' => 'required|date',
             'masuk' => 'required|date',
             'alamat' => 'required',
@@ -52,9 +51,6 @@ class CutiController extends Controller
             'alamat' => $request->alamat,
             'telp' => $request->telp,
         ]);
-        
-      
-        
         // Memperbarui nilai jml_cuti pada pengguna
         $user->jml_cuti = $sisaCutiTerbaru;
         $user->save();
@@ -62,5 +58,33 @@ class CutiController extends Controller
         // Redirect atau berikan respons sesuai kebutuhan
         return redirect()->back()->with('success', 'Data ibu berhasil disimpan.');
     }
+
+    
+
+    public function getEvents(Request $request) {
+        $cutis = Cuti::all();
+        $events = [];
+    
+        foreach ($cutis as $cuti) {
+            $tanggalMulai = new \DateTime($cuti->cuti);
+            $tanggalSelesai = new \DateTime($cuti->masuk);
+            $interval = new \DateInterval('P1D'); // Interval satu hari
+            $periodeCuti = new \DatePeriod($tanggalMulai, $interval, $tanggalSelesai->modify('+1 day'));
+    
+            foreach ($periodeCuti as $tanggal) {
+                // Cek apakah tanggal saat ini bukan sama dengan tanggal masuk
+                if ($tanggal < $tanggalSelesai && $tanggal->format('Y-m-d') != $cuti->masuk) {
+                    $events[] = [
+                        'title' => $cuti->nama, // Menampilkan nama orang yang mengambil cuti
+                        'start' => $tanggal->format('Y-m-d'),
+                        'color' => 'red'
+                    ];
+                }
+            }
+        }
+        return response()->json($events);
+    }    
+    
+    
 
 }

@@ -34,6 +34,7 @@ Route::group(['middleware' => ['auth', 'checkrole:2']], function() {
     Route::post('/cuti/search', [AdminController::class, 'search'])->name('datacuti.search');
     Route::get('/datakaryawan', [AdminController::class, 'index3'])->name('/datakaryawan');
     Route::post('/karyawan/search', [KaryawanController::class, 'index3'])->name('');  
+    Route::get('/events', [CutiController::class, 'getEvents']);
 });
 // untuk pegawai
 Route::group(['middleware' => ['auth', 'checkrole:3']], function() {
