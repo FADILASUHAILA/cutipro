@@ -16,9 +16,9 @@
                             <h5 class="card-title">
                                 DATA CUTI KARYAWAN
                             </h5>
-                            <h6 class="card-subtitle text-muted">
-                                                           </h6>
-                                                           <div class="row justify-content-end">
+                            <h6 class="card-subtitle text-muted"></h6>
+        
+                        <div class="row justify-content-end">
         <div class="col-md-4">
             <form class="d-flex justify-content-end align-items-center" action=" " method="post">
                 <div class="form-group mb-0">
@@ -44,6 +44,7 @@
                                         <th scope="col">Sisa Cuti</th>
                                         <th scope="col">Tgl Cuti</th>
                                         <th scope="col">Tgl Masuk</th>
+                                        <th scope="col">aksi</th>
 
                                     </tr>
                                 </thead>
@@ -61,6 +62,9 @@
         <td>{{ $data->sisa_cuti }}</td>
         <td>{{ $data->cuti }}</td>
         <td>{{ $data->masuk }}</td>
+        <td>
+        <a href="{{route('user.karyawan_pdf')}}" class="btn btn-primary" target="_blank">CETAK PDF</a>
+        </td>
     </tr>
 @endforeach
 

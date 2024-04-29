@@ -9,6 +9,7 @@ use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CutiController;
 use App\Http\Controllers\DataController;
+use App\Http\Controllers\LeaveController;
 use App\Models\Karyawan;
 use App\Model\ProfileController;
 
@@ -17,10 +18,17 @@ Route::get('/beranda',function(){
     return view('dashboard');
 });
 
+
+//tampilin total cuti
+Route::get('/user', [LeaveController::class, 'index']);
+
 //historyuser
 Route::get('/historyrecord',function(){
     return view('user/recorduser');
 });
+
+//cetak pdf
+Route::get('/generate-pdf', [KaryawanController::class, 'cetak_pdf'])->name('user.karyawan_pdf');
 
 //pengajuan cuti user
 Route::get('/pengajuan',function(){
@@ -88,27 +96,33 @@ route:: get('/sidebars', function (){
 // untuk superadmin
 Route::group(['middleware' => ['auth', 'checkrole:1']], function() {
     Route::get('/superadmin', [SuperadminController::class, 'index']);
+    Route::get('/karyawan', [KaryawanController::class, 'index1'])->name('/karyawan');
 });
 
 // untuk admin
 Route::group(['middleware' => ['auth', 'checkrole:2']], function() {
     Route::get('/admin', [AdminController::class, 'index']);
-    
+    Route::get('/datacuti', [DataController::class, 'index'])->name('/datacuti');
+    Route::post('/cuti/search', [AdminController::class, 'search'])->name('datacuti.search');
+    Route::post('/karyawan/search', [KaryawanController::class, 'index3'])->name('');  
+    Route::get('/events', [CutiController::class, 'getEvents']);
+
 });
 
 // untuk pegawai
 Route::group(['middleware' => ['auth', 'checkrole:3']], function() {
     Route::get('/user  ', [UserController::class, 'index']);
+    Route::get('/pengajuan  ', [UserController::class, 'pengajuan']);
+    Route::post('/tambah-pengajuan', [CutiController::class, 'store'])->name('cuti.store');
+    Route::get('/historyrecord', [DataController::class, 'index1'])->name('/historyrecord');
+    Route::post('/cuti/search', [DataController::class, 'index2'])->name('cuti.search');
 });
-
-
 
 //profile
 route:: get('/navbar', function (){
     return view ('navbar');
 
 });
-
 
 // route:: get('/datakaryawan', function (){
 //     return view ('admin/datakaryawan');
@@ -124,13 +138,10 @@ route:: get('/tes', function (){
 // route:: get('/home', function (){
 //     return view ('admin/home');
 
-
-
-
 route:: get('/surat', function (){
     return view ('surat');
 
 }); 
 
-// }); 
+
 

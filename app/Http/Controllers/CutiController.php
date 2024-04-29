@@ -67,4 +67,33 @@ class CutiController extends Controller
         // Redirect atau berikan respons sesuai kebutuhan
         return redirect()->back()->with('success', 'Data ibu berhasil disimpan.');
     }
+
+    public function getEvents(Request $request) {
+        $cutis = Cuti::all();
+        $events = [];
+    
+        foreach ($cutis as $cuti) {
+            $tanggalMulai = new \DateTime($cuti->cuti);
+            $tanggalSelesai = new \DateTime($cuti->masuk);
+            $interval = new \DateInterval('P1D'); // Interval satu hari
+            $periodeCuti = new \DatePeriod($tanggalMulai, $interval, $tanggalSelesai->modify('+1 day'));
+    
+            foreach ($periodeCuti as $tanggal) {
+                // Cek apakah tanggal saat ini bukan sama dengan tanggal masuk
+                if ($tanggal < $tanggalSelesai && $tanggal->format('Y-m-d') != $cuti->masuk) {
+                    $events[] = [
+                        'title' => $cuti->nama, // Menampilkan nama orang yang mengambil cuti
+                        'start' => $tanggal->format('Y-m-d'),
+                        'color' => 'red'
+                    ];
+                }
+            }
+        }
+        return response()->json($events);
+    }
+
+
+
+
+
 }

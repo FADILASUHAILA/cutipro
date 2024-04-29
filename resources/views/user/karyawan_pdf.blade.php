@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -96,15 +95,15 @@
         <!-- Informasi Pengajuan Cuti -->
         <div class="data">
             <span class="label">Nama</span>
-            <span class="value">:</span>
+            <span class="value">: {{ Auth::user()->name }}</span>
         </div>
         <div class="data">
             <span class="label">Nomor Pekerja</span>
-            <span class="value">:</span>
+            <span class="value">: {{ Auth::user()->no_peg }}</span>
         </div>
         <div class="data">
             <span class="label">Jabatan</span>
-            <span class="value">:</span>
+            <span class="value">: {{ Auth::user()->position->position_name }}</span>
         </div>
         <div class="data">
             <span class="label">Eselon</span>
@@ -112,15 +111,15 @@
         </div>
         <div class="data">
             <span class="label">Tanggal yang diminta</span>
-            <span class="value">:</span>
+            <span class="value">: {{ $list_cuti->cuti}}</span>
         </div>
         <div class="data">
             <span class="label">Tanggal yang Masuk Kerja</span>
-            <span class="value">:</span>
+            <span class="value">: {{ $list_cuti->masuk}}</span>
         </div>
-    <div class="data">
+       <div class="data">
     <span class="label">Keterangan</span>
-    <span class="value">:</span> 
+    <span class="value">: {{ $list_cuti->keterangan}}</span> 
     <div class="pre-wrapper">
         <div class="pre-content">
             <pre>
@@ -130,13 +129,13 @@ Tulisan ketiga
             </pre> 
         </div>
     </div>
-</div>
+</div> 
 
 
         <!-- Bagian Yang Mengajukan Cuti -->
         <div class="content">
             <div class="left">
-                <p>Tanggal: [Tanggal Pengajuan]</p>
+                <p>Tanggal: {{ now()->toDateString() }}</p>
                 <p>Yang Mengajukan Cuti,</p>
                 <div class="left">
                     <div class="signature">
@@ -158,8 +157,4 @@ Tulisan ketiga
         </div>
     </div>
 </body>
-</html>   
-
-
-
-
+</html>

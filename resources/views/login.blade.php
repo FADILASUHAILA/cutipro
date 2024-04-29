@@ -93,7 +93,7 @@ body {
     <form class="login-form" action="{{ url('login') }}" method="post">
     @csrf
         <input type="text" name="nopeg" placeholder="Nomor Pegawai" required>
-         
+        
         <!-- Tambahkan input seleksi -->
         
         <input type="password" name="password" placeholder="Password" required>
