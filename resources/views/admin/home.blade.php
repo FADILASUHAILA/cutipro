@@ -36,9 +36,17 @@
                                 <div class="card-body py-4">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
+
                                         <h4 class="mb-2">{{ $totalCuti }}</h4>
                                             <p class="mb-2">
                                                 Total Pengajuan 
+
+                                            <h4 class="mb-2">
+                                        
+                                            </h4>
+                                            <p class="mb-2">
+                                  \
+
                                             </p>
                                             <div class="mb-0">
                                                 <span class="badge text-success me-2">
@@ -57,8 +65,12 @@
                     <!-- Table Element -->
                     <div class="card border-0">
                         <div class="card-header">
+<<<<<<< HEAD
                     <div id='calendar'></div>
                 </div>
+                </div>
+                            <div id='calendar'>
+                    </div>      
                 </div>
             </main>
             <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>

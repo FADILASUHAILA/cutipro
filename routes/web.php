@@ -9,8 +9,32 @@ use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CutiController;
 use App\Http\Controllers\DataController;
+use App\Http\Controllers\LeaveController;
 use App\Models\Karyawan;
 use App\Model\ProfileController;
+
+
+//cetak pdf
+Route::get('/generate-pdf', [KaryawanController::class, 'cetak_pdf'])->name('user.karyawan_pdf');
+
+//pengajuan cuti user
+
+
+
+//bagian Superadmin
+Route::get('/aproval',function(){
+    return view('superadmin/aproval');
+});
+
+Route::get('/karyawan',function(){
+    return view('superadmin/karyawan');
+});
+
+Route::get('/recordkaryawan',function(){
+    return view('superadmin/recordkaryawan');
+});
+
+
 
 //  jika user belum login
 Route::group(['middleware' => 'guest'], function() {
@@ -35,6 +59,8 @@ Route::group(['middleware' => ['auth', 'checkrole:2']], function() {
     Route::get('/datakaryawan', [AdminController::class, 'index3'])->name('/datakaryawan');
     Route::post('/karyawan/search', [KaryawanController::class, 'index3'])->name('');  
     Route::get('/events', [CutiController::class, 'getEvents']);
+   
+
 });
 // untuk pegawai
 Route::group(['middleware' => ['auth', 'checkrole:3']], function() {
@@ -44,3 +70,13 @@ Route::group(['middleware' => ['auth', 'checkrole:3']], function() {
     Route::get('/historyrecord', [DataController::class, 'index1'])->name('/historyrecord');
     Route::post('/cuti/search', [DataController::class, 'index2'])->name('cuti.search');
 });
+
+
+route:: get('/surat', function (){
+    return view ('surat');
+
+}); 
+
+
+
+

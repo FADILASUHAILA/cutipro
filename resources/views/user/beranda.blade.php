@@ -40,7 +40,11 @@
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
                                             <h4 class="mb-2">
+<<<<<<< HEAD
                                            
+=======
+                           {{$totalCuti}}
+>>>>>>> 2764acd4bcb79d66b578a520137c6e4b3c5e61e7
                                             </h4>
                                             <p class="mb-2">
                                                 Total Pengajuan

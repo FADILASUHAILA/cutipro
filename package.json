@@ -15,8 +15,12 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+<<<<<<< HEAD
         "@fullcalendar/core": "^6.1.11",
         "fullcalendar": "^6.1.11",
         "fullcalendar-scheduler": "^6.1.11"
+=======
+        "fullcalendar": "^6.1.11"
+>>>>>>> 2764acd4bcb79d66b578a520137c6e4b3c5e61e7
     }
 }

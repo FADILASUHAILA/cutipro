@@ -29,6 +29,7 @@ public function index1()
     return view('user.recorduser', compact('listcutis'));
 }
 
+
 //menampilkan data cuti user menuhrut tahun
 public function index2(Request $request)
 {
@@ -44,12 +45,11 @@ public function index2(Request $request)
 }
 
 
-public function showCalendar()
+
+    public function showCalendar()
 {
     $user = Auth::user();
-
     $listcutis = Cuti::where('id_user', $user->id)->get();
-
     $calendar_urls = [];
 
     foreach ($listcutis as $cuti) {
@@ -65,4 +65,5 @@ public function showCalendar()
     return view('user.pengajuan', compact('calendar_urls'));
     
 }
+
 }

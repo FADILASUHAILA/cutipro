@@ -40,13 +40,12 @@ class AdminController extends Controller
         return view('admin.datacuti')->with('listcutis', $listcutis);
     }
 
+
 public function index2()
 {
     $listcutis = Cuti::with(['department', 'position', 'role'])->get();
     $totalCuti = Cuti::sum('jml_cuti');
     return view('admin.home', compact('listcutis', 'totalCuti'));
 }  
- 
-
 
 }

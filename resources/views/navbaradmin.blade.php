@@ -156,6 +156,8 @@ a.sidebar-link {
     width: 100%;
 }
 
+
+
 /* Sidebar Toggle */
 
 #sidebar.collapsed {

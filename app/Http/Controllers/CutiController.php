@@ -59,8 +59,6 @@ class CutiController extends Controller
         return redirect()->back()->with('success', 'Data ibu berhasil disimpan.');
     }
 
-    
-
     public function getEvents(Request $request) {
         $cutis = Cuti::all();
         $events = [];
@@ -83,8 +81,8 @@ class CutiController extends Controller
             }
         }
         return response()->json($events);
-    }    
-    
-    
 
-}
+    }    
+
+    }
+
