@@ -212,12 +212,9 @@ html[data-bs-theme="light"] .theme-toggle .fa-sun {
 }
 
     </style>
-
 </head>
-
 <body>
     <div class="wrapper">
-        
         <aside id="sidebar" class="js-sidebar">
             <!-- Content For Sidebar -->
             <div class="h-100">

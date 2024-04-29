@@ -28,7 +28,6 @@
 <div class="container-fluid">
 <div class="card">
 		<h5 class="card-header">
-	
         <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-fw fa-plus"></i>Cuti Lain
 </button> </h5>
 		<div class="card-body">
@@ -39,7 +38,7 @@
 							<div class="form-group">
 								<label>No Pegawai</label>
 								<input type="text" class="form-control" name="no_peg" value="{{ Auth::user()->no_peg }}" readonly>
-							</div>
+							</div> 
 						</div>
 					</div>
 							<div class="row">

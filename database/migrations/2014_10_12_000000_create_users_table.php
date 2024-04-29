@@ -22,12 +22,11 @@ return new class extends Migration
             $table->unsignedBigInteger('role_id');
             $table->unsignedBigInteger('position_id');
             $table->unsignedBigInteger('department_id');
-            $table->unsignedBigInteger('jml_cuti');
+            $table->unsignedBigInteger('jml_cuti')->default(19);;
             $table->rememberToken();
             $table->timestamps();
       
         });
-
     }
 
     /**

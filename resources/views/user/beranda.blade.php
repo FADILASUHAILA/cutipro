@@ -3,7 +3,6 @@
 
 @section('content')
 
-
 @extends('header')
 
 <main class="content px-3 py-2">
@@ -41,7 +40,7 @@
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
                                             <h4 class="mb-2">
-                                                5
+                                           
                                             </h4>
                                             <p class="mb-2">
                                                 Total Pengajuan

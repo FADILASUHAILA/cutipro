@@ -1,9 +1,10 @@
 @extends('layouts.app')
 @section('home')
 
-@section('content')
 
+@section('content')
  <!--End Header-->
+
 @extends('header')
 
 <main class="content px-3 py-2">
@@ -57,8 +58,7 @@
                     <div class="card border-0">
                         <div class="card-header">
                     <div id='calendar'></div>
-
-                    </div>
+                </div>
                 </div>
             </main>
             <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>

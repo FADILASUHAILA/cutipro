@@ -63,7 +63,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Table Element -->
+                    <!-- Table -->
                     <div class="card border-0">
                         <div class="card-header">
                             <h5 class="card-title">
@@ -92,7 +92,7 @@
                                 <td>{{ $user->no_peg}}</td>
                                 <td>{{ $user->name}}</td>
                                 <td>{{ $user->email}}</td>
-                                <td>   @if($user->department)
+                                <td>@if($user->department)
                 {{ $user->department->department_name }}
             @else
                 Departement Not Assigned

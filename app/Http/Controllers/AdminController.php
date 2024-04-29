@@ -46,7 +46,7 @@ public function index2()
     $totalCuti = Cuti::sum('jml_cuti');
     return view('admin.home', compact('listcutis', 'totalCuti'));
 }  
-
+ 
 
 
 }
