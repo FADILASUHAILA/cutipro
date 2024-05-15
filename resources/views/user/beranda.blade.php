@@ -41,19 +41,11 @@
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
                                             <h4 class="mb-2">
-                           {{$totalCuti}}
+                                            
                                             </h4>
                                             <p class="mb-2">
-                                                Total Pengajuan
+                                                Total Cuti
                                             </p>
-                                            <div class="mb-0">
-                                                <span class="badge text-success me-2">
-                                                    +10%
-                                                </span>
-                                                <span class="text-muted">
-                                                    Pengajuan Tahun ini
-                                                </span>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -67,7 +59,6 @@
                                 DATA APASIH
                             </h5>
                             <h6 class="card-subtitle text-muted">
-                               
                             </h6>
                         </div>
                         <div class="card-body">

@@ -39,16 +39,9 @@
                                         
                                             </h4>
                                             <p class="mb-2">
-                                            {{}}
+                                            Total Cuti
                                             </p>
-                                            <div class="mb-0">
-                                                <span class="badge text-success me-2">
-                                                    +10%
-                                                </span>
-                                                <span class="text-muted">
-                                                    Pengajuan Tahun ini
-                                                </span>
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>

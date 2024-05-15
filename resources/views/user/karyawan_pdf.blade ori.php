@@ -80,19 +80,6 @@
             text-align: left; /* Mengatur teks ke kiri */
         }
         
-        .alignMe b {
-            display: inline-block;
-            width: 50%;
-            position: absolute;
-            right: 10px;
-        }
-
-        .alignMe b {
-            content: ":";
-            position: absolute;
-            right: 10px;
-        }
-
     </style>
 </head>
 <body>
@@ -106,16 +93,31 @@
             <h2>Surat Keterangan Cuti</h2>
         </div>
         <!-- Informasi Pengajuan Cuti -->
-        <ul class="alignMe">
-        <li><b>Nama</b></li>
-        <li><span>{{ Auth::user()->name }} </span></li>
-
-            <li><b>Nomor Pekerja</b> {{ Auth::user()->no_peg }}</li>
-            <li><b>Jabatan</b> {{ Auth::user()->position->position_name }}</li>
-            <li><b>Eselon</b></li>
-            <li><b>Tanggal yang diminta</b> {{ $list_cuti->cuti }}</li>
-            <li><b>Tanggal yang diminta</b> {{ $list_cuti->masuk }}</li>
-        </ul>
+        <div class="data">
+            <span class="label">Nama :</span>
+            <span class="value">{{ Auth::user()->name }}</span>
+        </div>
+        <div class="data">
+            <span class="label">Nomor Pekerja :</span>
+            <span class="value">{{ Auth::user()->no_peg }}</span>
+        </div>
+        <div class="data">
+            <span class="label">Jabatan</span>
+            <span class="value">: {{ Auth::user()->position->position_name }}</span>
+        </div>
+        <div class="data">
+            <span class="label">Eselon</span>
+            <span class="value">:</span>
+        </div>
+        <div class="data">
+            <span class="label">Tanggal yang diminta</span>
+            <span class="value">: {{ $list_cuti->cuti}}</span>
+        </div>
+        <div class="data">
+            <span class="label">Tanggal yang Masuk Kerja</span>
+            <span class="value">: {{ $list_cuti->masuk}}</span>
+        </div>
+       <div class="data">
     <span class="label">Keterangan</span>
     <span class="value">: {{ $list_cuti->keterangan}}</span> 
     <div class="pre-wrapper">

@@ -17,11 +17,5 @@ class AdminController extends Controller
         return view('admin.datacuti')->with('listcutis', $listcutis);
     }
     
-    public function index2()
-
-{
-    $totalCuti = Cuti::sum('jml_cuti'); // Ubah 'jml_cuti' sesuai dengan nama kolom yang sesuai di database
-    return view('admin.home')->with('totalCuti', $totalCuti);
-}
 
 }

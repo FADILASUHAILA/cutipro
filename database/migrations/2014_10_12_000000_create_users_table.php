@@ -25,7 +25,7 @@ return new class extends Migration
             $table->unsignedBigInteger('jml_cuti');
             $table->rememberToken();
             $table->timestamps();
-      
+    
         });
 
     }
