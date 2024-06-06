@@ -6,6 +6,7 @@ use App\Models\Cuti;
 use Illuminate\Http\Request;
 use App\Models\Karyawan;
 use Illuminate\Support\Facades\Auth; 
+
 class DataController extends Controller
 {
     //menampilkan data cuti di admin
@@ -14,7 +15,20 @@ class DataController extends Controller
     $listcutis = Cuti::with(['department', 'position', 'role'])->get();
     return view('admin.datacuti', compact('listcutis'));
     }
-    
+
+    public function index3(Request $request)
+{
+    $tahun = $request->tahun;
+    $name = $request->name;
+
+    if ($tahun) {
+        $listcutis = Cuti::whereYear('input', $tahun)->get();
+    }
+    else {
+        $listcutis = Cuti::all();
+    }
+    return view('admin.datacuti', compact('listcutis'));
+}
 
 // menampilkan data cuti di user
 public function index1()
@@ -43,8 +57,6 @@ public function index2(Request $request)
 
     return view('user.recorduser', compact('listcutis'));
 }
-
-
 
     public function showCalendar()
 {

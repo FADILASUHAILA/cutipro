@@ -1,30 +1,27 @@
 @extends('layouts.app')
-
+@section('beranda')
 @section('content')
-
-@extends('header')
-
     <!--End Header-->
-@include('navbar1')
+    @extends('header')
 
-<!-- Page Heading -->
+    @include('navbar1')
+
+
 <main class="content px-3 py-2">
 <div class="container-fluid">
 <div class="card ">
 <div class="card-header">
                             <h5 class="card-title">
-                                DATA KARYAWAN
+                                DATA ADMIN
                             </h5>
-                <div class="container mt-3">
+                            <div class="d-flex justify-content-end mb-3">
+                            <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#ModalDataAdmin"><i class="bi bi-plus-lg"></i> Tambah Data
+</button>
+                            </div>
+                                    <div class="container mt-3">
     <div class="row justify-content-end">
         <div class="col-md-4">
-        <form class="d-flex justify-content-end align-items-center" action="{{ route('karyawan.search') }}" method="POST">
-    @csrf
-                <div class="form-group mb-0">
-                    <input type="text" class="form-control form-control-sm" id="no_peg" name="no_peg" placeholder="Masukkan No Pegawai" required>
-                </div>
-                <button type="submit" class="btn btn-secondary btn-sm ml-2"><i class="fa fa-fw fa-search"></i> Cari</button>
-            </form>
+        
         </div>
     </div>
 </div>
@@ -37,30 +34,20 @@
                                 <thead>
                                     <tr>
                             <th scope="col">No</th>
-                            <th scope="col">Nopeg</th>
                             <th scope="col">Nama</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Departement</th>
-                            <th scope="col">Position</th>
-                            <th scope="col">Level</th>
+                            <th scope="col">Department</th>
+                            <th scope="col">Jabatan</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($users as $user)
+                              
                             <tr >
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $user->no_peg}}</td>
-                                <td>{{ $user->name}}</td>
-                                <td>{{ $user->email}}</td>
-                                <td>   @if($user->department)
-                {{ $user->department->department_name }}
-            @else
-                Departement Not Assigned
-            @endif</td>
-                                <td>{{ $user->position->position_name}}</td>
-                                <td>{{ $user->role->role_name}}</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                
                             </tr>
-                            @endforeach
+                         
   </tbody>
                             </table>
                         </div>
@@ -74,11 +61,11 @@
 
 
 <!-- Modal tambah data-->
-<div class="modal fade" id="ModalDataImunisasi" tabindex="-1" aria-labelledby="ModalTambahDataImunisasiLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
+<div class="modal fade" id="ModalDataAdmin" tabindex="-1" aria-labelledby="ModalDataAdminLabel" aria-hidden="true">
+  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="ModalTambahDataImunisasiLabel">Masukkan Data Ibu</h5>
+        <h1 class="modal-title fs-5" id="ModalDataAdminLabel">Tambahkan Data Admin</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body lg-4">
@@ -86,7 +73,7 @@
     @csrf
         <div class="input-group mt-1">
         <span class="input-group-text">Nama</span>
-          <input type="text" name="name" class="form-control" placeholder="">
+          <input type="text" name="nama" class="form-control" placeholder="">
         </div>
         <div class="input-group mt-2">
         <span class="input-group-text">Email</span>
@@ -95,7 +82,7 @@
       
         <div class="input-group mt-2">
         <span class="input-group-text">Password</span>
-          <input type="password" name="password" class="form-control" placeholder="">
+          <input type="password" name="pass" class="form-control" placeholder="">
         </div>
         <div class="input-group mt-2">
         <span class="input-group-text">NoPeg</span>
@@ -132,5 +119,5 @@
     </div>
   </div>
 </div>
-</form>
+   
 </html>

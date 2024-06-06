@@ -9,4 +9,8 @@ class SuperadminController extends Controller
     public function index() {
         return view('superadmin.index');
     }
+
+    public function dataadmin() {
+        return view('superadmin.dataadmin');
+    }
 }

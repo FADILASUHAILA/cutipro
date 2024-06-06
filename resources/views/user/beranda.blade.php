@@ -9,8 +9,8 @@
                 <div class="container-fluid">
 		<h5 class="card-header">
 			<strong></strong>
-			<a class="btn btn-secondary btn-sm float-right" href="" data-toggle="modal" data-target="#ubah-pass"><i class="fas fa-key"></i> Ubah Password</a>
-			<a class="btn btn-secondary btn-sm float-right mr-2" href="" data-toggle="modal" data-target="#ubah-prof"><i class="fas fa-user-edit"></i> Ubah Profile</a>
+			<a class="btn btn-secondary btn-sm float-right" href="" data-toggle="modal" data-target="#"><i class="fas fa-key"></i> Ubah Password</a>
+			<a class="btn btn-secondary btn-sm float-right mr-2" href="" data-toggle="modal" data-target="#ubahprof {{ $user->id }}"><i class="fas fa-user-edit"></i> Ubah Profile</a>
 		</h5>
                     <div class="mb-3">
                         <h4>Dashboard</h4>
@@ -40,11 +40,6 @@
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
                                             <h4 class="mb-2">
-<<<<<<< HEAD
-                                           
-=======
-                           {{$totalCuti}}
->>>>>>> 2764acd4bcb79d66b578a520137c6e4b3c5e61e7
                                             </h4>
                                             <p class="mb-2">
                                                 Total Pengajuan
@@ -107,3 +102,58 @@
                     </div>
                 </div>
             </main>
+
+<!--Modal edit profile-->
+    <div class="modal fade" id="#ubahprof{{ $user->id }}" tabindex="-1" aria-labelledby="#ubah-prof{{ $users->id }}Label" aria-hidden="true">
+   <div class="modal-dialog">
+       <div class="modal-content">
+           <div class="modal-header">
+               <h5 class="modal-title" id="#ubah-prof{{ $users->id }}Label">Edit Data User</h5>
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+           </div>
+           <div class="modal-body">
+               <form action="{{ route('users.update', $users->id) }}" method="POST">
+                   @csrf
+                   @method('PUT')
+                   <div class="form-group">
+                       <label for="name">Nama</label>
+                       <input type="text" class="form-control" id="name" name="name" value="{{ $users->name }}">
+                   </div>
+
+                   <div class="form-group">
+                       <label for="email">Email</label>
+                       <input type="email" class="form-control" id="email" name="email" value="{{$users->email }}">
+                   </div>
+
+                   <div class="form-group">
+                       <label for="role_id">Level</label>
+                       <input type="text" class="form-control" id="role_id" name="role_id" value="{{ $users->role_id}}">
+                   </div>
+
+                   <div class="form-group">
+                       <label for="position_id">Jabatan</label>
+                       <input type="text" class="form-control" id="position_id" name="position_id" value="{{ $users->position_id}}">
+                   </div>
+
+                   <div class="form-group">
+                       <label for="no_peg">Nomor Pegawai</label>
+                       <input type="text" class="form-control" id="no_peg" name="no_peg" value="{{ $users->no_peg }}">
+                   </div>
+
+                   <div class="form-group">
+                       <label for="department_id">Departement</label>
+                       <input type="text" class="form-control" id="department_id" name="department_id" value="{{ $users->department_id }}">
+                   </div>
+
+                   <div class="form-group">
+                       <label for="jml_cuti">Sisa Cuti</label>
+                       <input type="text" class="form-control" id="jml_cuti" name="jml_cuti" value="{{ $users->jml_cuti }}">
+                   </div>
+
+                   <button type="submit" class="btn btn-primary">Simpan</button>
+               </form>
+      
+           </div>
+       </div>
+   </div>
+</div>

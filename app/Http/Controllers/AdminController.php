@@ -12,10 +12,11 @@ class AdminController extends Controller
 
 // Ambil jumlah data cuti dari database
     $totalCuti = Cuti::count();
-
-    // Kirim total cuti ke view
+// Kirim total cuti ke view
         return view('admin.index',['totalCuti' => $totalCuti]);
     }
+
+
 // menampilkan data karyawan
     public function index3()
     {
@@ -27,12 +28,27 @@ class AdminController extends Controller
         'users' => $users,
         'totalKaryawan' => $totalKaryawan
     ]);
-
+    }
+    
+    public function search1(Request $request)
+    {
+        $no_peg = $request->no_peg;
+        
+        if ($no_peg) {
+            $users = Karyawan::where('no_peg', $no_peg)->get();
+        } else {
+            $users = Karyawan::all();
+        }
+        $totalKaryawan = $users->count();
+    return view('admin.datakaryawan', [
+        'users' => $users,
+        'totalKaryawan' => $totalKaryawan
+    ]);
     }
 
 
 
-    
+
     //menampilkan data cuti di level admin
     public function index1()
     {
@@ -40,12 +56,7 @@ class AdminController extends Controller
         return view('admin.datacuti')->with('listcutis', $listcutis);
     }
 
+    
 
-public function index2()
-{
-    $listcutis = Cuti::with(['department', 'position', 'role'])->get();
-    $totalCuti = Cuti::sum('jml_cuti');
-    return view('admin.home', compact('listcutis', 'totalCuti'));
-}  
 
 }

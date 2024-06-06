@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Cuti;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -20,9 +19,9 @@ class CutiController extends Controller
             'cuti' => 'required|date',
             'masuk' => 'required|date',
             'alamat' => 'required',
-            'telp' => 'required',
+            'telp' => 'required',   
         ]);
-
+ 
         $user = Auth::user();
         // Menghitung sisa cuti terbaru
         $sisaCutiTerbaru = $user->jml_cuti - $request->jml_cuti;
@@ -54,7 +53,6 @@ class CutiController extends Controller
         // Memperbarui nilai jml_cuti pada pengguna
         $user->jml_cuti = $sisaCutiTerbaru;
         $user->save();
-
         // Redirect atau berikan respons sesuai kebutuhan
         return redirect()->back()->with('success', 'Data ibu berhasil disimpan.');
     }

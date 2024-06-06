@@ -9,9 +9,7 @@ use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CutiController;
 use App\Http\Controllers\DataController;
-use App\Http\Controllers\LeaveController;
-use App\Models\Karyawan;
-use App\Model\ProfileController;
+use App\Http\Controllers\DepartmentController;
 
 
 //cetak pdf
@@ -19,52 +17,49 @@ Route::get('/generate-pdf', [KaryawanController::class, 'cetak_pdf'])->name('use
 
 //pengajuan cuti user
 
-
-
 //bagian Superadmin
-Route::get('/aproval',function(){
-    return view('superadmin/aproval');
-});
-
-Route::get('/karyawan',function(){
-    return view('superadmin/karyawan');
-});
-
-Route::get('/recordkaryawan',function(){
-    return view('superadmin/recordkaryawan');
-});
-
-
 
 //  jika user belum login
 Route::group(['middleware' => 'guest'], function() {
     Route::get('/', [AuthController::class, 'login'])->name('login');
     Route::post('/', [AuthController::class, 'dologin']);
 });
+
 // untuk superadmin dan pegawai
 Route::group(['middleware' => ['auth', 'checkrole:1,2,3']], function() {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/redirect', [RedirectController::class, 'cek']);
 });
+
 // untuk superadmin
 Route::group(['middleware' => ['auth', 'checkrole:1']], function() {
     Route::get('/superadmin', [SuperadminController::class, 'index']);
     Route::get('/karyawan', [KaryawanController::class, 'index1'])->name('/karyawan');
+    Route::post('/karyawan', [KaryawanController::class, 'search'])->name('karyawan.search');  
+    Route::post('/tambah-departement', [DepartmentController::class, 'store'])->name('departement.store');  
+    Route::get('/departement', [DepartmentController::class, 'index'])->name('/departement');
+    Route::get('/dataadmin', [SuperadminController::class, 'dataadmin']);
+    Route::delete('/departement/{id}', [DepartmentController::class, 'destroy'])->name('departement.destroy');
+
+    
+    
 });
+
 // untuk admin
 Route::group(['middleware' => ['auth', 'checkrole:2']], function() {
     Route::get('/admin', [AdminController::class, 'index']);
-    Route::get('/datacuti', [DataController::class, 'index'])->name('/datacuti');
-    Route::post('/cuti/search', [AdminController::class, 'search'])->name('datacuti.search');
+    Route::get('/datacuti', [DataController::class, 'index'])->name('datacuti');
+    Route::get('/datacuti/search', [DataController::class, 'index3'])->name('datacuti.search');
     Route::get('/datakaryawan', [AdminController::class, 'index3'])->name('/datakaryawan');
-    Route::post('/karyawan/search', [KaryawanController::class, 'index3'])->name('');  
+    Route::get('/datakaryawan/search', [AdminController::class,'search1'])->name('datakaryawan.search');  
     Route::get('/events', [CutiController::class, 'getEvents']);
    
-
 });
 // untuk pegawai
 Route::group(['middleware' => ['auth', 'checkrole:3']], function() {
     Route::get('/user  ', [UserController::class, 'index']);
+    Route::get('/datakaryawan/{id}', [KaryawanController::class, 'edit'])->name('user.edit');
+    Route::put('/user/{user}', [UserController::class, 'update'])->name('users.update');
     Route::get('/pengajuan  ', [UserController::class, 'pengajuan']);
     Route::post('/tambah-pengajuan', [CutiController::class, 'store'])->name('cuti.store');
     Route::get('/historyrecord', [DataController::class, 'index1'])->name('/historyrecord');

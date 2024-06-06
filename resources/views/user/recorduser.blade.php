@@ -3,28 +3,20 @@
 @section('content')
 
 <!--End Header-->
+
 @extends('header')
 @include('navbar')
 <!--content-->
-
 <main class="content px-3 py-2">
 <div class="card border-0">
-<<<<<<< HEAD
-<div class="card-header">
-<h5 class="card-title">
-DATA CUTI KARYAWAN
-</h5>
 <h6 class="card-subtitle text-muted"></h6>
-                                                           <div class="row justify-content-end">
-=======
+<div class="row justify-content-end">
                         <div class="card-header">
                             <h5 class="card-title">
                                 DATA CUTI KARYAWAN
                             </h5>
                             <h6 class="card-subtitle text-muted"></h6>
-        
                         <div class="row justify-content-end">
->>>>>>> 2764acd4bcb79d66b578a520137c6e4b3c5e61e7
         <div class="col-md-4">
         <form class="d-flex justify-content-end align-items-center" action="{{ route('cuti.search') }}" method="POST">
     @csrf
@@ -52,7 +44,6 @@ DATA CUTI KARYAWAN
                                         <th scope="col">Tgl Cuti</th>
                                         <th scope="col">Tgl Masuk</th>
                                         <th scope="col">aksi</th>
-
                                     </tr>
                                 </thead>
                                     <tbody>

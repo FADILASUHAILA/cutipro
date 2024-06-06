@@ -275,7 +275,6 @@ p{
         
                 <div class="form-check">
                 <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
                                     <label class="form-check-label" for="remember">
                                         {{ __('Remember Me') }}
                                     </label>
@@ -293,9 +292,7 @@ p{
         </div>
         <div class="overlay-container" id="overlayCon">
             <div class="overlay">
-                <div class="overlay-panel overlay-left">
-                    <button>Sign In</button>
-                </div>
+                
                 <div class="overlay-panel overlay-right">
                     <h1>Hello, Friend!</h1>
                     <p>Formulir manual? Buang jauh-jauh! Bersama kami, cuti jadi gak ada drama!</p>
