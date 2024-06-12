@@ -69,9 +69,9 @@
                             <h5 class="card-title">
                                 Data Karyawan
                             </h5>
-                            
-			<a class="btn btn-secondary btn-sm float-left mr-2" href="" data-toggle="modal" data-target="#ModalDataKaryawan"><i class="fas fa-user-plus"></i>Tambah Data</a>
-                            <form class="d-flex justify-content-end align-items-center" action="{{ route('datakaryawan.search') }}" method="get">
+                            <button type="button" class="btn btn-secondary btn-sm float-left mr-2" data-bs-toggle="modal" data-bs-target="#ModalDataKaryawanAdmin"><i class="bi bi-plus-lg"></i> Tambah Data
+                            </button>   
+			               <form class="d-flex justify-content-end align-items-center" action="{{ route('datakaryawan.search') }}" method="get">
     @csrf
                 <div class="form-group mb-0">
                     <input type="text" class="form-control form-control-sm" id="no_peg" name="no_peg" placeholder="Masukkan No Pegawai" required>
@@ -120,63 +120,67 @@
 
 
 <!-- Modal tambah data-->
-<div class="modal fade" id="ModalDataKaryawan" tabindex="-1" aria-labelledby="ModalTambahDataKaryawanLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
+<div class="modal fade" id="ModalDataKaryawanAdmin" tabindex="-1" aria-labelledby="ModalDataKaryawanAdminLabel" aria-hidden="true">
+<div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="ModalTambahDataKaryawanLabel">Masukkan Data Ibu</h5>
+        <h5 class="modal-title" id="ModalDataKaryawanLabel"> <i class="bi bi-person-plus-fill me-2"></i> <!-- Ikon Bootstrap -->Tambahkan Data Karyawan</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body lg-4">
-      <form action="" method="post">
-    @csrf
-        <div class="input-group mt-1">
-        <span class="input-group-text">Nama</span>
-          <input type="text" name="name" class="form-control" placeholder="">
-        </div>
-        <div class="input-group mt-2">
-        <span class="input-group-text">Email</span>
-          <input type="email" name="email" class="form-control" placeholder="">
-        </div>
-      
-        <div class="input-group mt-2">
-        <span class="input-group-text">Password</span>
-          <input type="password" name="password" class="form-control" placeholder="">
-        </div>
-        <div class="input-group mt-2">
-        <span class="input-group-text">NoPeg</span>
-          <input type="text" name="no_peg" class="form-control" placeholder="">
-        </div>
-        <div class="input-group mt-2">
-        <span class="input-group-text">Level</span>
-        <select name="role_id">
-          <option value="Admin">Admin</option>
-          <option value="Superadmin">Superadmin</option>
-          <option value="Karyawan">Karyawan</option>
-        </select>
-        </div>
-        <div class="input-group mt-2">
-        <span class="input-group-text">Position</span>
-        <select name="role_id">
-          <option value="Operator">Operator</option>
-          <option value="Manager">Manager</option>
-          <option value="Karyawan">Karyawan</option>
-        </select>
-        </div>
-        <div class="input-group mt-2">
-        <span class="input-group-text">Departement</span>
-        <select name="role_id">
-          <option value="Operator">Operator</option>
-          <option value="Manager">Manager</option>
-          <option value="Karyawan">Karyawan</option>
-        </select>
-        </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">Simpan</button>
-        <button type="button" class="btn btn-Danger" data-bs-dismiss="modal">Batal</button>
+      <div class="modal-body">
+        <form action="" method="post">
+          @csrf
+          <div class="mb-3">
+            <label for="name" class="form-label fw-bold">Nama</label>
+            <input type="text" name="name" class="form-control" id="name" placeholder="Masukkan nama">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label fw-bold">Email</label>
+            <input type="email" name="email" class="form-control" id="email" placeholder="Masukkan email">
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label fw-bold">Password</label>
+            <input type="password" name="password" class="form-control" id="password" placeholder="Masukkan password">
+          </div>
+          <div class="mb-3">
+            <label for="no_peg" class="form-label fw-bold">No Pegawai</label>
+            <input type="text" name="no_peg" class="form-control" id="no_peg" placeholder="Masukkan nomor pegawai">
+          </div>
+          <div class="mb-3">
+            <label for="level" class="form-label fw-bold">Level</label>
+            <select name="role_id" class="form-select" id="level">
+              <option value="Admin">Admin</option>
+              <option value="Superadmin">Superadmin</option>
+              <option value="Karyawan">Karyawan</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="position" class="form-label fw-bold">Posisi</label>
+            <select name="role_id" class="form-select" id="position">
+              <option value="Operator">Operator</option>
+              <option value="Manager">Manager</option>
+              <option value="Karyawan">Karyawan</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="department" class="form-label fw-bold">Departemen</label>
+            <select name="role_id" class="form-select" id="department">
+              <option value="Operator">Operator</option>
+              <option value="Manager">Manager</option>
+              <option value="Karyawan">Karyawan</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="jml_cuti" class="form-label fw-bold">Jumlah Cuti</label>
+            <input type="number" name="jml_cuti" class="form-control" id="jml_cuti" value="19" readonly>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Simpan</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
 </div>
-</form>
 </html>

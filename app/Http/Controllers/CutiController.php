@@ -64,14 +64,13 @@ class CutiController extends Controller
         foreach ($cutis as $cuti) {
             $tanggalMulai = new \DateTime($cuti->cuti);
             $tanggalSelesai = new \DateTime($cuti->masuk);
-            $interval = new \DateInterval('P1D'); // Interval satu hari
+            $interval = new \DateInterval('P1D');
             $periodeCuti = new \DatePeriod($tanggalMulai, $interval, $tanggalSelesai->modify('+1 day'));
     
             foreach ($periodeCuti as $tanggal) {
-                // Cek apakah tanggal saat ini bukan sama dengan tanggal masuk
                 if ($tanggal < $tanggalSelesai && $tanggal->format('Y-m-d') != $cuti->masuk) {
                     $events[] = [
-                        'title' => $cuti->nama, // Menampilkan nama orang yang mengambil cuti
+                        'title' => $cuti->nama,
                         'start' => $tanggal->format('Y-m-d'),
                         'color' => 'red'
                     ];

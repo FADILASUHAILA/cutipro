@@ -3,19 +3,55 @@
 namespace App\Http\Controllers;
 use App\Models\Cuti;
 use App\Models\Karyawan;
+use App\Models\Departement;
 use App\Models\User;
-use App\Models\listcutis;
+use App\Models\Position;
+use App\Models\Role;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class KaryawanController extends Controller
 {
     //menampilkan data karyawan di superadmin
     public function index1()
     {
-        $users = Karyawan::with(['department', 'position', 'role'])->get();
-        return view('superadmin.karyawan')->with('users', $users);
-    }
+    // Mengambil semua data user dengan relasi department, position, dan role
+    $users = Karyawan::with(['department', 'position', 'role'])->get();
+    // Mengambil semua data departemen
+    $departments = Departement::all();
+    $positions = Position::all(); 
+    $roles = Role::all(); 
+
+    // Mengirim data users dan departments ke view
+    return view('superadmin.karyawan', compact('users', 'departments','positions','roles'));
+
+}
+
+
+    public function store(Request $request)
+    {
+    $validatedData = $request->validate([
+        'name' => 'required',
+        'email' =>'required|email|unique:users,email',
+        'password' => 'required|min:6',
+        'role_id' =>'required',
+        'position_id' => 'required',
+        'no_peg' =>'required',
+        'department_id' => 'required',
+        'jml_cuti' => 'required',
+      
+    ]);
+    $validatedData['password'] = bcrypt($validatedData['password']);
+    // Simpan data anak ke database
+    Karyawan::create($validatedData);
+    // Redirect atau kembalikan respon yang sesuai
+    return redirect()->back()->with('success', 'Post created successfully!');
+    
+    // Redirect atau kembalikan respon yang sesuai
+    return redirect()->back();
+}
 
     //Fitur search menampilkan data karyawan berdasarkan nopeg di superadmin
     public function search(Request $request)
@@ -29,9 +65,6 @@ class KaryawanController extends Controller
         }
     return view('superadmin.karyawan', compact('users'));
     }
-
-   
-
 
     public function index2()
     {
@@ -51,21 +84,40 @@ class KaryawanController extends Controller
         return view('user.beranda', compact('users'));
     }
     
+
     public function update(Request $request, $id)
-    {
-        $user = Karyawan::findOrFail($id);  
-        $user->name = $request->input('name');
-        $user->email = $request->input('email');
-        $user->password = $request->input('password');
-        $user->role_id = $request->input('role_id');
-        $user->position_id = $request->input('position_id');
-        $user->no_peg = $request->input('no_peg');
-        $user->department_id = $request->input('department_id');
-        $user->jenis_kelamin = $request->input('jenis_kelamin');
-        $user->save();
-    
-        return redirect()->back()->with('success', 'Data anak berhasil disimpan.');
+{
+    $user = User::findOrFail($id);
+
+    // Validasi request
+    $request->validate([
+        'name' => 'required',
+        'email' =>'required',
+        'password' => 'required',
+        'role_id' =>'required',
+        'position_id' => 'required',
+        'no_peg' =>'required',
+        'department_id' => 'required',
+        'jml_cuti' => 'required',
+    ]);
+
+    // Update data karyawan
+    $user->name = $request->name;
+    $user->email = $request->email;
+    if ($request->filled('password')) {
+        $user->password = bcrypt($request->password);
     }
+    $user->no_peg = $request->no_peg;
+    $user->role_id = $request->role_id;
+    $user->position_id = $request->position_id;
+    $user->department_id = $request->department_id;
+    $user->jml_cuti = $request->jml_cuti;
+    $user->save();
+
+    return redirect()->route('karyawan.index')->with('success', 'Data karyawan berhasil diperbarui.');
+}
+
+    
 
 
     public function cetak_pdf()
@@ -77,6 +129,4 @@ class KaryawanController extends Controller
         $pdf = Pdf::loadview('user.karyawan_pdf', ['list_cuti' => $list_cuti])->setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
         return $pdf->download('laporan-karyawan.pdf');
     }
-
-
 }

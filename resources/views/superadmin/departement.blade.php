@@ -38,7 +38,9 @@
                             <th scope="col">Aksi</th>
                                     </tr>
                                 </thead>
+                                
                                 <tbody>
+                                @if ($departments->isNotEmpty())
                                 @foreach($departments as $departement)
                             <tr >
                                 <td>{{ $loop->iteration }}</td>
@@ -46,13 +48,21 @@
                                 <td>{{ $departement->ketua_department_name }}</td>
                                 <td>
                 <!-- Tombol Delete -->
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#ModalDeleteDepartement">
-                <i class="bi bi-trash3"></i>
-</button>
-            </td>
+                <button type="button" class="btn btn-secondary btn-sm me-1" data-bs-toggle="modal" data-bs-target="#ModalEditDepartement{{$departement->id}}"><i class="bi bi-pencil-square"></i> Edit</button>
+
+                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#ModalDeleteDepartement{{$departement->id}}"><i class="bi bi-trash3"></i> Delete</button>
+                
+            
+              </td>
                             </tr>
                             @endforeach
+                            @else
+                            <tr>
+                                <td colspan="4">Tidak ada departemen yang tersedia saat ini.</td>
+                            </tr>
+@endif
   </tbody>
+ 
                             </table>
                         </div>
                     </div>
@@ -75,17 +85,17 @@
       <div class="modal-body lg-4">
         <form action="{{route('departement.store') }}" method="post">
           @csrf
-          <div class="input-group mt-1">
-            <span class="input-group-text">Nama Departement</span>
+          <div class="mb-3">
+          <label for="departement_name" class="form-label fw-bold">Nama Departement</label>
             <input type="text" name="department_name" class="form-control" placeholder="Masukkan nama departement">
           </div>
-          <div class="input-group mt-2">
-            <span class="input-group-text">Nama Ketua Department</span>
+          <div class="mb-3">
+          <label for="ketua_departement_name" class="form-label fw-bold">Nama Ketua Departement</label>
             <input type="text" name="ketua_department_name" class="form-control" placeholder="Masukkan nama ketua departement">
           </div>
           <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-        <button type="button" class="btn btn-primary">Simpan</button>
+        <button type="submit" class="btn btn-primary">Simpan</button>
       </div>
         </form>
       </div>
@@ -94,36 +104,61 @@
 </div>
 
 
-<!-- Modal -->
-<div class="modal fade" id="ModalDeleteDepartement" tabindex="-1" aria-labelledby="ModalDeleteDepartementLabel" aria-hidden="true">
+<!-- Modal edit data-->
+<div class="modal fade" id="ModalEditDepartement{{$departement->id}}" tabindex="-1" aria-labelledby="ModalEditDepartement{{$departement->id}}Label" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="ModalDeleteDepartementLabel">Hapus Departement</h1>
+        <h1 class="modal-title fs-5" id="ModalEditDepartement{{$departement->id}}Label">Tambahkan Data Departement</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        Apakah anda yakin ingin menghapus departement ini?
-      </div>
-      <div class="modal-footer">
+      <div class="modal-body lg-4">
+        <form action="{{route('departement.update',$departement->id) }}" method="post">
+          @csrf
+          @method('PUT')
+          <div class="mb-3">
+          <label for="departement_name" class="form-label fw-bold">Nama Departement</label>
+            <input type="text" name="department_name" class="form-control" value="{{ $departement->department_name }}">
+          </div>
+          <label for="ketua_departement_name" class="form-label fw-bold">Nama Ketua Departement</label>
+            <input type="text" name="ketua_department_name" class="form-control" value="{{ $departement->ketua_department_name }}">
+          </div>
+          <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-        <button type="button" class="btn btn-primary">Iya</button>
+        <button type="submit" class="btn btn-primary">Simpan</button>
+      </div>
+        </form>
       </div>
     </div>
   </div>
 </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    var deleteModal = document.getElementById('ModalDeleteDepartement');
-    deleteModal.addEventListener('show.bs.modal', function (event) {
-        var button = event.relatedTarget;
-        var departmentId = button.getAttribute('data-id');
+<!-- Modal Delete -->
+@foreach($departments as $departement)
+<div class="modal fade" id="ModalDeleteDepartement{{ $departement->id }}" tabindex="-1" aria-labelledby="ModalDeleteDepartement{{ $departement->id }}Label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="ModalDeleteDepartement{{ $departement->id }}Label">Hapus Departement</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Apakah anda yakin ingin menghapus departement ini?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <form id="deleteForm" action="{{ route('departement.destroy', $departement->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-primary">Iya</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@endforeach
 
-        var form = deleteModal.querySelector('#form-delete-department');
-        form.action = '/departement/' + departmentId;
-        form.querySelector('#department_id').value = departmentId;
-    });
-});
-</script>
+@endsection
+
+
 </html>

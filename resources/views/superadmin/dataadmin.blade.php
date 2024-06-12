@@ -1,10 +1,9 @@
 @extends('layouts.app')
 @section('beranda')
 @section('content')
-    <!--End Header-->
-    @extends('header')
-
-    @include('navbar1')
+<!--End Header-->
+@extends('header')
+@include('navbar1')
 
 
 <main class="content px-3 py-2">

@@ -26,12 +26,32 @@ class DepartmentController extends Controller
     return redirect()->back()->with('success', 'Data department berhasil disimpan.');
 }
 
+public function update(Request $request, $id)
+    {
+        // Validasi input
+        $request->validate([
+            'department_name' => 'required|string|max:255',
+            'ketua_department_name' => 'required|string|max:255',
+        ]);
+
+        // Cari departement berdasarkan ID
+        $departement = Departement::findOrFail($id);
+
+        // Update data departement
+        $departement->department_name = $request->input('department_name');
+        $departement->ketua_department_name = $request->input('ketua_department_name');
+        $departement->save();
+
+        // Redirect kembali ke halaman sebelumnya dengan pesan sukses
+        return redirect()->route('superadmin.departement')->with('success', 'Departement berhasil diperbarui');
+    }
+
 public function destroy($id)
 {
-    $department = Departement::findOrFail($id);
-    $department->delete();
+    $departement = Departement::findOrFail($id);
+    $departement->delete();
 
-    return redirect()->route('departement.index')->with('success', 'Departemen berhasil dihapus.');
+    return redirect()->route('superadmin.departement')->with('success', 'Departement berhasil dihapus.');
 }
 
 }

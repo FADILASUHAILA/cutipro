@@ -10,7 +10,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CutiController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\DepartmentController;
-
+use App\Models\Karyawan;
 
 //cetak pdf
 Route::get('/generate-pdf', [KaryawanController::class, 'cetak_pdf'])->name('user.karyawan_pdf');
@@ -35,13 +35,13 @@ Route::group(['middleware' => ['auth', 'checkrole:1,2,3']], function() {
 Route::group(['middleware' => ['auth', 'checkrole:1']], function() {
     Route::get('/superadmin', [SuperadminController::class, 'index']);
     Route::get('/karyawan', [KaryawanController::class, 'index1'])->name('/karyawan');
+    Route::post('/tambah-karyawan', [KaryawanController::class, 'store'])->name('karyawan.store');  
     Route::post('/karyawan', [KaryawanController::class, 'search'])->name('karyawan.search');  
     Route::post('/tambah-departement', [DepartmentController::class, 'store'])->name('departement.store');  
-    Route::get('/departement', [DepartmentController::class, 'index'])->name('/departement');
+    Route::get('/departement', [DepartmentController::class, 'index'])->name('superadmin.departement');
     Route::get('/dataadmin', [SuperadminController::class, 'dataadmin']);
     Route::delete('/departement/{id}', [DepartmentController::class, 'destroy'])->name('departement.destroy');
-
-    
+    Route::put('/departement/{id}', [DepartmentController::class, 'update'])->name('departement.update');
     
 });
 
