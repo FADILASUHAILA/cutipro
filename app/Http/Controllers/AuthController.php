@@ -7,7 +7,7 @@ use App\Models\User;
 use App\Models\Role;
 
 class AuthController extends Controller
-{
+{                                                                                                                              
     public function login() {
         return view('auth.login');
     }

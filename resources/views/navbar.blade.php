@@ -197,24 +197,43 @@ a.sidebar-link {
     z-index: 10;
     right: 0;
     left: auto;
-    border: none;
     background-color: var(--bs-body-color);
 }
 
-html[data-bs-theme="dark"] .theme-toggle .fa-sun,
-html[data-bs-theme="light"] .theme-toggle .fa-moon {
+
+html[data-bs-theme="dark"] .theme-toggle .bi-brightness-high,
+html[data-bs-theme="light"] .theme-toggle .bi-moon {
     cursor: pointer;
     padding: 10px;
     display: block;
-    font-size: 1.25rem;
+    font-size: 1rem;
     color: #FFF;
+    
 }
 
-html[data-bs-theme="dark"] .theme-toggle .fa-moon {
+input[readonly] {
+  /* Sesuaikan dengan warna latar belakang mode terang Anda */
+  background-color: white;
+  /* Sesuaikan dengan warna teks di mode terang Anda */
+  color: black
+  /* Sesuaikan dengan warna border di mode terang Anda */
+ 
+}
+
+
+/* Gaya untuk mode terang */
+
+/* Gaya untuk mode gelap */
+
+
+
+html[data-bs-theme="dark"] .theme-toggle .bi-moon {
     display: none;
+
+
 }
 
-html[data-bs-theme="light"] .theme-toggle .fa-sun {
+html[data-bs-theme="light"] .theme-toggle .bi-brightness-high {
     display: none;
 }
 
@@ -295,8 +314,8 @@ html[data-bs-theme="light"] .theme-toggle .fa-sun {
             </nav>
     
             <a href="#" class="theme-toggle">
-                <i class="fa-regular fa-moon"></i>
-                <i class="fa-regular fa-sun"></i>
+                <i class="bi bi-moon"></i>
+                <i class="bi bi-brightness-high"></i>
             </a>
 
     <!--content-->

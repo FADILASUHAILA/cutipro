@@ -12,12 +12,12 @@
                                 DATA CUTI KARYAWAN
                             </h5>
                             <h6 class="card-subtitle text-muted">
-                                                           </h6>
-                                                           <div class="row justify-content-end">
+                            </h6> 
+        <div class="row justify-content-end">
         <div class="col-md-4">
-            <form class="d-flex justify-content-end align-items-center" action=" " method="post">
+            <form class="d-flex justify-content-end align-items-center" action=" {{ route('datacuti.search') }}" method="get">
                 <div class="form-group mb-0">
-                    <input type="number" class="form-control form-control-sm" id="inputPassword2" name="tahun" placeholder="Masukkan Tahun" required>
+                    <input type="text" class="form-control form-control-sm" id="inputPassword2" name="tahun" placeholder="Masukkan Tahun" required>
                 </div>
                 <button type="submit" class="btn btn-secondary btn-sm ml-2"><i class="fa fa-fw fa-search"></i> Cari</button>
             </form>

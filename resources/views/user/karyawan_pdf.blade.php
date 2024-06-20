@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Surat Keterangan Cuti</title>
     <style>
-        /* CSS untuk mengatur tata letak surat */
+        /* CSS untuk mengatur tata letak surat */ 
         .container {
             width: 800px;
             margin: 0 auto;
@@ -47,7 +47,6 @@
         .signature p {
             text-align: center;
         }
-
         pre {
             font-family: "Arial", sans-serif;
             /* Contoh penggunaan font Courier New, bisa diganti dengan font lain sesuai kebutuhan */
@@ -99,11 +98,12 @@
     <div class="container">
         <!-- Header dengan logo perusahaan -->
         <div class="header">
-            <img src="{{asset('asset/pertamina.jpg')}}" style="width: 200px; height: auto;">
+      <img src= "{{asset('surat.jpg')}}" style="width: 200px; height: auto;">
         </div>
         <!-- Judul Surat -->
         <div class="title">
-            <h2>Surat Keterangan Cuti</h2>
+            <h3>SURAT KETERANGAN</h3>
+            <h3>CUTI/DATANG TERLAMBAT/PULANG CEPAT/TIDAK HADIR*</h3>
         </div>
         <!-- Informasi Pengajuan Cuti -->
         <ul class="alignMe">
@@ -117,7 +117,7 @@
             <li><b>Tanggal yang diminta</b> {{ $list_cuti->masuk }}</li>
         </ul>
     <span class="label">Keterangan</span>
-    <span class="value">: {{ $list_cuti->keterangan}}</span> 
+    <span class="value">: {{$list_cuti->keterangan}}</span> 
     <div class="pre-wrapper">
         <div class="pre-content">
             <pre>

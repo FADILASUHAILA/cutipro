@@ -3,7 +3,6 @@
 
 @section('content')
 
-
 @extends('header')
 
 <main class="content px-3 py-2">
@@ -97,3 +96,58 @@
                     </div>
                 </div>
             </main>
+
+<!--Modal edit profile-->
+    <div class="modal fade" id="#ubahprof{{ $user->id }}" tabindex="-1" aria-labelledby="#ubah-prof{{ $users->id }}Label" aria-hidden="true">
+   <div class="modal-dialog">
+       <div class="modal-content">
+           <div class="modal-header">
+               <h5 class="modal-title" id="#ubah-prof{{ $users->id }}Label">Edit Data User</h5>
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+           </div>
+           <div class="modal-body">
+               <form action="{{ route('users.update', $users->id) }}" method="POST">
+                   @csrf
+                   @method('PUT')
+                   <div class="form-group">
+                       <label for="name">Nama</label>
+                       <input type="text" class="form-control" id="name" name="name" value="{{ $users->name }}">
+                   </div>
+
+                   <div class="form-group">
+                       <label for="email">Email</label>
+                       <input type="email" class="form-control" id="email" name="email" value="{{$users->email }}">
+                   </div>
+
+                   <div class="form-group">
+                       <label for="role_id">Level</label>
+                       <input type="text" class="form-control" id="role_id" name="role_id" value="{{ $users->role_id}}">
+                   </div>
+
+                   <div class="form-group">
+                       <label for="position_id">Jabatan</label>
+                       <input type="text" class="form-control" id="position_id" name="position_id" value="{{ $users->position_id}}">
+                   </div>
+
+                   <div class="form-group">
+                       <label for="no_peg">Nomor Pegawai</label>
+                       <input type="text" class="form-control" id="no_peg" name="no_peg" value="{{ $users->no_peg }}">
+                   </div>
+
+                   <div class="form-group">
+                       <label for="department_id">Departement</label>
+                       <input type="text" class="form-control" id="department_id" name="department_id" value="{{ $users->department_id }}">
+                   </div>
+
+                   <div class="form-group">
+                       <label for="jml_cuti">Sisa Cuti</label>
+                       <input type="text" class="form-control" id="jml_cuti" name="jml_cuti" value="{{ $users->jml_cuti }}">
+                   </div>
+
+                   <button type="submit" class="btn btn-primary">Simpan</button>
+               </form>
+      
+           </div>
+       </div>
+   </div>
+</div>

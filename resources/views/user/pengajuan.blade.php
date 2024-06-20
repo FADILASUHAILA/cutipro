@@ -1,10 +1,6 @@
-
 @extends('layouts.app')
-
 @section('content')
-
 @extends('header')
-
     <!--End Header-->
 @include('navbar')
 <style>
@@ -32,7 +28,6 @@
 <div class="container-fluid">
 <div class="card">
 		<h5 class="card-header">
-	
         <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-fw fa-plus"></i>Cuti Lain
 </button> </h5>
 		<div class="card-body">
@@ -43,7 +38,7 @@
 							<div class="form-group">
 								<label>No Pegawai</label>
 								<input type="text" class="form-control" name="no_peg" value="{{ Auth::user()->no_peg }}" readonly>
-							</div>
+							</div> 
 						</div>
 					</div>
 							<div class="row">
@@ -87,7 +82,7 @@
 										<input type="text" id="position_id" name="position" class="form-control" value=" {{ Auth::user()->position->position_name }}" readonly>
 									</div>
 								</div>
-							</div>
+							</div>	
 							<div class="row">
 							<div class="col-md-10">
 							<div class="form-group">
@@ -326,72 +321,145 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 			<div class="modal-body">
-				<form action="" method="post">
+			<form action="" method="POST">
+		@csrf
 					<div class="row">
-						<input type="hidden" name="id_user" value="">
-						<input type="hidden" name="role_id" value="">
+						<div class="col-md-10">
+							<div class="form-group">
+								<label>No Pegawai</label>
+								<input type="text" class="form-control" name="no_peg" value="{{ Auth::user()->no_peg }}" readonly>
+							</div>
+						</div>
+					</div>
+							<div class="row">
+								<div class="col-md-10">
+									<div class="form-group">
+										<input type="hidden" name="id" value="">
+										<input type="hidden" name="role_id" value="">
+										<label for="input">Tanggal Input :</label>
+										<input type="text" id="input" name="input" class="form-control" value="{{ now()->toDateString() }}" readonly>
+									</div>
+								</div>
+							</div>
+								<div class="row">
+								<div class="col-md-10">
+									<div class="form-group">
+										<label for="email">Email :</label>
+										<input type="email" id="email" name="email" class="form-control" value="{{ Auth::user()->email }}" readonly>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+							<div class="col-md-10">
+							<div class="form-group">
+								<label for="nama">Nama Lengkap :</label>
+								<input type="text" id="name" name="nama" class="form-control" value="{{ Auth::user()->name }}" readonly>
+							</div>
+							</div>
+							</div>
+							<div class="row">
+								<div class="col-md-10">
+									<div class="form-group">
+										<label for="department">Bagian / Departemen :</label>
+										<input type="text" id="department" name="department" class="form-control" value=" {{ Auth::user()->department->department_name }}" readonly>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-10">
+									<div class="form-group">
+										<label for="jabatan">Jabatan :</label>
+										<input type="text" id="position_id" name="position" class="form-control" value=" {{ Auth::user()->position->position_name }}" readonly>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+							<div class="col-md-10">
+							<div class="form-group">
+								<label for="jenisCuti">Jenis Cuti</label>
+								<select class="form-control" id="jenisCuti" name="jenis_cuti">
+									<option>Cuti Tahunan</option>
+								</select>
+							</div>
+						</div>
+							</div>
+						<div class="row">
+						<div class="col-md-10">
+							<div class="form-group">
+								<label for="ket">Keterangan :</label>
+								<input type="text" id="ket" name="keterangan" class="form-control" value="">
+							</div>
+						</div>
+						</div>
+							<div class="row">
+							<div class="col-md-6">
+							<div class="form-group d-flex flex-row align-items-center">
+										<label for="txt1">Sisa Cuti Sebelumnya :</label>
+										<input type="text" id="txt1" name="jml_cuti1" value="{{ Auth::user()->jml_cuti }}" class="form-control" onkeyup="sum();" readonly>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="tglCuti2">Tanggal Cuti :</label>
+										<input type="date" id="tglCuti" name="cuti" class="form-control">
+									
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="tglMasuk">Tanggal Masuk :</label>
+										<input type="date" id="tglMasuk" name="masuk" class="form-control">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+							<div class="col-md-6">
+							<div class="form-group d-flex flex-row align-items-center">
+										<label for="txt2">Jumlah Cuti Diambil :</label>
+										<input type="text" id="txt2" name="jml_cuti" class="form-control" onkeyup="sum();" readonly>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+								<div class="form-group d-flex flex-row align-items-center">
+										<label for="txt3">Sisa Cuti Sekarang :</label>
+										<input type="text" id="txt3" name="sisa_cuti" class="form-control" readonly>
+									</div>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="tglMasuk">User ID :</label>
+										<input type="text" id="userid" name="id_user" value="{{ Auth::user()->id }}" class="form-control" readonly>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+							<div class="col-md-10">
+							<div class="form-group">
+								<label for="alamat">Alamat :</label>
+								<input type="text" id="alamat" name="alamat" class="form-control" value="">
 
-						<div class="form-group col-md-12">
-						<label for="tglInput">Kode Unik</label>
-							<input type="text" class="form-control" name="kode_unik2" value="" readonly>
-						</div>
-						<div class="form-group col-md-3">
-							<label for="tglInput">Tanggal Input</label>
-							<input type="text" class="form-control" id="tglInput" name="tgl_input" value="" readonly>
-						</div>
-
-						<div class="form-group col-md-3">
-							<label for="nik">NIK</label>
-							<input type="text" class="form-control" id="nik" name="nik" value="" readonly>
-						</div>
-						<div class="form-group col-md-6">
-							<label for="nama">Nama</label>
-							<input type="text" class="form-control" id="nama" name="nama" value="" readonly>
+							</div>
+							</div>
+							</div>
+							<div class="row">
+							<div class="col-md-10">
+							<div class="form-group">
+								<label for="telp">No Telp / HP :</label>
+								<input type="int" id="telp" name="telp" class="form-control" value="">
+							</div>
 						</div>
 					</div>
-					<div class="row">
-						<div class="form-group col-md-6">
-							<label for="jabatan">Jabatan</label>
-							<input type="text" class="form-control" id="tglInput" name="jabatan" value="" readonly>
-						</div>
-						<div class="form-group col-md-6">
-							<label for="bagian">Bagian</label>
-							<input type="text" class="form-control" id="bagian" name="bagian" value="" readonly>
-						</div>
-						<div class="form-group col-md-6">
-							<label for="keterangan">Jenis Cuti</label>
-							<input type="text" class="form-control" id="keterangan" name="jenis_cuti" value="Cuti Lain" readonly>
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="alamat">Alamat</label>
-						<input type="text" class="form-control" id="alamat" name="alamat" value="" required>
-					</div>
-					<div class="row">
-						<div class="form-group col-md-8">
-							<label for="jenisCuti">Keterangan</label>
-							<input type="text" class="form-control" id="jenisCuti" name="keterangan" placeholder="Cth: Cuti Menikah, Cuti Melahirkan, Cuti Hamil" required>
-						</div>
-						<div class="form-group col-md-4">
-							<label for="jenisCuti">No Telp / Handphone</label>
-							<input type="text" class="form-control" id="tlp" name="telp" required>
-						</div>
-					</div>
-					<div class="row">
-						<div class="form-group col-md-4">
-							<label for="cuti1">Tanggal Cuti</label>
-							<input type="date" class="form-control" id="cuti1" name="cuti" required>
-						</div>
-						<div class="form-group col-md-4">
-							<label for="cuti2">Tanggal Cuti 2</label>
-							<input type="date" class="form-control" id="cuti1" name="cuti2" required>
-						</div>
-						<div class="form-group col-md-4">
-							<label for="tglMasuk">Tanggal Masuk</label>
-							<input type="date" class="form-control" id="tglMasuk" name="masuk" required>
-						</div>
-					</div>
-					<button type="submit" name="simpan" class="btn btn-primary"><i class="bi bi-save-fill"></i> Simpan Data</button>
+					
+					<button type="submit" class="btn btn-danger"><i class="bi bi-save-fill"></i> Simpan Data</button>
 					<button type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="far fa-calendar-alt"></i>
 						Kalender
 					</button>
@@ -401,22 +469,6 @@
 	</div>
 </div>
 
-<!-- Modal Notifikasi -->
-<div class="modal" id="errorModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Peringatan</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Anda telah menggunakan semua cuti Anda.</p>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 <!-- Modal Kalender -->
@@ -430,6 +482,7 @@
 				</button>
 			</div>
 			<br>
+			
 			<center>
 				<iframe src="https://calendar.google.com/calendar/embed?height=400&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FBangkok&amp;showTitle=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;hl=id&amp;src=ZW4uaW5kb25lc2lhbiNob2xpZGF5QGdyb3VwLnYuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%237986CB" style="border-width:0" width="700" height="400" frameborder="0" scrolling="no"></iframe>
 			</center>
