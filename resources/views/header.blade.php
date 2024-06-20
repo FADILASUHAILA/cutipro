@@ -17,6 +17,12 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Calibri:wght@400;700&display=swap">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Mencari semua elemen dengan garis bawah dan menghapusnya
+        $("*").css("text-decoration", "none");
+    });
+</script>
 
 	<style> 
 

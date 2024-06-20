@@ -1,246 +1,102 @@
 <!-- @extends('layouts.app') -->
 @section('content')
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+        .bg-image {
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            filter: blur(10px);
+            -webkit-filter: blur(8px);
+            position: fixed;
+            width: 100%;
+            z-index: -1;
+        }
 
-* {
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
-}
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
 
-:root {
-    --linear-grad: linear-gradient(to right, #141E30, #243B55);
-    --grad-clr1: #141E30;
-    --grad-clr2: #243B55;
-}
+        .form-container {
+            display: block;
+        }
 
-body {
-    height: 100vh;
-    background:fixed;
-    display: grid;
-    place-content: center;
-    font-family: 'Poppins', sans-serif;
-}
+        .form-container h1 {
+            margin-bottom: 20px;
+        }
 
-footer {
-    position: absolute;
-    left: 50%;
-    bottom: 30px;
-    transform: translateX(-50%);
-}
-footer mark {
-    padding: 8px 30px;
-    border-radius: 7px;
-}
-footer a {
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    color: #003;
-}
-.container{
-    position: relative;
-    width: 850px;
-    height: 500px;
-    background-color: #FFF;
-    box-shadow: 25px 30px 55px #5557;
-    border-radius: 13px;
-    overflow: hidden;
-}
+        .social-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
 
-.form-container{
-    position: absolute;
-    width: 60%;
-    height: 100%;
-    padding: 0px 40px;
-    transition: all 0.6s ease-in-out;
-}
+        .social-container a {
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            padding: 10px;
+            margin: 0 5px;
+            color: #333;
+            text-decoration: none;
+        }
 
-.sign-up-container{
-    opacity:0;
-    z-index: 1;
-}
+        .infield {
+            position: relative;
+            margin-bottom: 20px;
+        }
 
-.sign-in-container{
-    z-index: 2;
-}
+        .infield input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
 
-form{
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0px 50px;
-}
+        .form-check {
+            margin-bottom: 20px;
+        }
 
-h1{
-    color: var(--grad-clr1);
-}
-.social-container{
-    margin: 20px 0px;
-}
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
-.social-container a{
-    border: 1px solid #DDD;
-    border-radius: 50%;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0px 5px;
-    height: 40px;
-    width: 40px;
-}
-
-span{
-    font-size: 12px;
-}
-
-.infield{
-    position: relative;
-    margin: 8px 0px;
-    width: 100%;
-}
-
-input{
-    width: 100%;
-    padding: 12px 15px;
-    background-color: #f3f3f3;
-    border: none;
-    outline: none;
-}
-
-label{
-    position: absolute;
-    left: 50%;
-    top: 100%;
-    transform: translateX(-50%);
-    width: 0%;
-    height: 2px;
-    background: var(--linear-grad);
-    transition: 0.3s;
-}
-input:focus ~ label{
-    width: 100%;
-}
-
-a{
-    color: #333;
-    font-size: 14px;
-    text-decoration: none;
-    margin: 15px 0px;
-
-
-}
-
-a.forgot{
-    padding-bottom: 3px;
-    border-bottom: 2px solid #EEE;
-}
-button{
-    border-radius: 20px;
-    border: 1px solid var(--grad-clr1);
-    background: var(--grad-clr2);
-    color: #FFF;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 12px 45px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-.form-container button{
-    margin-top: 17px;
-    transition: 80ms ease-in;
-}
-
-.form-container button:hover{
-    background: #FFF;
-    color: var(--grad-clr1);
-    
-}
-
-.overlay-container{
-    position: absolute;
-    top: 0;
-    left: 60%;
-    width: 40%;
-    height: 100%;
-    overflow: hidden;
-    transition: transform 0.6s ease-in-out;
-    z-index: 9;
-}
-#overlayBtn{
-    cursor: pointer;
-    position: absolute;
-    left: 50%;
-    top: 304px;
-    transform: translateX(-50%);
-    width: 143.67px;
-    height: 40px;
-    border: 1px solid #FFF;
-    background: transparent;
-    border-radius: 20px;
-}
-.overlay{
-    position: relative;
-    background: var(--linear-grad);
-    color: #FFF;
-    left: -150%;
-    height: 100%;
-    width: 250%;
-    transition: transform 0.6s ease-in-out;
-
-}
-
-.overlay-panel{
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 0px 40px;
-    text-align: center;
-    height: 100%;
-    width: 340px;
-    transition:  0.6s ease-in-out;
-}
-
-.overlay-left{
-    right: 60%;
-    transform: translateX(-12%);
-}
-.overlay-right{
-    right: 0%;
-    transform: translateX(0%);
-}
-
-.overlay-panel h1{
-    color: #FFF;
-
-}
-p{
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 20px;
-    letter-spacing: 0.5px;
-    margin: 25px 0px 35px;
-}
-
-.overlay-panel button{
-    border: none;
-    background-color: transparent;
-}
-
- 
+        button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
+<div class="bg-image"></div>
+    <img src="{{asset('asset/dila.png')}}" style="width: 100%; height: auto;">
+
     <div class="container" id="container">
         <div class="form-container sign-up-container">
         </div>
@@ -258,7 +114,7 @@ p{
                     <input type="text" placeholder="No Pegawai" name="no_peg" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus/>
                     @error('email')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                    <strong>{{ $message }}</strong>
                                     </span>
                     @enderror
                     <label></label>
@@ -267,12 +123,11 @@ p{
                     <input type="password" placeholder="Password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password"/>
                     @error('password')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                    <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                     <label></label>
                 </div>
-        
                 <div class="form-check">
                 <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
@@ -283,26 +138,15 @@ p{
         
                 <button type="submit">Sign In</button>
                 @if (Route::has('password.request'))
-                             
-                             <a class="btn btn-link" href="{{ route('password.request') }}">
-                                 {{ __('Forgot Your Password?') }}
-                             </a>
-                         @endif
+                            
+                            <a class="btn btn-link" href="{{ route('password.request') }}">
+                                {{ __('Forgot Your Password?') }}
+                            </a>
+                        @endif
 
             </form>
         </div>
-        <div class="overlay-container" id="overlayCon">
-            <div class="overlay">
-                <div class="overlay-panel overlay-left">
-                    <button>Sign In</button>
-                </div>
-                <div class="overlay-panel overlay-right">
-                    <h1>Hello, Friend!</h1>
-                    <p>Formulir manual? Buang jauh-jauh! Bersama kami, cuti jadi gak ada drama!</p>
-                </div>
-            </div>
-         
-        </div>
+        
     </div>
     <!-- js code -->
     <script>

@@ -92,12 +92,7 @@
             </div>
 
             <div class="card-body profile-body">
-                <h2>About Me</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac justo sit amet ligula viverra porta ut non felis.</p>
-
-                <h2>Contact Information</h2>
-                <p>Address: 123 Street, City, Country</p>
-                <p>Phone: +123 456 789</p>
+                >
             </div>
 
             <div class="menu-item">Dashboard</div>

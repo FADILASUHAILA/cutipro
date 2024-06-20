@@ -108,7 +108,7 @@
         <!-- Informasi Pengajuan Cuti -->
         <ul class="alignMe">
         <li><b>Nama</b></li>
-        <li><span>{{ Auth::user()->name }} </span></li>
+        <li><span>{{ Auth::user()->name }} </span></li>      
 
             <li><b>Nomor Pekerja</b> {{ Auth::user()->no_peg }}</li>
             <li><b>Jabatan</b> {{ Auth::user()->position->position_name }}</li>

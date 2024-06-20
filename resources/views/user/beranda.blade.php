@@ -10,14 +10,14 @@
                 <div class="container-fluid">
 		<h5 class="card-header">
 			<strong></strong>
-			<a class="btn btn-secondary btn-sm float-right" href="" data-toggle="modal" data-target="#ubah-pass"><i class="fas fa-key"></i> Ubah Password</a>
+			<a class="btn btn-secondary btn-sm float-right" href="" data-toggle="modal" data-target="#ubah-pass"><i class="fas fa-key"></i>Ubah Password</a>
 			<a class="btn btn-secondary btn-sm float-right mr-2" href="" data-toggle="modal" data-target="#ubah-prof"><i class="fas fa-user-edit"></i> Ubah Profile</a>
 		</h5>
                     <div class="mb-3">
-                        <h4>Dashboard</h4>
+                        <h4>Dashboard CutiPro</h4>
                     </div>
                     <div class="row">
-                        <div class="col-12 col-md-6 d-flex">
+                        <div class="col-12 col-md-6 d-flex">  
                             <div class="card flex-fill border-0 illustration">
                                 <div class="card-body p-0 d-flex flex-fill">
                                     <div class="row g-0 w-100">
@@ -41,10 +41,12 @@
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
                                             <h4 class="mb-2">
-                                            
+                                            {{$totalCuti}}
                                             </h4>
                                             <p class="mb-2">
                                                 Total Cuti
+                                                
+                                                
                                             </p>
                                         </div>
                                     </div>
@@ -56,7 +58,7 @@
                     <div class="card border-0">
                         <div class="card-header">
                             <h5 class="card-title">
-                                DATA APASIH
+                            Belum tau mau isi apa 
                             </h5>
                             <h6 class="card-subtitle text-muted">
                             </h6>
@@ -66,7 +68,7 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">First</th>
+                                        <th scope="col">Dila</th>
                                         <th scope="col">Last</th>
                                         <th scope="col">Handle</th>
                                     </tr>
@@ -74,9 +76,9 @@
                                 <tbody>
                                     <tr>
                                         <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
+                                        <td>siti</td>
+                                        <td>putri</td>
+                                        <td>barbie</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">2</th>

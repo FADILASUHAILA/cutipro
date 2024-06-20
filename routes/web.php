@@ -10,10 +10,12 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CutiController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\LeaveController;
-use App\Models\Karyawan;
-use App\Model\ProfileController;
+use App\Model\ProfileController; 
 
 
+Route::get('/tes', function () {
+    return view('user.tes');
+});
 //  jika user belum login
 Route::group(['middleware' => 'guest'], function() {
     Route::get('/', [AuthController::class, 'login'])->name('login');
@@ -52,13 +54,12 @@ Route::group(['middleware' => ['auth', 'checkrole:3']], function() {
     Route::get('/historyrecord', [DataController::class, 'index1'])->name('/historyrecord');
     Route::post('/cuti/search', [DataController::class, 'index2'])->name('cuti.search');
 
-    Route::get('/user', [LeaveController::class, 'index']);
-
-
-
+    
     Route::get('/generate-pdf', [KaryawanController::class, 'cetak_pdf'])->name('user.karyawan_pdf');
 
-Route::get('/data-cuti', [DataController::class, 'index'])->name('user.recorduser');
+    
     Route::get('/data-cuti/{id}', [DataController::class, 'cetak_pdf'])->name('user.recorduser.id');
+
+    Route::get('/karyawan', [AdminController::class, 'getKaryawanByDepartmentId'])->name('admin.karyawan');
 });
 

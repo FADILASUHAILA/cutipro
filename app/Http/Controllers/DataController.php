@@ -12,7 +12,7 @@ class DataController extends Controller
     public function index()
     {
         $listcutis = Cuti::with(['department', 'position', 'role'])->get();
-        return view('user.recorduser')->with('listcutis', $listcutis);
+        return view('admin.datacuti')->with('listcutis', $listcutis);
     }
 
     public function index1()

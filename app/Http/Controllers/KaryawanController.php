@@ -7,6 +7,8 @@ use App\Models\User;
 use App\Models\listcutis;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Auth;
+
 
 class KaryawanController extends Controller
 {
@@ -21,6 +23,19 @@ class KaryawanController extends Controller
         $users = Karyawan::with(['department', 'position', 'role'])->get();
         return view('admin.datakaryawan')->with('users', $users);
     } 
+
+    public function getKaryawanByDepartmentId()
+    {
+        $userId = Auth::id();
+        $departmentId = Auth::user()->department_id;
+
+        $listKaryawan = Karyawan::where('id_user', $userId)
+            ->where('department_id', $departmentId)
+            ->with(['department', 'position', 'role'])
+            ->get();
+
+        return view('admin.datakaryawan')->with('users', $listKaryawan);
+    }
 
 
 

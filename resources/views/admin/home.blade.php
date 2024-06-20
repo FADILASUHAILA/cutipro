@@ -36,10 +36,12 @@
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
                                             <h4 class="mb-2">
+                                            {{$totalCuti}}
                                         
                                             </h4>
                                             <p class="mb-2">
                                             Total Cuti
+                                            
                                             </p>
                                             
                                         </div>

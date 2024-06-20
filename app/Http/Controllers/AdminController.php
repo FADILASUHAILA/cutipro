@@ -8,7 +8,9 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     public function index() {
-        return view('admin.index');
+        $totalCuti = Cuti::count();
+        return view('admin.index', ['totalCuti' => $totalCuti]);
+    
     }
 
     public function index1()
@@ -17,5 +19,13 @@ class AdminController extends Controller
         return view('admin.datacuti')->with('listcutis', $listcutis);
     }
     
+    public function index2()
+    {
+        $listcutis = Cuti::with(['department','position','role'])->get();
+        $totalCuti = Cuti::sum('jml_cuti');
+        return view('admin.home', compact('listcutis', 'totalCuti'));
+    }
+    
+
 
 }
