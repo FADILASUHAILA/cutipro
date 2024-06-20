@@ -34,14 +34,17 @@ Route::group(['middleware' => ['auth', 'checkrole:1,2,3']], function() {
 // untuk superadmin
 Route::group(['middleware' => ['auth', 'checkrole:1']], function() {
     Route::get('/superadmin', [SuperadminController::class, 'index']);
-    Route::get('/karyawan', [KaryawanController::class, 'index1'])->name('/karyawan');
+    Route::get('/karyawan', [KaryawanController::class, 'index1'])->name('karyawan');
     Route::post('/tambah-karyawan', [KaryawanController::class, 'store'])->name('karyawan.store');  
     Route::post('/karyawan', [KaryawanController::class, 'search'])->name('karyawan.search');  
-    Route::post('/tambah-departement', [DepartmentController::class, 'store'])->name('departement.store');  
+    Route::post('/tambah-departement', [DepartmentController::class, 'store'])->name('departement.store'); 
+    Route::put('/karyawan/{id}', [KaryawanController::class, 'update'])->name('karyawan.update'); 
+    Route::delete('/karyawan/{id}', [KaryawanController::class, 'destroy'])->name('karyawan.destroy');
     Route::get('/departement', [DepartmentController::class, 'index'])->name('superadmin.departement');
     Route::get('/dataadmin', [SuperadminController::class, 'dataadmin']);
     Route::delete('/departement/{id}', [DepartmentController::class, 'destroy'])->name('departement.destroy');
     Route::put('/departement/{id}', [DepartmentController::class, 'update'])->name('departement.update');
+   
     
 });
 
@@ -50,7 +53,7 @@ Route::group(['middleware' => ['auth', 'checkrole:2']], function() {
     Route::get('/admin', [AdminController::class, 'index']);
     Route::get('/datacuti', [DataController::class, 'index'])->name('datacuti');
     Route::get('/datacuti/search', [DataController::class, 'index3'])->name('datacuti.search');
-    Route::get('/datakaryawan', [AdminController::class, 'index3'])->name('/datakaryawan');
+    Route::get('/datakaryawan', [AdminController::class, 'index3'])->name('datakaryawan.admin');
     Route::get('/datakaryawan/search', [AdminController::class,'search1'])->name('datakaryawan.search');  
     Route::get('/events', [CutiController::class, 'getEvents']);
    

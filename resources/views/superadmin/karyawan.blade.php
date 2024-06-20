@@ -83,7 +83,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body lg-4">
-                                            <form action="" method="post">
+                                            <form action="{{route('karyawan.update',$user->id) }}" method="post">
                                                 @csrf
                                                 @method('PUT')
                                                 <div class="mb-3">
@@ -139,6 +139,33 @@
                                     </div>
                                 </div>
                             </div>
+
+
+@foreach($users as $user)
+<div class="modal fade" id="ModalDeleteKaryawan{{ $user->id }}" tabindex="-1" aria-labelledby="ModalDeleteKaryawan{{ $user->id }}Label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="ModalDeleteKaryawan{{ $user->id }}Label">Hapus Departement</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Apakah anda yakin ingin menghapus data karyawan ini?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <form id="deleteForm" action="{{ route('karyawan.destroy', $user->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-primary">Iya</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@endforeach
+
+
 
                         @endforeach
                     </tbody>

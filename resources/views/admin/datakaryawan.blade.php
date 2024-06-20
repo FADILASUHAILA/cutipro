@@ -121,10 +121,10 @@
 
 <!-- Modal tambah data-->
 <div class="modal fade" id="ModalDataKaryawanAdmin" tabindex="-1" aria-labelledby="ModalDataKaryawanAdminLabel" aria-hidden="true">
-<div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="ModalDataKaryawanLabel"> <i class="bi bi-person-plus-fill me-2"></i> <!-- Ikon Bootstrap -->Tambahkan Data Karyawan</h5>
+  <div class="modal-dialog">
+    <div class="modal-content ">
+      <div class="modal-header btn-secondary">
+        <h5 class="modal-title" id="ModalDataKaryawanAdminLabel"> <i class="bi bi-person-plus-fill me-2"></i> <!-- Ikon Bootstrap -->Tambahkan Data Karyawan</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -149,26 +149,26 @@
           <div class="mb-3">
             <label for="level" class="form-label fw-bold">Level</label>
             <select name="role_id" class="form-select" id="level">
-              <option value="Admin">Admin</option>
-              <option value="Superadmin">Superadmin</option>
-              <option value="Karyawan">Karyawan</option>
+            @foreach ($roles as $role)
+            <option value="{{ $role->id }}">{{ $role->role_name }}</option>
+            @endforeach
             </select>
           </div>
           <div class="mb-3">
             <label for="position" class="form-label fw-bold">Posisi</label>
-            <select name="role_id" class="form-select" id="position">
-              <option value="Operator">Operator</option>
-              <option value="Manager">Manager</option>
-              <option value="Karyawan">Karyawan</option>
+            <select name="position_id" class="form-select" id="position">
+            @foreach ($positions as $position)
+            <option value="{{ $position->id }}">{{ $position->position_name }}</option>
+            @endforeach
             </select>
           </div>
           <div class="mb-3">
-            <label for="department" class="form-label fw-bold">Departemen</label>
-            <select name="role_id" class="form-select" id="department">
-              <option value="Operator">Operator</option>
-              <option value="Manager">Manager</option>
-              <option value="Karyawan">Karyawan</option>
-            </select>
+            <label for="department" class="form-label fw-bold">Departement</label>
+            <select name="department_id" class="form-select" id="department">
+            @foreach ($departments as $department)
+            <option value="{{ $department->id }}">{{ $department->department_name }}</option>
+            @endforeach
+    </select>
           </div>
           <div class="mb-3">
             <label for="jml_cuti" class="form-label fw-bold">Jumlah Cuti</label>
@@ -183,4 +183,5 @@
     </div>
   </div>
 </div>
+
 </html>

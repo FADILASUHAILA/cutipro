@@ -25,7 +25,11 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 <style>
-    
+    .custom-confirm-button {
+        background-color: gray !important; /* Warna hijau sebagai contoh */
+        border-color: gray !important;
+        color: white !important;
+    }
 </style>
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -43,9 +47,27 @@
                 title: 'Success!',
                 text: "{{ session('success') }}",
                 icon: 'success',
-                confirmButtonText: 'OK'
+                confirmButtonText: 'OK',
+        customClass: {
+            confirmButton: 'custom-confirm-button'
+        }
             });
         </script>
     @endif
+
+
+    @if(session('error'))
+    <script>
+        Swal.fire({
+            title: 'Gagal!',
+            text: "{{ session('error') }}",
+            icon: 'error', // Mengubah ikon menjadi error
+            confirmButtonText: 'OK',
+            customClass: {
+                confirmButton: 'custom-confirm-button'
+            }
+        });
+    </script>
+@endif
 </body>
 </html>

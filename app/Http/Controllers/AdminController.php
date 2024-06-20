@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Cuti;
 use App\Models\Karyawan;
+use App\Models\Position;
+use App\Models\Departement;
+use App\Models\Role;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -21,12 +24,22 @@ class AdminController extends Controller
     public function index3()
     {
         $users = Karyawan::with(['department', 'position', 'role'])->get();
+            // Mengambil semua data departemen
+    $departments = Departement::all();
+    $positions = Position::all(); 
+    $roles = Role::all(); 
+
+    // Mengirim data users dan departments ke view
+
         $totalKaryawan = $users->count();
 
 // Mengirimkan data karyawan dan total karyawan ke tampilan
     return view('admin.datakaryawan', [
         'users' => $users,
-        'totalKaryawan' => $totalKaryawan
+        'totalKaryawan' => $totalKaryawan,
+        'departments' => $departments,
+        'positions' => $positions,
+        'roles' => $roles
     ]);
     }
     

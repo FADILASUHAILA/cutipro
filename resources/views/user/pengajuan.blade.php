@@ -469,22 +469,6 @@
 	</div>
 </div>
 
-<!-- Modal Notifikasi -->
-<div class="modal" id="errorModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Peringatan</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Anda telah menggunakan semua cuti Anda.</p>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 <!-- Modal Kalender -->
