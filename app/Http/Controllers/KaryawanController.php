@@ -109,6 +109,7 @@ public function destroy($id)
         return view('admin.datakaryawan')->with('users', $users);
     } 
 
+
     public function index4()
     {
         $users = Karyawan::with(['department', 'position', 'role'])->get();
@@ -130,4 +131,5 @@ public function destroy($id)
         $pdf = Pdf::loadview('user.karyawan_pdf', ['list_cuti' => $list_cuti])->setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
         return $pdf->download('laporan-karyawan.pdf');
     }
+
 }

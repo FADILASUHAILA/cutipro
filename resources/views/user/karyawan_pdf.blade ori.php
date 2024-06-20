@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Surat Keterangan Cuti</title>
     <style>
-        /* CSS untuk mengatur tata letak surat */ 
+        /* CSS untuk mengatur tata letak surat */
         .container {
             width: 800px;
             margin: 0 auto;
@@ -47,6 +47,7 @@
         .signature p {
             text-align: center;
         }
+
         pre {
             font-family: "Arial", sans-serif;
             /* Contoh penggunaan font Courier New, bisa diganti dengan font lain sesuai kebutuhan */
@@ -79,45 +80,46 @@
             text-align: left; /* Mengatur teks ke kiri */
         }
         
-        .alignMe b {
-            display: inline-block;
-            width: 50%;
-            position: absolute;
-            right: 10px;
-        }
-
-        .alignMe b {
-            content: ":";
-            position: absolute;
-            right: 10px;
-        }
-
     </style>
 </head>
 <body>
     <div class="container">
         <!-- Header dengan logo perusahaan -->
         <div class="header">
-      <img src= "{{asset('surat.jpg')}}" style="width: 200px; height: auto;">
+            <img src="{{asset('asset/pertamina.jpg')}}" style="width: 200px; height: auto;">
         </div>
         <!-- Judul Surat -->
         <div class="title">
-            <h3>SURAT KETERANGAN</h3>
-            <h3>CUTI/DATANG TERLAMBAT/PULANG CEPAT/TIDAK HADIR*</h3>
+            <h2>Surat Keterangan Cuti</h2>
         </div>
         <!-- Informasi Pengajuan Cuti -->
-        <ul class="alignMe">
-        <li><b>Nama</b></li>
-        <li><span>{{ Auth::user()->name }} </span></li>
-
-            <li><b>Nomor Pekerja</b> {{ Auth::user()->no_peg }}</li>
-            <li><b>Jabatan</b> {{ Auth::user()->position->position_name }}</li>
-            <li><b>Eselon</b></li>
-            <li><b>Tanggal yang diminta</b> {{ $list_cuti->cuti }}</li>
-            <li><b>Tanggal yang diminta</b> {{ $list_cuti->masuk }}</li>
-        </ul>
+        <div class="data">
+            <span class="label">Nama :</span>
+            <span class="value">{{ Auth::user()->name }}</span>
+        </div>
+        <div class="data">
+            <span class="label">Nomor Pekerja :</span>
+            <span class="value">{{ Auth::user()->no_peg }}</span>
+        </div>
+        <div class="data">
+            <span class="label">Jabatan</span>
+            <span class="value">: {{ Auth::user()->position->position_name }}</span>
+        </div>
+        <div class="data">
+            <span class="label">Eselon</span>
+            <span class="value">:</span>
+        </div>
+        <div class="data">
+            <span class="label">Tanggal yang diminta</span>
+            <span class="value">: {{ $list_cuti->cuti}}</span>
+        </div>
+        <div class="data">
+            <span class="label">Tanggal yang Masuk Kerja</span>
+            <span class="value">: {{ $list_cuti->masuk}}</span>
+        </div>
+       <div class="data">
     <span class="label">Keterangan</span>
-    <span class="value">: {{$list_cuti->keterangan}}</span> 
+    <span class="value">: {{ $list_cuti->keterangan}}</span> 
     <div class="pre-wrapper">
         <div class="pre-content">
             <pre>

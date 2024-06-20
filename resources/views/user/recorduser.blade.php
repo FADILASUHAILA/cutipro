@@ -61,7 +61,7 @@
         <td>{{ $data->cuti }}</td>
         <td>{{ $data->masuk }}</td>
         <td>
-        <a href="{{route('user.karyawan_pdf')}}" class="btn btn-primary" target="_blank">CETAK PDF</a>
+        <a href="{{route('user.recorduser.id', $data->id)}}" class="btn btn-primary" target="_blank">CETAK PDF</a>
         </td>
     </tr>
 @endforeach

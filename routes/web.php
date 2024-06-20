@@ -7,10 +7,12 @@ use App\Http\Controllers\SuperadminController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LeaveController;
 use App\Http\Controllers\CutiController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\DepartmentController;
 use App\Models\Karyawan;
+use App\Model\ProfileController;
 
 //cetak pdf
 Route::get('/generate-pdf', [KaryawanController::class, 'cetak_pdf'])->name('user.karyawan_pdf');
@@ -18,6 +20,10 @@ Route::get('/generate-pdf', [KaryawanController::class, 'cetak_pdf'])->name('use
 //pengajuan cuti user
 
 //bagian Superadmin
+
+
+
+
 
 //  jika user belum login
 Route::group(['middleware' => 'guest'], function() {
@@ -30,6 +36,7 @@ Route::group(['middleware' => ['auth', 'checkrole:1,2,3']], function() {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/redirect', [RedirectController::class, 'cek']);
 });
+
 
 // untuk superadmin
 Route::group(['middleware' => ['auth', 'checkrole:1']], function() {
@@ -58,7 +65,12 @@ Route::group(['middleware' => ['auth', 'checkrole:2']], function() {
     Route::get('/events', [CutiController::class, 'getEvents']);
    
 });
+
 // untuk pegawai
+
+
+// untuk pegawai (user)
+
 Route::group(['middleware' => ['auth', 'checkrole:3']], function() {
     Route::get('/user  ', [UserController::class, 'index']);
     Route::get('/datakaryawan/{id}', [KaryawanController::class, 'edit'])->name('user.edit');
@@ -67,6 +79,15 @@ Route::group(['middleware' => ['auth', 'checkrole:3']], function() {
     Route::post('/tambah-pengajuan', [CutiController::class, 'store'])->name('cuti.store');
     Route::get('/historyrecord', [DataController::class, 'index1'])->name('/historyrecord');
     Route::post('/cuti/search', [DataController::class, 'index2'])->name('cuti.search');
+
+    Route::get('/user', [LeaveController::class, 'index']);
+
+
+
+    Route::get('/generate-pdf', [KaryawanController::class, 'cetak_pdf'])->name('user.karyawan_pdf');
+
+Route::get('/data-cuti', [DataController::class, 'index'])->name('user.recorduser');
+    Route::get('/data-cuti/{id}', [DataController::class, 'cetak_pdf'])->name('user.recorduser.id');
 });
 
 
@@ -74,7 +95,6 @@ route:: get('/surat', function (){
     return view ('surat');
 
 }); 
-
 
 
 
