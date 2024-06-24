@@ -15,18 +15,6 @@ use App\Http\Controllers\DepartmentController;
 use App\Models\Karyawan;
 
 
-
-//cetak pdf
-Route::get('/generate-pdf', [KaryawanController::class, 'cetak_pdf'])->name('user.karyawan_pdf');
-
-//pengajuan cuti user
-
-//bagian Superadmin
-
-
-
-
-
 Route::get('/tes', function () {
     return view('user.tes');
 });
@@ -64,15 +52,13 @@ Route::group(['middleware' => ['auth', 'checkrole:1']], function() {
 Route::group(['middleware' => ['auth', 'checkrole:2']], function() {
     Route::get('/admin', [AdminController::class, 'index']);
     Route::get('/datacuti', [DataController::class, 'index'])->name('datacuti');
+    Route::get('/datakaryawan', [AdminController::class, 'showKaryawanByDepartment'])->name('/datakaryawan');
     Route::get('/datacuti/search', [DataController::class, 'index3'])->name('datacuti.search');
-    Route::get('/datakaryawan', [AdminController::class, 'index3'])->name('datakaryawan.admin');
+    // Route::get('/datakaryawan', [AdminController::class, 'index3'])->name('datakaryawan.admin');
     Route::get('/datakaryawan/search', [AdminController::class,'search1'])->name('datakaryawan.search');  
     Route::get('/events', [CutiController::class, 'getEvents']);
    
 });
-
-// untuk pegawai
-
 
 // untuk pegawai (user)
 
@@ -85,13 +71,10 @@ Route::group(['middleware' => ['auth', 'checkrole:3']], function() {
     Route::get('/historyrecord', [DataController::class, 'index1'])->name('/historyrecord');
     Route::post('/cuti/search', [DataController::class, 'index2'])->name('cuti.search');
 
-    
     Route::get('/generate-pdf', [KaryawanController::class, 'cetak_pdf'])->name('user.karyawan_pdf');
-
-    
     Route::get('/data-cuti/{id}', [DataController::class, 'cetak_pdf'])->name('user.recorduser.id');
 
-    Route::get('/karyawan', [AdminController::class, 'getKaryawanByDepartmentId'])->name('admin.karyawan');
+    Route::get('/karyawannnn', [AdminController::class, 'getKaryawanByDepartmentId'])->name('admin.karyawan');
 });
 
 

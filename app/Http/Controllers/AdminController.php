@@ -7,6 +7,7 @@ use App\Models\Karyawan;
 use App\Models\Position;
 use App\Models\Departement;
 use App\Models\Role;
+use Illuminate\Support\Facades\Auth; 
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -15,17 +16,36 @@ class AdminController extends Controller
 
         $totalCuti = Cuti::count();
         return view('admin.index', ['totalCuti' => $totalCuti]);
-    
-
-
-// Ambil jumlah data cuti dari database
-    $totalCuti = Cuti::count();
-// Kirim total cuti ke view
-        return view('admin.index',['totalCuti' => $totalCuti]);
-
     }
 
+    public function showKaryawanByDepartment()
+    {
+        $user = Auth::user();
 
+        $department = $user->department_id;
+        $position = null;
+
+        if ($user->role_id == '2') {
+            $position = 3;
+        }
+
+        $query = Karyawan::where('department_id', $department);
+        if ($position !== null) {
+            $query->where('position_id', $position);
+        }
+        $karyawans = $query->get();
+
+        $totalKaryawan = count($karyawans);
+        $totalCuti = Cuti::count();
+        $persentaseCuti = ($totalKaryawan > 0) ? ($totalCuti / $totalKaryawan) : 0;
+
+        return view('admin.datakaryawan')
+            ->with('karyawans', $karyawans)
+            ->with('totalKaryawan', $totalKaryawan)
+            ->with('totalCuti', $totalCuti)
+            ->with('persentaseCuti', $persentaseCuti);
+    }
+    
 // menampilkan data karyawan
     public function index3()
     {
@@ -65,9 +85,6 @@ class AdminController extends Controller
     ]);
     }
 
-
-
-
     //menampilkan data cuti di level admin
     public function index1()
     {
@@ -75,7 +92,6 @@ class AdminController extends Controller
         return view('admin.datacuti')->with('listcutis', $listcutis);
     }
 
-    
     public function index2()
     {
         $listcutis = Cuti::with(['department','position','role'])->get();

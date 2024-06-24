@@ -36,23 +36,10 @@
                                 <div class="card-body py-4">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
-
-                                        <h4 class="mb-2">{{ $totalCuti }}</h4>
-                                            <p class="mb-2">
+                                        <p class="mb-2">
                                                 Total Pengajuan 
-
-                                            <h4 class="mb-2">
-                                            {{$totalCuti}}
-                                        
-                                            </h4>
-                                            <p class="mb-2">
-
-                                  \
-
-
-                                            Total Cuti
-
                                             </p>
+                                        <h4 class="mb-2">{{ $totalCuti }}</h4>
                                             
                                         </div>
                                     </div>

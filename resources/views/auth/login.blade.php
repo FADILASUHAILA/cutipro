@@ -103,13 +103,12 @@
         <div class="form-container sign-in-container">
         <form class="login-form" method="POST" action="/">
         @csrf
-                <h1>Sign in</h1>
+                <h1>Masuk</h1>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
-                <span>Atau</span>
                 <div class="infield">
                     <input type="text" placeholder="No Pegawai" name="no_peg" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus/>
                     @error('email')
@@ -135,26 +134,14 @@
                                     </label>
                                 </div>
         
-                <button type="submit">Sign In</button>
+                <button type="submit">Masuk</button>
                 @if (Route::has('password.request'))
                             
                             <a class="btn btn-link" href="{{ route('password.request') }}">
                                 {{ __('Forgot Your Password?') }}
                             </a>
                         @endif
-
             </form>
-        </div>
-
-        <div class="overlay-container" id="overlayCon">
-            <div class="overlay">
-                
-                <div class="overlay-panel overlay-right">
-                    <h1>Hello, Friend!</h1>
-                    <p>Formulir manual? Buang jauh-jauh! Bersama kami, cuti jadi gak ada drama!</p>
-                </div>
-            </div>
-         
         </div>
     </div>
     <!-- js code -->
